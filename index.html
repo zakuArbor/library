@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Library Catalog v2.7.0</title>
+  <title>Personal Library Catalog</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    #videoFeed { object-fit: cover; border-radius: 0.75rem; width: 100%; max-height: 250px; }
+    #reader video { object-fit: cover; border-radius: 0.75rem; width: 100% !important; }
   </style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen pb-12 font-sans">
@@ -19,7 +19,6 @@
       <div class="flex items-center space-x-2">
         <i class="fa-solid fa-book-bookmark text-indigo-400 text-xl"></i>
         <h1 class="text-xl font-bold tracking-tight text-white">My Library</h1>
-        <span class="bg-indigo-900/80 text-indigo-300 border border-indigo-700 px-2 py-0.5 rounded text-[10px] font-mono font-bold ml-1">v2.7.0</span>
       </div>
       <div class="flex items-center space-x-2">
         <button onclick="exportData('csv')" class="px-3 py-1.5 text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 rounded-lg text-white shadow transition">
@@ -34,73 +33,70 @@
 
   <main class="max-w-4xl mx-auto px-4 pt-4">
 
-    <!-- Rapid Search & Entry Box -->
+    <!-- File Protocol Warning -->
+    <div id="protocolWarning" class="hidden bg-amber-900/80 border border-amber-600 text-amber-200 px-4 py-3 rounded-xl mb-4 text-sm flex items-start space-x-3">
+      <i class="fa-solid fa-triangle-exclamation text-amber-400 text-lg mt-0.5"></i>
+      <div>
+        <strong class="font-bold">Local File Detected (file://):</strong> Mobile browsers block live video streams on raw files. Use <strong>"Upload Image"</strong> below to scan photos from your camera gallery, or host via HTTPS/GitHub Pages for live scanning.
+      </div>
+    </div>
+
+    <!-- Scanner & Controls -->
     <div class="bg-slate-800 rounded-2xl p-4 shadow-lg mb-6 border border-slate-700">
-      <label class="block text-xs font-semibold text-slate-400 mb-2">FAST ISBN SEARCH (Auto-triggers on 13 digits)</label>
-      <div class="flex flex-col sm:flex-row gap-2 mb-3">
-        <div class="relative flex-1">
-          <input type="text" id="manualIsbnInput" placeholder="Enter or scan 13-digit ISBN..." 
-                 oninput="checkAutoLookup(this.value)"
-                 class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-base text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 font-mono tracking-wider">
-        </div>
-        <div class="flex gap-2">
-          <button onclick="pasteFromClipboard()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 px-4 py-3 rounded-xl text-sm font-semibold transition flex items-center justify-center space-x-1">
-            <i class="fa-solid fa-paste"></i>
-            <span>Paste</span>
-          </button>
-          <button onclick="lookupManualIsbn()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-3 rounded-xl text-sm font-semibold transition">
-            Lookup
-          </button>
-        </div>
+      <div class="flex flex-wrap gap-2 mb-3">
+        <button id="toggleCameraBtn" onclick="toggleScanner()" class="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white py-2.5 px-4 rounded-xl font-semibold flex items-center justify-center space-x-2 transition shadow">
+          <i class="fa-solid fa-camera"></i>
+          <span id="scanBtnText">Live Camera Scan</span>
+        </button>
+        <label class="bg-slate-700 hover:bg-slate-600 text-slate-200 py-2.5 px-4 rounded-xl font-semibold flex items-center justify-center space-x-2 cursor-pointer transition">
+          <i class="fa-solid fa-image"></i>
+          <span>Upload Image</span>
+          <input type="file" id="barcodeFileInput" accept="image/*" class="hidden" onchange="scanImageFile(this)">
+        </label>
+        <button onclick="openManualModal()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 py-2.5 px-4 rounded-xl font-semibold flex items-center justify-center transition px-4">
+          <i class="fa-solid fa-plus mr-1"></i> Manual
+        </button>
       </div>
 
-      <!-- Live Video Viewport for Native/Fallback Scanner -->
+      <!-- Camera Feed Container -->
       <div id="scannerContainer" class="hidden relative rounded-xl overflow-hidden bg-black border border-slate-700 mb-3 p-2">
-        <video id="videoFeed" autoplay playsinline class="w-full"></video>
-        <div id="html5Reader" class="w-full hidden"></div>
-        <p id="scannerNotice" class="text-center text-xs text-slate-400 py-1">Position barcode inside frame...</p>
+        <div id="reader" class="w-full"></div>
+        <p class="text-center text-xs text-slate-400 py-2">Hold book barcode steady 6-8 inches away in clear light.</p>
         <button onclick="stopScanner()" class="absolute top-3 right-3 bg-red-600 text-white rounded-full p-2 w-8 h-8 flex items-center justify-center text-xs shadow z-10">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
 
-      <div class="flex items-center justify-between pt-3 border-t border-slate-700/60 text-xs text-slate-400">
-        <div class="flex space-x-2">
-          <button onclick="startScanner()" class="bg-indigo-600 hover:bg-indigo-500 text-white py-1.5 px-3 rounded-lg font-medium transition flex items-center space-x-1.5">
-            <i class="fa-solid fa-camera"></i>
-            <span>Live Camera</span>
-          </button>
-          <label class="bg-slate-700/60 hover:bg-slate-600 text-slate-300 py-1.5 px-3 rounded-lg font-medium cursor-pointer transition flex items-center space-x-1.5">
-            <i class="fa-solid fa-image text-indigo-400"></i>
-            <span>Upload Photo</span>
-            <input type="file" id="barcodeFileInput" accept="image/*" class="hidden" onchange="scanImageFile(this)">
-          </label>
-        </div>
-        <button onclick="openManualModal()" class="text-indigo-400 hover:underline font-medium">
-          + Add Blank Entry
+      <!-- Manual ISBN Search -->
+      <div class="flex space-x-2">
+        <input type="text" id="manualIsbnInput" placeholder="Enter ISBN (e.g. 9782368525876 or 9791032724170)..." 
+               class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500">
+        <button onclick="lookupManualIsbn()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2 rounded-xl text-sm font-semibold transition">
+          Lookup
         </button>
       </div>
     </div>
 
-    <!-- Status Alerts -->
+    <!-- Status Feedback Banner -->
     <div id="statusMessage" class="hidden p-3 rounded-xl mb-4 text-center text-sm font-medium"></div>
 
-    <!-- Filter Bar -->
+    <!-- Tag Filter Bar -->
     <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
       <div class="flex items-center space-x-2 overflow-x-auto pb-1 w-full sm:w-auto" id="tagFilters">
         <button onclick="filterTag('ALL')" class="tag-btn px-3 py-1 text-xs font-semibold rounded-lg bg-indigo-600 text-white shadow">All</button>
         <button onclick="filterTag('Manga')" class="tag-btn px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">Manga</button>
         <button onclick="filterTag('Math')" class="tag-btn px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">Math</button>
         <button onclick="filterTag('CS / Unix')" class="tag-btn px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">CS / Unix</button>
+        <button onclick="filterTag('French')" class="tag-btn px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">French</button>
       </div>
       <div class="text-xs text-slate-400 font-medium" id="bookCount">0 books</div>
     </div>
 
-    <!-- Book Grid -->
+    <!-- Book Cards Grid -->
     <div id="bookGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
   </main>
 
-  <!-- Add/Edit Modal -->
+  <!-- Add/Edit Book Modal -->
   <div id="bookModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
     <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 w-full max-w-lg shadow-2xl overflow-y-auto max-h-[90vh]">
       <h3 id="modalTitle" class="text-lg font-bold text-white mb-4">Add / Edit Book</h3>
@@ -117,7 +113,7 @@
           </div>
           <div>
             <label class="block text-xs font-semibold text-slate-400 mb-1">ISBN</label>
-            <input type="text" id="formIsbn" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 font-mono">
+            <input type="text" id="formIsbn" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500">
           </div>
         </div>
         <div class="grid grid-cols-2 gap-3">
@@ -132,7 +128,7 @@
         </div>
         <div>
           <label class="block text-xs font-semibold text-slate-400 mb-1">Tags (comma-separated)</label>
-          <input type="text" id="formTags" placeholder="Manga, French, Ki-oon" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500">
+          <input type="text" id="formTags" placeholder="Manga, French, Kurokawa" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500">
         </div>
         <div>
           <label class="block text-xs font-semibold text-slate-400 mb-1">Cover Image URL</label>
@@ -152,12 +148,10 @@
 
   <script>
     let db;
-    let activeTag = 'ALL';
-    let mediaStream = null;
-    let scanInterval = null;
     let html5QrcodeScanner = null;
+    let activeTag = 'ALL';
 
-    // Initialize Database
+    // 1. Initialize IndexedDB
     const request = indexedDB.open('PersonalLibraryDB', 1);
     request.onupgradeneeded = (e) => {
       db = e.target.result;
@@ -170,159 +164,50 @@
       renderBooks();
     };
 
-    function checkAutoLookup(val) {
-      const cleaned = val.replace(/[^0-9X]/gi, '');
-      if (cleaned.length === 13) {
-        lookupManualIsbn();
-      }
+    if (window.location.protocol === 'file:') {
+      document.getElementById('protocolWarning').classList.remove('hidden');
     }
 
-    async function pasteFromClipboard() {
-      try {
-        const text = await navigator.clipboard.readText();
-        const cleaned = text.replace(/[^0-9X]/gi, '');
-        if (cleaned) {
-          document.getElementById('manualIsbnInput').value = cleaned;
-          lookupManualIsbn();
-        } else {
-          showStatus('No valid ISBN numbers found in clipboard.', 'warning');
-        }
-      } catch (err) {
-        showStatus('Clipboard permission denied. Paste manually into the box.', 'warning');
-      }
-    }
-
-    // Hybrid Camera Scanner: BarcodeDetector API (Chrome) with JS Fallback (Firefox)
-    async function startScanner() {
-      document.getElementById('scannerContainer').classList.remove('hidden');
-
-      // Path A: Check if native BarcodeDetector API exists
-      if ('BarcodeDetector' in window) {
-        document.getElementById('scannerNotice').textContent = "Using Native Browser BarcodeDetector Engine...";
-        document.getElementById('videoFeed').classList.remove('hidden');
-        document.getElementById('html5Reader').classList.add('hidden');
-
-        try {
-          const detector = new BarcodeDetector({ formats: ['ean_13', 'ean_8', 'code_128'] });
-          mediaStream = await navigator.mediaDevices.getUserMedia({
-            video: { facingMode: 'environment' }
-          });
-          const video = document.getElementById('videoFeed');
-          video.srcObject = mediaStream;
-
-          scanInterval = setInterval(async () => {
-            if (video.readyState === video.HAVE_ENOUGH_DATA) {
-              try {
-                const barcodes = await detector.detect(video);
-                if (barcodes.length > 0) {
-                  stopScanner();
-                  processScannedIsbn(barcodes[0].rawValue);
-                }
-              } catch (e) { console.warn(e); }
-            }
-          }, 250);
-        } catch (err) {
-          showStatus('Camera access failed or HTTPS required.', 'error');
-          stopScanner();
-        }
-      } else {
-        // Fallback for Firefox/Safari: Use ZXing JS Engine
-        document.getElementById('scannerNotice').textContent = "Firefox detected: Using JS barcode library...";
-        document.getElementById('videoFeed').classList.add('hidden');
-        document.getElementById('html5Reader').classList.remove('hidden');
-
-        html5QrcodeScanner = new Html5Qrcode("html5Reader");
-        const config = { fps: 10, qrbox: { width: 280, height: 140 } };
-        
-        html5QrcodeScanner.start(
-          { facingMode: "environment" },
-          config,
-          (decodedText) => {
-            stopScanner();
-            processScannedIsbn(decodedText);
-          },
-          () => {}
-        ).catch(() => {
-          showStatus('Camera stream unavailable on Firefox. Upload photo instead!', 'error');
-          stopScanner();
-        });
-      }
-    }
-
-    function stopScanner() {
-      if (mediaStream) {
-        mediaStream.getTracks().forEach(track => track.stop());
-        mediaStream = null;
-      }
-      if (scanInterval) {
-        clearInterval(scanInterval);
-        scanInterval = null;
-      }
-      if (html5QrcodeScanner) {
-        html5QrcodeScanner.stop().then(() => {
-          html5QrcodeScanner.clear();
-          html5QrcodeScanner = null;
-        }).catch(() => {});
-      }
-      document.getElementById('scannerContainer').classList.add('hidden');
-    }
-
-    // Metadata Search Cascade
+    // 2. Multi-Database Metadata Lookup (Google Books -> Open Library -> BnF SRU)
     async function fetchBookMetadata(isbn) {
       const cleaned = isbn.replace(/[^0-9X]/gi, '');
-      showStatus(`Searching metadata for ISBN ${cleaned}...`, 'info');
+      showStatus(`Searching databases for ISBN ${cleaned}...`, 'info');
 
-      const FrenchKoreanCatalog = {
-        '9791032724170': {
-          title: 'Frieren - Prélude',
-          author: 'Mei Hachimoku / Kanehito Yamada / Tsukasa Abe',
-          publisher: 'Ki-oon',
-          language: 'FR',
-          isbn: '9791032724170',
-          cover: 'https://www.renaud-bray.com/ImagesEtiquettes/460/4603287-m.jpg',
-          tags: 'Manga, Light Novel, Ki-oon, French',
-          notes: 'Light novel set in the world of Frieren: Beyond Journey\'s End.'
-        }
-      };
-
-      if (FrenchKoreanCatalog[cleaned]) {
-        showStatus(`Found '${FrenchKoreanCatalog[cleaned].title}' in French Catalog!`, 'success');
-        return FrenchKoreanCatalog[cleaned];
-      }
-
-      // Strategy 1: Google Books
+      // Strategy 1: Google Books Broad Query
       try {
         const gResp = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${cleaned}`);
         if (gResp.ok) {
           const gData = await gResp.json();
-          if (gData.totalItems > 0 && gData.items && gData.items[0]) {
+          if (gData.items && gData.items.length > 0) {
             const item = gData.items[0].volumeInfo;
-            showStatus('Found metadata via Google Books!', 'success');
+            showStatus('Found details via Google Books!', 'success');
             return {
               title: item.title + (item.subtitle ? `: ${item.subtitle}` : ''),
-              author: item.authors ? item.authors.join(', ') : 'Unknown',
+              author: item.authors ? item.authors.join(', ') : 'Unknown Author',
               publisher: item.publisher || '',
               language: (item.language || '').toUpperCase(),
               isbn: cleaned,
-              cover: item.imageLinks ? (item.imageLinks.thumbnail || item.imageLinks.smallThumbnail) : '',
-              tags: item.categories ? item.categories.join(', ') : '',
+              cover: item.imageLinks ? (item.imageLinks.thumbnail || item.imageLinks.smallThumbnail || '').replace('http:', 'https:') : '',
+              tags: item.categories ? item.categories.join(', ') : 'Manga',
               notes: item.description ? item.description.substring(0, 150) + '...' : ''
             };
           }
         }
-      } catch (err) { console.warn('Google Books error', err); }
+      } catch (err) {
+        console.warn('Google Books failed', err);
+      }
 
-      // Strategy 2: Open Library
+      // Strategy 2: Open Library Search API
       try {
         const olResp = await fetch(`https://openlibrary.org/search.json?q=${cleaned}`);
         if (olResp.ok) {
           const olData = await olResp.json();
           if (olData.docs && olData.docs.length > 0) {
             const doc = olData.docs[0];
-            showStatus('Found metadata via Open Library!', 'success');
+            showStatus('Found details via Open Library!', 'success');
             return {
               title: doc.title || '',
-              author: doc.author_name ? doc.author_name.join(', ') : '',
+              author: doc.author_name ? doc.author_name.join(', ') : 'Unknown Author',
               publisher: doc.publisher ? doc.publisher[0] : '',
               language: doc.language ? doc.language[0].toUpperCase() : '',
               isbn: cleaned,
@@ -332,20 +217,110 @@
             };
           }
         }
-      } catch (err) { console.warn('Open Library error', err); }
+      } catch (err) {
+        console.warn('Open Library failed', err);
+      }
 
-      showStatus(`ISBN ${cleaned} not found automatically. Enter details manually below.`, 'warning');
+      // Strategy 3: Bibliothèque nationale de France (BnF) SRU API
+      try {
+        const bnfUrl = `https://catalogue.bnf.fr/api/SRU?version=1.2&operation=searchRetrieve&recordSchema=dublincore&query=bib.isbn%20adj%20%22${cleaned}%22`;
+        const bnfResp = await fetch(bnfUrl);
+        if (bnfResp.ok) {
+          const xmlText = await bnfResp.text();
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+          
+          const getDC = (tag) => {
+            const el = xmlDoc.getElementsByTagNameNS("http://purl.org/dc/elements/1.1/", tag)[0] || 
+                       xmlDoc.getElementsByTagName(`dc:${tag}`)[0] ||
+                       xmlDoc.getElementsByTagName(tag)[0];
+            return el ? el.textContent : '';
+          };
+
+          const title = getDC('title');
+          const creator = getDC('creator');
+          const publisher = getDC('publisher');
+          const language = getDC('language');
+
+          if (title) {
+            showStatus('Found details via Bibliothèque nationale de France (BnF)!', 'success');
+            return {
+              title: title,
+              author: creator || 'Unknown Author',
+              publisher: publisher || 'Kurokawa',
+              language: (language || 'FR').toUpperCase(),
+              isbn: cleaned,
+              cover: '',
+              tags: 'Manga, French',
+              notes: 'Source: BnF French National Catalog'
+            };
+          }
+        }
+      } catch (err) {
+        console.warn('BnF SRU API failed', err);
+      }
+
+      showStatus(`ISBN ${cleaned} could not be automatically found. Please fill details manually.`, 'warning');
       return { isbn: cleaned, title: '', author: '', publisher: '', cover: '', tags: '', notes: '' };
     }
 
+    // 3. Camera Barcode Scanner
+    function toggleScanner() {
+      const container = document.getElementById('scannerContainer');
+      if (container.classList.contains('hidden')) startScanner();
+      else stopScanner();
+    }
+
+    function startScanner() {
+      document.getElementById('scannerContainer').classList.remove('hidden');
+      document.getElementById('scanBtnText').textContent = "Stop Camera";
+
+      html5QrcodeScanner = new Html5Qrcode("reader");
+      
+      const config = { 
+        fps: 15, 
+        qrbox: { width: 280, height: 140 },
+        formatsToSupport: [ 
+          Html5QrcodeSupportedFormats.EAN_13, 
+          Html5QrcodeSupportedFormats.EAN_8,
+          Html5QrcodeSupportedFormats.CODE_128 
+        ] 
+      };
+
+      html5QrcodeScanner.start(
+        { facingMode: "environment" },
+        config,
+        (decodedText) => {
+          stopScanner();
+          processScannedIsbn(decodedText);
+        },
+        () => {}
+      ).catch(err => {
+        showStatus('Camera access error. Use "Upload Image" to scan photos from gallery!', 'error');
+        stopScanner();
+      });
+    }
+
+    function stopScanner() {
+      if (html5QrcodeScanner) {
+        html5QrcodeScanner.stop().then(() => {
+          html5QrcodeScanner.clear();
+          html5QrcodeScanner = null;
+        }).catch(() => {});
+      }
+      document.getElementById('scannerContainer').classList.add('hidden');
+      document.getElementById('scanBtnText').textContent = "Live Camera Scan";
+    }
+
+    // Image File Barcode Scanner
     function scanImageFile(input) {
       if (input.files && input.files[0]) {
-        showStatus('Analyzing barcode from image...', 'info');
+        showStatus('Analyzing barcode image...', 'info');
         const file = input.files[0];
-        const scanner = new Html5Qrcode("manualIsbnInput");
+        const scanner = new Html5Qrcode("reader");
         scanner.scanFile(file, true)
           .then(decodedText => processScannedIsbn(decodedText))
-          .catch(() => showStatus('Could not read barcode from image. Ensure photo is clear.', 'error'));
+          .catch(() => showStatus('Could not read barcode from image. Ensure photo is clear and well-lit.', 'error'));
       }
     }
 
@@ -355,15 +330,13 @@
     }
 
     async function lookupManualIsbn() {
-      const input = document.getElementById('manualIsbnInput');
-      const val = input.value.trim();
-      if (!val) return;
-      const bookData = await fetchBookMetadata(val);
-      input.value = '';
+      const input = document.getElementById('manualIsbnInput').value.trim();
+      if (!input) return;
+      const bookData = await fetchBookMetadata(input);
       openManualModal(bookData);
     }
 
-    // Modal & Database CRUD
+    // 4. Modal and CRUD
     function openManualModal(data = {}) {
       document.getElementById('formId').value = data.id || '';
       document.getElementById('formTitle').value = data.title || '';
@@ -415,7 +388,7 @@
     }
 
     function deleteBook(id) {
-      if (confirm('Delete this book?')) {
+      if (confirm('Delete this book from catalog?')) {
         const tx = db.transaction('books', 'readwrite');
         tx.objectStore('books').delete(id);
         tx.oncomplete = () => renderBooks();
@@ -440,7 +413,7 @@
           grid.innerHTML = `
             <div class="col-span-2 text-center py-12 text-slate-500">
               <i class="fa-solid fa-book-open text-4xl mb-3 block"></i>
-              No books cataloged yet. Enter or paste an ISBN above to get started!
+              No books cataloged yet. Tap "Live Camera Scan" or "Upload Image" to start!
             </div>`;
           return;
         }
