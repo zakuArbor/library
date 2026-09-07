@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-900 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Personal Library Catalog</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- HTML5 QR / Barcode Scanner -->
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+  <style>
+    /* Custom scrollbar and mobile UI tweaks */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 9999px; }
+    
+    /* Ensure smooth mobile viewport behavior */
+    body {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    
+    .view-section {
+      display: none;
+    }
+    .view-section.active {
+      display: block;
+    }
+
+    #interactive video {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      border-radius: 0.75rem;
+    }
+  </style>
+</head>
+<body class="h-full flex flex-col font-sans antialiased overflow-x-hidden select-none">
+
+  <!-- App Header -->
+  <header class="sticky top-0 z-30 bg-slate-800/90 backdrop-blur border-b border-slate-700/60 px-4 py-3 flex items-center justify-between shadow-md">
+    <div class="flex items-center space-x-2">
+      <div class="p-2 bg-indigo-600 rounded-lg text-white shadow-lg shadow-indigo-500/30">
+        <i data-lucide="book-open" class="w-5 h-5"></i>
+      </div>
+      <div>
+        <h1 class="font-bold text-lg leading-none tracking-tight text-white">BiblioStack</h1>
+        <span class="text-xs text-slate-400 font-medium" id="total-count-badge">0 Books cataloged</span>
+      </div>
+    </div>
+    
+    <div class="flex items-center space-x-2">
+      <button onclick="switchTab('scan')" class="p-2 text-indigo-400 hover:bg-slate-700/50 active:bg-slate-700 rounded-lg transition" title="Quick Scan">
+        <i data-lucide="qr-code" class="w-5 h-5"></i>
+      </button>
+      <button onclick="openManualModal()" class="p-2 text-slate-300 hover:bg-slate-700/50 active:bg-slate-700 rounded-lg transition" title="Add Manually">
+        <i data-lucide="plus" class="w-5 h-5"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="flex-1 overflow-y-auto pb-24 px-4 pt-4 max-w-4xl mx-auto w-full">
+
+    <!-- CATALOG VIEW -->
+    <section id="view-catalog" class="view-section active space-y-4">
+      
+      <!-- Search & Filters -->
+      <div class="bg-slate-800/60 p-3 rounded-2xl border border-slate-700/50 space-y-3 shadow-sm">
+        <!-- Search Bar -->
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          <input type="text" id="search-input" placeholder="Search title, author, publisher, ISBN..." 
+                 class="w-full bg-slate-900 border border-slate-700 text-sm rounded-xl pl-9 pr-8 py-2.5 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition">
+          <button id="clear-search" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Filter Chips Row -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-1 text-xs no-scrollbar">
+          <!-- View Toggle Button -->
+          <div class="flex bg-slate-900 p-1 rounded-lg border border-slate-700 shrink-0">
+            <button id="btn-grid-view" onclick="setViewMode('grid')" class="p-1 rounded bg-slate-700 text-white transition">
+              <i data-lucide="layout-grid" class="w-4 h-4"></i>
+            </button>
+            <button id="btn-list-view" onclick="setViewMode('list')" class="p-1 rounded text-slate-400 hover:text-white transition">
+              <i data-lucide="list" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Tag / Genre Selector -->
+          <select id="filter-tag" onchange="renderCatalog()" class="bg-slate-900 border border-slate-700 text-slate-300 rounded-lg px-2.5 py-1.5 focus:outline-none shrink-0">
+            <option value="">All Tags / Genres</option>
+          </select>
+
+          <!-- Language Filter -->
+          <select id="filter-lang" onchange="renderCatalog()" class="bg-slate-900 border border-slate-700 text-slate-300 rounded-lg px-2.5 py-1.5 focus:outline-none shrink-0">
+            <option value="">All Languages</option>
+            <option value="EN">English (EN)</option>
+            <option value="FR">French (FR)</option>
+            <option value="KR">Korean (KR)</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <!-- Reading Status Filter -->
+          <select id="filter-status" onchange="renderCatalog()" class="bg-slate-900 border border-slate-700 text-slate-300 rounded-lg px-2.5 py-1.5 focus:outline-none shrink-0">
+            <option value="">All Statuses</option>
+            <option value="Unread">Unread</option>
+            <option value="Reading">Reading</option>
+            <option value="Read">Read</option>
+          </select>
+
+          <!-- Sort Selector -->
+          <select id="sort-by" onchange="renderCatalog()" class="bg-slate-900 border border-slate-700 text-slate-300 rounded-lg px-2.5 py-1.5 focus:outline-none shrink-0">
+            <option value="added-desc">Recently Added</option>
+            <option value="title-asc">Title (A-Z)</option>
+            <option value="author-asc">Author (A-Z)</option>
+            <option value="rating-desc">Highest Rated</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Quick Preset Tag Chips -->
+      <div id="quick-preset-chips" class="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs">
+        <span class="text-slate-500 shrink-0 mr-1 text-[11px] uppercase tracking-wider font-semibold">Quick Filters:</span>
+        <button onclick="applyPresetFilter('Manga')" class="px-2.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 hover:border-indigo-500 transition shrink-0">Manga</button>
+        <button onclick="applyPresetFilter('Light Novels')" class="px-2.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 hover:border-indigo-500 transition shrink-0">Light Novels</button>
+        <button onclick="applyPresetFilter('CS/Unix')" class="px-2.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 hover:border-indigo-500 transition shrink-0">CS / Unix</button>
+        <button onclick="applyPresetFilter('Math')" class="px-2.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 hover:border-indigo-500 transition shrink-0">Math</button>
+        <button onclick="applyPresetFilter('Springer')" class="px-2.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 hover:border-indigo-500 transition shrink-0">Springer</button>
+        <button onclick="clearAllFilters()" class="px-2.5 py-1 rounded-full bg-indigo-950/60 border border-indigo-700/50 text-indigo-300 hover:bg-indigo-900/60 transition shrink-0 hidden" id="reset-filter-btn">Reset</button>
+      </div>
+
+      <!-- Books Grid / List Display Container -->
+      <div id="books-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3.5">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="hidden text-center py-16 px-4 bg-slate-800/30 rounded-2xl border border-dashed border-slate-700">
+        <div class="w-16 h-16 bg-slate-800 text-slate-500 rounded-full flex items-center justify-center mx-auto mb-3">
+          <i data-lucide="book" class="w-8 h-8"></i>
+        </div>
+        <h3 class="text-base font-semibold text-slate-200">No books found</h3>
+        <p class="text-xs text-slate-400 mt-1 max-w-xs mx-auto">Start scanning barcodes or add books manually to build your library database.</p>
+        <div class="mt-4 flex justify-center gap-2">
+          <button onclick="switchTab('scan')" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium rounded-xl shadow-lg transition">
+            Scan Barcode
+          </button>
+          <button onclick="openManualModal()" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-xs font-medium rounded-xl transition">
+            Add Manually
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAMERA / BARCODE SCANNER VIEW -->
+    <section id="view-scan" class="view-section space-y-4">
+      <div class="bg-slate-800/80 rounded-2xl border border-slate-700 p-4 shadow-md space-y-4">
+        
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="font-bold text-slate-100 flex items-center gap-2">
+              <i data-lucide="camera" class="w-5 h-5 text-indigo-400"></i>
+              ISBN Scanner
+            </h2>
+            <p class="text-xs text-slate-400">Point your camera at the barcode on the back cover.</p>
+          </div>
+          <button id="toggle-camera-btn" onclick="toggleScanner()" class="px-3 py-1.5 bg-indigo-600 text-white text-xs font-medium rounded-lg hover:bg-indigo-500 transition">
+            Start Scanner
+          </button>
+        </div>
+
+        <!-- Scanner Viewport Frame -->
+        <div class="relative w-full aspect-square max-w-sm mx-auto bg-slate-900 rounded-2xl overflow-hidden border-2 border-slate-700 flex items-center justify-center shadow-inner">
+          <div id="reader" class="w-full h-full"></div>
+          
+          <!-- Default Overlay Before Start -->
+          <div id="scanner-placeholder" class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-slate-900/90 z-10">
+            <div class="w-16 h-16 bg-slate-800 text-indigo-400 rounded-full flex items-center justify-center mb-3">
+              <i data-lucide="scan" class="w-8 h-8"></i>
+            </div>
+            <p class="text-xs text-slate-300 font-medium">Tap "Start Scanner" above to activate camera stream.</p>
+            <p class="text-[11px] text-slate-500 mt-2">Supports ISBN-10 and ISBN-13 barcodes.</p>
+          </div>
+        </div>
+
+        <!-- Manual ISBN Input Option -->
+        <div class="pt-2 border-t border-slate-700/60">
+          <label class="block text-xs font-medium text-slate-400 mb-1.5">Or type ISBN manually:</label>
+          <div class="flex gap-2">
+            <input type="text" id="manual-isbn-input" placeholder="e.g., 9780262033848 or 9782205079142"
+                   class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500">
+            <button onclick="lookupManualISBN()" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-slate-100 text-xs font-medium rounded-xl transition flex items-center gap-1.5">
+              <i data-lucide="search" class="w-4 h-4"></i>
+              Lookup
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scan History / Status Feedback -->
+      <div id="scan-status-card" class="hidden bg-slate-800/80 rounded-2xl border border-indigo-500/30 p-4 shadow-md space-y-2">
+        <div class="flex items-center space-x-3">
+          <div id="scan-status-spinner" class="animate-spin text-indigo-400">
+            <i data-lucide="loader-2" class="w-5 h-5"></i>
+          </div>
+          <div class="flex-1">
+            <h4 id="scan-status-title" class="text-xs font-semibold text-slate-200">Processing Barcode...</h4>
+            <p id="scan-status-desc" class="text-[11px] text-slate-400">Fetching metadata from Open Library & Google Books API...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS, BACKUP & EXPORT VIEW -->
+    <section id="view-stats" class="view-section space-y-4">
+      
+      <!-- Stats Summary Grid -->
+      <div class="grid grid-cols-2 gap-3">
+        <div class="bg-slate-800/70 border border-slate-700/60 p-4 rounded-2xl">
+          <span class="text-xs font-medium text-slate-400">Total Cataloged</span>
+          <p id="stat-total" class="text-2xl font-bold text-white mt-1">0</p>
+        </div>
+        <div class="bg-slate-800/70 border border-slate-700/60 p-4 rounded-2xl">
+          <span class="text-xs font-medium text-slate-400">Reading Progress</span>
+          <p id="stat-read" class="text-2xl font-bold text-emerald-400 mt-1">0%</p>
+        </div>
+      </div>
+
+      <!-- Breakdown by Tag -->
+      <div class="bg-slate-800/70 border border-slate-700/60 p-4 rounded-2xl space-y-3">
+        <h3 class="text-xs font-bold text-slate-300 uppercase tracking-wider">Category Breakdown</h3>
+        <div id="tag-stats-list" class="space-y-2 text-xs">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Data Export & Import Section (CRITICAL) -->
+      <div class="bg-slate-800/80 border border-slate-700 p-4 rounded-2xl space-y-3 shadow-md">
+        <h3 class="font-bold text-slate-100 flex items-center gap-2">
+          <i data-lucide="database" class="w-4 h-4 text-indigo-400"></i>
+          Data Management & Backup
+        </h3>
+        <p class="text-xs text-slate-400">All data stays stored safely in your browser. Export anytime for external backups.</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+          <button onclick="exportToJSON()" class="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-medium flex items-center justify-center gap-2 transition shadow">
+            <i data-lucide="download" class="w-4 h-4"></i>
+            Export JSON Backup
+          </button>
+          <button onclick="exportToCSV()" class="px-4 py-2.5 bg-slate-700 hover:bg-slate-600 text-slate-100 rounded-xl text-xs font-medium flex items-center justify-center gap-2 transition">
+            <i data-lucide="file-spreadsheet" class="w-4 h-4"></i>
+            Export CSV File
+          </button>
+        </div>
+
+        <div class="pt-3 border-t border-slate-700/60">
+          <label class="block text-xs font-medium text-slate-300 mb-1.5">Restore / Import Data (JSON):</label>
+          <input type="file" id="import-file-input" accept=".json" class="hidden" onchange="importJSON(event)">
+          <button onclick="document.getElementById('import-file-input').click()" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 hover:border-slate-500 text-slate-300 rounded-xl text-xs font-medium flex items-center justify-center gap-2 transition">
+            <i data-lucide="upload" class="w-4 h-4"></i>
+            Select JSON Backup File
+          </button>
+        </div>
+      </div>
+
+      <!-- Sample Demo Data Generator -->
+      <div class="bg-slate-800/40 border border-slate-700/40 p-4 rounded-2xl space-y-2">
+        <div class="flex items-center justify-between">
+          <div>
+            <h4 class="text-xs font-semibold text-slate-300">Testing & Setup</h4>
+            <p class="text-[11px] text-slate-500">Populate with 5 sample books (Springer, Manga, Math, CS).</p>
+          </div>
+          <button onclick="seedSampleData()" class="px-3 py-1.5 bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-medium rounded-lg transition">
+            Load Samples
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Bottom Tab Bar -->
+  <nav class="fixed bottom-0 left-0 right-0 z-30 bg-slate-800/95 backdrop-blur border-t border-slate-700/70 px-6 py-2 flex items-center justify-around shadow-2xl">
+    <button onclick="switchTab('catalog')" id="nav-catalog" class="nav-btn flex flex-col items-center gap-1 text-indigo-400 transition">
+      <i data-lucide="library" class="w-5 h-5"></i>
+      <span class="text-[10px] font-medium">Catalog</span>
+    </button>
+    
+    <button onclick="switchTab('scan')" id="nav-scan" class="nav-btn flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200 transition">
+      <i data-lucide="qr-code" class="w-5 h-5"></i>
+      <span class="text-[10px] font-medium">Scan ISBN</span>
+    </button>
+    
+    <button onclick="switchTab('stats')" id="nav-stats" class="nav-btn flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200 transition">
+      <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+      <span class="text-[10px] font-medium">Stats/Export</span>
+    </button>
+  </nav>
+
+  <!-- MODAL: ADD / EDIT BOOK -->
+  <div id="modal-book-form" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-800 border border-slate-700 rounded-2xl w-full max-w-lg max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+      
+      <!-- Modal Header -->
+      <div class="p-4 border-b border-slate-700 flex items-center justify-between">
+        <h3 id="modal-form-title" class="font-bold text-slate-100 text-base">Add Book Details</h3>
+        <button onclick="closeFormModal()" class="text-slate-400 hover:text-white p-1">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Form Body -->
+      <form id="book-form" onsubmit="saveBook(event)" class="p-4 overflow-y-auto space-y-3.5 text-xs flex-1">
+        <input type="hidden" id="form-id">
+
+        <!-- Title & ISBN -->
+        <div>
+          <label class="block font-medium text-slate-300 mb-1">Book Title *</label>
+          <input type="text" id="form-title" required placeholder="e.g., Introduction to Algorithms"
+                 class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-indigo-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-medium text-slate-300 mb-1">Author(s)</label>
+            <input type="text" id="form-authors" placeholder="e.g., Cormen, Leiserson..."
+                   class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-indigo-500">
+          </div>
+          <div>
+            <label class="block font-medium text-slate-300 mb-1">ISBN</label>
+            <input type="text" id="form-isbn" placeholder="e.g., 9780262033848"
+                   class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-indigo-500">
+          </div>
+        </div>
+
+        <!-- Series / Volume & Publisher -->
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-medium text-slate-300 mb-1">Publisher</label>
+            <input type="text" id="form-publisher" placeholder="e.g., MIT Press, Springer, Kana"
+                   class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-indigo-500">
+          </div>
+          <div>
+            <label class="block font-medium text-slate-300 mb-1">Volume / Edition</label>
+            <input type="text" id="form-volume" placeholder="e.g., Vol. 1, 4th Ed."
+                   class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-indigo-500">
+          </div>
+        </div>
+
+        <!-- Language & Status -->
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-medium text-slate-300 mb-1">Language</label>
+            <select id="form-lang" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-indigo-500">
+              <option value="EN">English (EN)</option>
+              <option value="FR">French (FR)</option>
+              <option value="KR">Korean (KR)</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-medium text-slate-300 mb-1">Reading Status</label>
+            <select id="form-status" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-indigo-500">
+              <option value="Unread">Unread</option>
+              <option value="Reading">Reading</option>
+              <option value="Read">Read</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Tags / Categories -->
+        <div>
+          <label class="block font-medium text-slate-300 mb-1">Tags / Categories (comma separated)</label>
+          <input type="text" id="form-tags" placeholder="e.g., Manga, CS/Unix, Springer, Math, Light Novels"
+                 class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-indigo-500">
+          <p class="text-[10px] text-slate-500 mt-1">Suggested: Manga, Light Novels, CS/Unix, Math, Robotics, Springer, French, Korean</p>
+        </div>
+
+        <!-- Rating & Location -->
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-medium text-slate-300 mb-1">Rating (1 to 5 Stars)</label>
+            <select id="form-rating" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-indigo-500">
+              <option value="0">Unrated</option>
+              <option value="5">★★★★★ (5/5)</option>
+              <option value="4">★★★★☆ (4/5)</option>
+              <option value="3">★★★☆☆ (3/5)</option>
+              <option value="2">★★☆☆☆ (2/5)</option>
+              <option value="1">★☆☆☆☆ (1/5)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-medium text-slate-300 mb-1">Shelf / Physical Location</label>
+            <input type="text" id="form-location" placeholder="e.g., Living Room Shelf B"
+                   class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-indigo-500">
+          </div>
+        </div>
+
+        <!-- Cover Image URL or Upload -->
+        <div class="space-y-2 border-t border-slate-700/60 pt-2">
+          <label class="block font-medium text-slate-300">Front Cover Image</label>
+          <input type="text" id="form-cover-url" placeholder="http://... or API cover URL"
+                 class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-indigo-500">
+          
+          <div class="flex items-center gap-2">
+            <label class="flex-1 px-3 py-1.5 bg-slate-700 hover:bg-slate-600 text-slate-200 text-center rounded-lg cursor-pointer transition">
+              <span>Take/Upload Photo</span>
+              <input type="file" accept="image/*" capture="environment" class="hidden" onchange="handleCoverUpload(event)">
+            </label>
+            <div id="cover-preview-container" class="w-10 h-12 bg-slate-900 rounded border border-slate-700 overflow-hidden hidden">
+              <img id="cover-preview" class="w-full h-full object-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- Description / Notes -->
+        <div>
+          <label class="block font-medium text-slate-300 mb-1">Notes / Description</label>
+          <textarea id="form-description" rows="2" placeholder="Summary or additional notes..."
+                    class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-indigo-500"></textarea>
+        </div>
+
+        <!-- Form Action Buttons -->
+        <div class="flex justify-end gap-2 pt-2">
+          <button type="button" onclick="closeFormModal()" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-slate-300 rounded-xl font-medium transition">
+            Cancel
+          </button>
+          <button type="submit" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-medium shadow-lg transition">
+            Save Book
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: BOOK DETAILS VIEW -->
+  <div id="modal-book-details" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-800 border border-slate-700 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+      <div id="details-body" class="p-5 overflow-y-auto space-y-4">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="bg-slate-900/80 px-4 py-3 border-t border-slate-700 flex justify-between items-center">
+        <button id="details-delete-btn" class="text-rose-400 hover:text-rose-300 text-xs font-medium flex items-center gap-1">
+          <i data-lucide="trash-2" class="w-4 h-4"></i> Delete
+        </button>
+        <div class="flex gap-2">
+          <button onclick="closeDetailsModal()" class="px-3 py-1.5 bg-slate-700 text-slate-200 text-xs rounded-lg hover:bg-slate-600 transition">
+            Close
+          </button>
+          <button id="details-edit-btn" class="px-3 py-1.5 bg-indigo-600 text-white text-xs rounded-lg hover:bg-indigo-500 transition flex items-center gap-1">
+            <i data-lucide="edit-2" class="w-3.5 h-3.5"></i> Edit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ==========================================================================
+       APP STATE & INDEXEDDB DATABASE INITIALIZATION
+       ========================================================================== */
+    const DB_NAME = 'BiblioStackDB';
+    const DB_VERSION = 1;
+    let db = null;
+
+    let catalogState = {
+      books: [],
+      viewMode: 'grid', // 'grid' or 'list'
+      searchQuery: '',
+      activeTag: '',
+      activeLang: '',
+      activeStatus: '',
+      sortBy: 'added-desc',
+      scannerActive: false
+    };
+
+    let html5QrcodeScanner = null;
+
+    // Initialize IndexedDB
+    function initDB() {
+      return new Promise((resolve, reject) => {
+        const request = indexedDB.open(DB_NAME, DB_VERSION);
+        request.onupgradeneeded = (e) => {
+          const dbRef = e.target.result;
+          if (!dbRef.objectStoreNames.contains('books')) {
+            const store = dbRef.createObjectStore('books', { keyPath: 'id' });
+            store.createIndex('title', 'title', { unique: false });
+            store.createIndex('isbn', 'isbn', { unique: false });
+          }
+        };
+        request.onsuccess = (e) => {
+          db = e.target.result;
+          resolve(db);
+        };
+        request.onerror = (e) => reject(e.target.error);
+      });
+    }
+
+    /* DB Operations */
+    async function getAllBooksFromDB() {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction('books', 'readonly');
+        const store = tx.objectStore('books');
+        const req = store.getAll();
+        req.onsuccess = () => resolve(req.result || []);
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    async function saveBookToDB(book) {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction('books', 'readwrite');
+        const store = tx.objectStore('books');
+        const req = store.put(book);
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    async function deleteBookFromDB(id) {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction('books', 'readwrite');
+        const store = tx.objectStore('books');
+        const req = store.delete(id);
+        req.onsuccess = () => resolve();
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    /* ==========================================================================
+       APP INITIALIZATION
+       ========================================================================== */
+    window.onload = async () => {
+      try {
+        await initDB();
+        await reloadCatalogData();
+        lucide.createIcons();
+        setupSearchListener();
+      } catch (err) {
+        console.error("Database initialization failed:", err);
+      }
+    };
+
+    async function reloadCatalogData() {
+      catalogState.books = await getAllBooksFromDB();
+      updateTagFilters();
+      renderCatalog();
+      renderStats();
+    }
+
+    /* ==========================================================================
+       TAB NAVIGATION
+       ========================================================================== */
+    function switchTab(tabId) {
+      document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(el => {
+        el.classList.remove('text-indigo-400');
+        el.classList.add('text-slate-400');
+      });
+
+      document.getElementById(`view-${tabId}`).classList.add('active');
+      document.getElementById(`nav-${tabId}`).classList.remove('text-slate-400');
+      document.getElementById(`nav-${tabId}`).classList.add('text-indigo-400');
+
+      if (tabId !== 'scan' && catalogState.scannerActive) {
+        stopScanner();
+      }
+    }
+
+    /* ==========================================================================
+       METADATA FETCHING (Open Library + Google Books API)
+       ========================================================================== */
+    async function fetchISBNMetadata(isbn) {
+      const cleanedISBN = isbn.replace(/[^0-9X]/gi, '');
+      if (!cleanedISBN) return null;
+
+      let bookData = {
+        title: '',
+        authors: '',
+        publisher: '',
+        isbn: cleanedISBN,
+        volume: '',
+        lang: 'EN',
+        tags: [],
+        coverUrl: '',
+        description: ''
+      };
+
+      try {
+        // 1. Try Google Books API first (high coverage for modern & non-English books)
+        const gResp = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${cleanedISBN}`);
+        if (gResp.ok) {
+          const gData = await gResp.json();
+          if (gData.items && gData.items.length > 0) {
+            const info = gData.items[0].volumeInfo;
+            bookData.title = info.title || '';
+            bookData.authors = info.authors ? info.authors.join(', ') : '';
+            bookData.publisher = info.publisher || '';
+            bookData.description = info.description || '';
+            bookData.coverUrl = info.imageLinks?.thumbnail || info.imageLinks?.smallThumbnail || '';
+            
+            // Detect Language
+            if (info.language) {
+              const l = info.language.toUpperCase();
+              if (l === 'FR') bookData.lang = 'FR';
+              else if (l === 'KO' || l === 'KR') bookData.lang = 'KR';
+              else if (l === 'EN') bookData.lang = 'EN';
+              else bookData.lang = 'Other';
+            }
+
+            // Extract tags
+            if (info.categories) {
+              bookData.tags = info.categories;
+            }
+          }
+        }
+      } catch (err) {
+        console.warn("Google Books API query failed:", err);
+      }
+
+      // 2. Fallback / Merge with Open Library API
+      try {
+        const olResp = await fetch(`https://openlibrary.org/api/books?bibkeys=ISBN:${cleanedISBN}&format=json&jscmd=data`);
+        if (olResp.ok) {
+          const olData = await olResp.json();
+          const key = `ISBN:${cleanedISBN}`;
+          if (olData[key]) {
+            const item = olData[key];
+            if (!bookData.title) bookData.title = item.title || '';
+            if (!bookData.authors && item.authors) {
+              bookData.authors = item.authors.map(a => a.name).join(', ');
+            }
+            if (!bookData.publisher && item.publishers) {
+              bookData.publisher = item.publishers.map(p => p.name).join(', ');
+            }
+            if (!bookData.coverUrl && item.cover) {
+              bookData.coverUrl = item.cover.large || item.cover.medium || '';
+            }
+            if (item.subjects && bookData.tags.length === 0) {
+              bookData.tags = item.subjects.slice(0, 3).map(s => s.name);
+            }
+          }
+        }
+      } catch (err) {
+        console.warn("Open Library API query failed:", err);
+      }
+
+      // Fallback Cover image via Open Library Cover CDN
+      if (!bookData.coverUrl) {
+        bookData.coverUrl = `https://covers.openlibrary.org/b/isbn/${cleanedISBN}-L.jpg`;
+      }
+
+      return bookData.title ? bookData : null;
+    }
+
+    /* ==========================================================================
+       CAMERA & BARCODE SCANNER LOGIC
+       ========================================================================== */
+    function toggleScanner() {
+      if (catalogState.scannerActive) {
+        stopScanner();
+      } else {
+        startScanner();
+      }
+    }
+
+    function startScanner() {
+      document.getElementById('scanner-placeholder').classList.add('hidden');
+      document.getElementById('toggle-camera-btn').innerText = 'Stop Scanner';
+      catalogState.scannerActive = true;
+
+      html5QrcodeScanner = new Html5Qrcode("reader");
+      const config = { fps: 10, qrbox: { width: 250, height: 150 } };
+
+      html5QrcodeScanner.start(
+        { facingMode: "environment" },
+        config,
+        onScanSuccess,
+        onScanFailure
+      ).catch(err => {
+        alert("Camera permission denied or camera not available: " + err);
+        stopScanner();
+      });
+    }
+
+    function stopScanner() {
+      if (html5QrcodeScanner) {
+        html5QrcodeScanner.stop().then(() => {
+          html5QrcodeScanner.clear();
+          document.getElementById('scanner-placeholder').classList.remove('hidden');
+          document.getElementById('toggle-camera-btn').innerText = 'Start Scanner';
+          catalogState.scannerActive = false;
+        }).catch(err => console.error(err));
+      }
+    }
+
+    async function onScanSuccess(decodedText) {
+      // Pause scanner while looking up
+      if (html5QrcodeScanner) {
+        html5QrcodeScanner.pause();
+      }
+
+      showScanStatus("ISBN Detected!", `Searching APIs for ISBN: ${decodedText}...`);
+
+      const metadata = await fetchISBNMetadata(decodedText);
+      
+      if (html5QrcodeScanner) {
+        html5QrcodeScanner.resume();
+      }
+
+      if (metadata) {
+        hideScanStatus();
+        openManualModal(metadata);
+      } else {
+        showScanStatus("ISBN Not Found", `Could not auto-fetch metadata for ${decodedText}. Opening manual form...`, false);
+        setTimeout(() => {
+          hideScanStatus();
+          openManualModal({ isbn: decodedText });
+        }, 1200);
+      }
+    }
+
+    function onScanFailure(error) {
+      // Ignore frame-by-frame scan failure
+    }
+
+    async function lookupManualISBN() {
+      const input = document.getElementById('manual-isbn-input').value.trim();
+      if (!input) return;
+
+      showScanStatus("Searching...", `Looking up ISBN: ${input}`);
+      const metadata = await fetchISBNMetadata(input);
+      hideScanStatus();
+
+      if (metadata) {
+        openManualModal(metadata);
+      } else {
+        openManualModal({ isbn: input });
+      }
+    }
+
+    function showScanStatus(title, desc, spinning = true) {
+      const card = document.getElementById('scan-status-card');
+      document.getElementById('scan-status-title').innerText = title;
+      document.getElementById('scan-status-desc').innerText = desc;
+      document.getElementById('scan-status-spinner').style.display = spinning ? 'block' : 'none';
+      card.classList.remove('hidden');
+    }
+
+    function hideScanStatus() {
+      document.getElementById('scan-status-card').classList.add('hidden');
+    }
+
+    /* ==========================================================================
+       MANUAL ADD / EDIT FORM
+       ========================================================================== */
+    function openManualModal(initialData = null) {
+      document.getElementById('book-form').reset();
+      document.getElementById('form-id').value = initialData?.id || 'book_' + Date.now();
+      document.getElementById('modal-form-title').innerText = initialData?.id ? 'Edit Book' : 'Add New Book';
+      document.getElementById('cover-preview-container').classList.add('hidden');
+
+      if (initialData) {
+        document.getElementById('form-title').value = initialData.title || '';
+        document.getElementById('form-authors').value = initialData.authors || '';
+        document.getElementById('form-isbn').value = initialData.isbn || '';
+        document.getElementById('form-publisher').value = initialData.publisher || '';
+        document.getElementById('form-volume').value = initialData.volume || '';
+        document.getElementById('form-lang').value = initialData.lang || 'EN';
+        document.getElementById('form-status').value = initialData.status || 'Unread';
+        document.getElementById('form-tags').value = Array.isArray(initialData.tags) ? initialData.tags.join(', ') : (initialData.tags || '');
+        document.getElementById('form-rating').value = initialData.rating || '0';
+        document.getElementById('form-location').value = initialData.location || '';
+        document.getElementById('form-cover-url').value = initialData.coverUrl || '';
+        document.getElementById('form-description').value = initialData.description || '';
+
+        if (initialData.coverUrl) {
+          document.getElementById('cover-preview').src = initialData.coverUrl;
+          document.getElementById('cover-preview-container').classList.remove('hidden');
+        }
+      }
+
+      document.getElementById('modal-book-form').classList.remove('hidden');
+    }
+
+    function closeFormModal() {
+      document.getElementById('modal-book-form').classList.add('hidden');
+    }
+
+    function handleCoverUpload(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const base64Img = e.target.result;
+          document.getElementById('form-cover-url').value = base64Img;
+          document.getElementById('cover-preview').src = base64Img;
+          document.getElementById('cover-preview-container').classList.remove('hidden');
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    async function saveBook(e) {
+      e.preventDefault();
+
+      const tagsRaw = document.getElementById('form-tags').value;
+      const tagsArray = tagsRaw.split(',').map(t => t.trim()).filter(t => t.length > 0);
+
+      const newBook = {
+        id: document.getElementById('form-id').value,
+        title: document.getElementById('form-title').value.trim(),
+        authors: document.getElementById('form-authors').value.trim(),
+        isbn: document.getElementById('form-isbn').value.trim(),
+        publisher: document.getElementById('form-publisher').value.trim(),
+        volume: document.getElementById('form-volume').value.trim(),
+        lang: document.getElementById('form-lang').value,
+        status: document.getElementById('form-status').value,
+        tags: tagsArray,
+        rating: parseInt(document.getElementById('form-rating').value) || 0,
+        location: document.getElementById('form-location').value.trim(),
+        coverUrl: document.getElementById('form-cover-url').value.trim(),
+        description: document.getElementById('form-description').value.trim(),
+        dateAdded: Date.now()
+      };
+
+      await saveBookToDB(newBook);
+      closeFormModal();
+      await reloadCatalogData();
+      switchTab('catalog');
+    }
+
+    /* ==========================================================================
+       CATALOG RENDERING & FILTERS
+       ========================================================================== */
+    function setViewMode(mode) {
+      catalogState.viewMode = mode;
+      document.getElementById('btn-grid-view').className = mode === 'grid' ? 'p-1 rounded bg-slate-700 text-white transition' : 'p-1 rounded text-slate-400 hover:text-white transition';
+      document.getElementById('btn-list-view').className = mode === 'list' ? 'p-1 rounded bg-slate-700 text-white transition' : 'p-1 rounded text-slate-400 hover:text-white transition';
+      renderCatalog();
+    }
+
+    function setupSearchListener() {
+      const searchInput = document.getElementById('search-input');
+      searchInput.addEventListener('input', (e) => {
+        catalogState.searchQuery = e.target.value.toLowerCase().trim();
+        document.getElementById('clear-search').classList.toggle('hidden', catalogState.searchQuery === '');
+        renderCatalog();
+      });
+    }
+
+    function clearSearch() {
+      document.getElementById('search-input').value = '';
+      catalogState.searchQuery = '';
+      document.getElementById('clear-search').classList.add('hidden');
+      renderCatalog();
+    }
+
+    function applyPresetFilter(tag) {
+      document.getElementById('filter-tag').value = tag;
+      document.getElementById('reset-filter-btn').classList.remove('hidden');
+      renderCatalog();
+    }
+
+    function clearAllFilters() {
+      document.getElementById('filter-tag').value = '';
+      document.getElementById('filter-lang').value = '';
+      document.getElementById('filter-status').value = '';
+      document.getElementById('search-input').value = '';
+      catalogState.searchQuery = '';
+      document.getElementById('reset-filter-btn').classList.add('hidden');
+      renderCatalog();
+    }
+
+    function updateTagFilters() {
+      const select = document.getElementById('filter-tag');
+      const allTags = new Set();
+      catalogState.books.forEach(b => {
+        if (Array.isArray(b.tags)) b.tags.forEach(t => allTags.add(t));
+      });
+
+      select.innerHTML = '<option value="">All Tags / Genres</option>';
+      Array.from(allTags).sort().forEach(tag => {
+        const opt = document.createElement('option');
+        opt.value = tag;
+        opt.innerText = tag;
+        select.appendChild(opt);
+      });
+    }
+
+    function filterAndSortBooks() {
+      const selectedTag = document.getElementById('filter-tag').value;
+      const selectedLang = document.getElementById('filter-lang').value;
+      const selectedStatus = document.getElementById('filter-status').value;
+      const sortBy = document.getElementById('sort-by').value;
+
+      return catalogState.books.filter(book => {
+        // Search query filter
+        if (catalogState.searchQuery) {
+          const q = catalogState.searchQuery;
+          const matchTitle = book.title?.toLowerCase().includes(q);
+          const matchAuthor = book.authors?.toLowerCase().includes(q);
+          const matchPublisher = book.publisher?.toLowerCase().includes(q);
+          const matchISBN = book.isbn?.includes(q);
+          const matchTags = Array.isArray(book.tags) && book.tags.some(t => t.toLowerCase().includes(q));
+          if (!matchTitle && !matchAuthor && !matchPublisher && !matchISBN && !matchTags) return false;
+        }
+
+        // Tag Filter
+        if (selectedTag && (!Array.isArray(book.tags) || !book.tags.includes(selectedTag))) return false;
+
+        // Language Filter
+        if (selectedLang && book.lang !== selectedLang) return false;
+
+        // Status Filter
+        if (selectedStatus && book.status !== selectedStatus) return false;
+
+        return true;
+      }).sort((a, b) => {
+        if (sortBy === 'title-asc') return (a.title || '').localeCompare(b.title || '');
+        if (sortBy === 'author-asc') return (a.authors || '').localeCompare(b.authors || '');
+        if (sortBy === 'rating-desc') return (b.rating || 0) - (a.rating || 0);
+        return (b.dateAdded || 0) - (a.dateAdded || 0); // Default: added-desc
+      });
+    }
+
+    function renderCatalog() {
+      const container = document.getElementById('books-container');
+      const emptyState = document.getElementById('empty-state');
+      const filteredBooks = filterAndSortBooks();
+
+      document.getElementById('total-count-badge').innerText = `${catalogState.books.length} Books cataloged`;
+
+      if (filteredBooks.length === 0) {
+        container.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+      emptyState.classList.add('hidden');
+
+      if (catalogState.viewMode === 'grid') {
+        container.className = "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3.5";
+        container.innerHTML = filteredBooks.map(book => renderGridCard(book)).join('');
+      } else {
+        container.className = "space-y-2.5";
+        container.innerHTML = filteredBooks.map(book => renderListItem(book)).join('');
+      }
+
+      lucide.createIcons();
+    }
+
+    function renderGridCard(book) {
+      const stars = book.rating > 0 ? '★'.repeat(book.rating) : '';
+      const defaultCover = `https://placehold.co/300x420/1e293b/64748b?text=${encodeURIComponent(book.title.slice(0, 20))}`;
+      const coverSrc = book.coverUrl || defaultCover;
+
+      return `
+        <div onclick="openBookDetails('${book.id}')" class="bg-slate-800/80 border border-slate-700/60 hover:border-indigo-500/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer flex flex-col group">
+          <div class="relative w-full aspect-[2/3] bg-slate-900 overflow-hidden">
+            <img src="${coverSrc}" alt="${book.title}" onerror="this.src='${defaultCover}'" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            ${book.volume ? `<span class="absolute top-2 right-2 bg-indigo-600/90 text-white text-[10px] font-bold px-1.5 py-0.5 rounded shadow">${book.volume}</span>` : ''}
+            <span class="absolute bottom-2 left-2 bg-slate-900/80 text-slate-300 text-[10px] px-1.5 py-0.5 rounded border border-slate-700">${book.lang || 'EN'}</span>
+          </div>
+          <div class="p-2.5 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-bold text-xs text-slate-100 line-clamp-2 leading-snug">${escapeHTML(book.title)}</h3>
+              <p class="text-[11px] text-slate-400 line-clamp-1 mt-0.5">${escapeHTML(book.authors || 'Unknown Author')}</p>
+            </div>
+            <div class="mt-2 flex items-center justify-between text-[10px] text-slate-500">
+              <span class="text-amber-400 font-bold">${stars}</span>
+              <span class="px-1.5 py-0.5 rounded ${getStatusBadgeClass(book.status)}">${book.status}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderListItem(book) {
+      const defaultCover = `https://placehold.co/100x140/1e293b/64748b?text=Book`;
+      const coverSrc = book.coverUrl || defaultCover;
+
+      return `
+        <div onclick="openBookDetails('${book.id}')" class="bg-slate-800/80 border border-slate-700/60 hover:border-indigo-500/50 rounded-xl p-2.5 flex items-center gap-3 shadow-sm cursor-pointer transition">
+          <img src="${coverSrc}" alt="${book.title}" onerror="this.src='${defaultCover}'" class="w-12 h-16 object-cover rounded bg-slate-900 shrink-0">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2">
+              <h3 class="font-bold text-xs text-slate-100 truncate">${escapeHTML(book.title)}</h3>
+              ${book.volume ? `<span class="bg-indigo-600/80 text-white text-[9px] font-bold px-1 py-0.2 rounded">${book.volume}</span>` : ''}
+            </div>
+            <p class="text-[11px] text-slate-400 truncate">${escapeHTML(book.authors || 'Unknown Author')}</p>
+            <div class="flex items-center gap-2 mt-1.5 text-[10px]">
+              <span class="text-slate-400 bg-slate-900 px-1.5 py-0.5 rounded border border-slate-700/60">${book.publisher || 'No Publisher'}</span>
+              <span class="px-1.5 py-0.5 rounded ${getStatusBadgeClass(book.status)}">${book.status}</span>
+            </div>
+          </div>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 shrink-0"></i>
+        </div>
+      `;
+    }
+
+    function getStatusBadgeClass(status) {
+      if (status === 'Read') return 'bg-emerald-950/80 text-emerald-300 border border-emerald-800/60';
+      if (status === 'Reading') return 'bg-amber-950/80 text-amber-300 border border-amber-800/60';
+      return 'bg-slate-900 text-slate-400 border border-slate-700';
+    }
+
+    /* ==========================================================================
+       BOOK DETAILS MODAL & ACTIONS
+       ========================================================================== */
+    function openBookDetails(id) {
+      const book = catalogState.books.find(b => b.id === id);
+      if (!book) return;
+
+      const defaultCover = `https://placehold.co/300x420/1e293b/64748b?text=${encodeURIComponent(book.title)}`;
+      const coverSrc = book.coverUrl || defaultCover;
+
+      const tagsHtml = Array.isArray(book.tags) ? book.tags.map(t => 
+        `<span class="bg-indigo-950/80 border border-indigo-700/50 text-indigo-300 text-[10px] px-2 py-0.5 rounded-full">${escapeHTML(t)}</span>`
+      ).join(' ') : '';
+
+      document.getElementById('details-body').innerHTML = `
+        <div class="flex gap-4">
+          <img src="${coverSrc}" onerror="this.src='${defaultCover}'" class="w-24 h-36 object-cover rounded-xl bg-slate-900 shadow border border-slate-700 shrink-0">
+          <div class="space-y-1 text-xs">
+            <h2 class="font-bold text-sm text-slate-100 leading-snug">${escapeHTML(book.title)}</h2>
+            <p class="text-slate-300 font-medium">${escapeHTML(book.authors || 'Unknown Author')}</p>
+            <p class="text-slate-400 text-[11px]">${escapeHTML(book.publisher || 'N/A')} ${book.volume ? `(${book.volume})` : ''}</p>
+            
+            <div class="pt-1 flex items-center gap-2">
+              <span class="bg-slate-900 border border-slate-700 px-2 py-0.5 rounded text-[10px] text-slate-300 font-semibold">${book.lang || 'EN'}</span>
+              <span class="px-2 py-0.5 rounded text-[10px] ${getStatusBadgeClass(book.status)}">${book.status}</span>
+            </div>
+
+            ${book.rating > 0 ? `<div class="text-amber-400 text-sm font-bold pt-1">${'★'.repeat(book.rating)}</div>` : ''}
+          </div>
+        </div>
+
+        <div class="space-y-2 text-xs pt-2 border-t border-slate-700/60">
+          ${book.isbn ? `<p><span class="text-slate-400">ISBN:</span> <code class="text-slate-200 bg-slate-900 px-1.5 py-0.5 rounded">${book.isbn}</code></p>` : ''}
+          ${book.location ? `<p><span class="text-slate-400">Shelf Location:</span> <span class="text-slate-200">${escapeHTML(book.location)}</span></p>` : ''}
+          ${tagsHtml ? `<div class="flex flex-wrap gap-1 pt-1">${tagsHtml}</div>` : ''}
+        </div>
+
+        ${book.description ? `
+          <div class="pt-2 border-t border-slate-700/60">
+            <h4 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Description / Notes</h4>
+            <p class="text-xs text-slate-300 leading-relaxed max-h-32 overflow-y-auto">${escapeHTML(book.description)}</p>
+          </div>
+        ` : ''}
+      `;
+
+      document.getElementById('details-edit-btn').onclick = () => {
+        closeDetailsModal();
+        openManualModal(book);
+      };
+
+      document.getElementById('details-delete-btn').onclick = async () => {
+        if (confirm(`Delete "${book.title}" from catalog?`)) {
+          await deleteBookFromDB(book.id);
+          closeDetailsModal();
+          await reloadCatalogData();
+        }
+      };
+
+      document.getElementById('modal-book-details').classList.remove('hidden');
+    }
+
+    function closeDetailsModal() {
+      document.getElementById('modal-book-details').classList.add('hidden');
+    }
+
+    /* ==========================================================================
+       STATS & EXPORT/IMPORT (CSV/JSON)
+       ========================================================================== */
+    function renderStats() {
+      const total = catalogState.books.length;
+      const readCount = catalogState.books.filter(b => b.status === 'Read').length;
+      const readPct = total > 0 ? Math.round((readCount / total) * 100) : 0;
+
+      document.getElementById('stat-total').innerText = total;
+      document.getElementById('stat-read').innerText = `${readPct}%`;
+
+      // Tag breakdown
+      const tagCounts = {};
+      catalogState.books.forEach(b => {
+        if (Array.isArray(b.tags)) {
+          b.tags.forEach(t => tagCounts[t] = (tagCounts[t] || 0) + 1);
+        }
+      });
+
+      const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+      const listEl = document.getElementById('tag-stats-list');
+
+      if (sortedTags.length === 0) {
+        listEl.innerHTML = `<span class="text-slate-500 italic">No tags applied yet.</span>`;
+        return;
+      }
+
+      listEl.innerHTML = sortedTags.map(([tag, count]) => `
+        <div class="flex justify-between items-center bg-slate-900/60 px-3 py-1.5 rounded-lg border border-slate-700/40">
+          <span class="text-slate-300">${escapeHTML(tag)}</span>
+          <span class="font-bold text-indigo-400 bg-indigo-950/80 px-2 py-0.5 rounded text-[10px]">${count}</span>
+        </div>
+      `).join('');
+    }
+
+    function exportToJSON() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(catalogState.books, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", `bibliostack_backup_${new Date().toISOString().slice(0,10)}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+    }
+
+    function exportToCSV() {
+      if (catalogState.books.length === 0) {
+        alert("No books available to export.");
+        return;
+      }
+
+      const headers = ["Title", "Authors", "ISBN", "Publisher", "Volume", "Language", "Status", "Tags", "Rating", "Location", "Description"];
+      const rows = catalogState.books.map(b => [
+        `"${(b.title || '').replace(/"/g, '""')}"`,
+        `"${(b.authors || '').replace(/"/g, '""')}"`,
+        `"${b.isbn || ''}"`,
+        `"${(b.publisher || '').replace(/"/g, '""')}"`,
+        `"${b.volume || ''}"`,
+        `"${b.lang || 'EN'}"`,
+        `"${b.status || 'Unread'}"`,
+        `"${(Array.isArray(b.tags) ? b.tags.join(', ') : '').replace(/"/g, '""')}"`,
+        `"${b.rating || 0}"`,
+        `"${(b.location || '').replace(/"/g, '""')}"`,
+        `"${(b.description || '').replace(/"/g, '""')}"`
+      ]);
+
+      const csvContent = "data:text/csv;charset=utf-8," + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", encodeURI(csvContent));
+      downloadAnchor.setAttribute("download", `bibliostack_export_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+    }
+
+    async function importJSON(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = async function(e) {
+        try {
+          const importedBooks = JSON.parse(e.target.result);
+          if (Array.isArray(importedBooks)) {
+            for (const book of importedBooks) {
+              if (book.title) {
+                await saveBookToDB(book);
+              }
+            }
+            alert(`Successfully imported ${importedBooks.length} books!`);
+            await reloadCatalogData();
+            switchTab('catalog');
+          } else {
+            alert("Invalid JSON format. Expected an array of books.");
+          }
+        } catch (err) {
+          alert("Error parsing JSON file: " + err.message);
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    /* Sample data for testing math/CS/manga libraries */
+    async function seedSampleData() {
+      const samples = [
+        {
+          id: 'sample_1',
+          title: 'Introduction to Algorithms',
+          authors: 'Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein',
+          isbn: '9780262033848',
+          publisher: 'MIT Press',
+          volume: '3rd Edition',
+          lang: 'EN',
+          status: 'Reading',
+          tags: ['CS/Unix', 'Math', 'Algorithms'],
+          rating: 5,
+          location: 'Office Shelf 1',
+          coverUrl: 'https://covers.openlibrary.org/b/isbn/9780262033848-L.jpg',
+          description: 'The standard textbook on computer algorithms.',
+          dateAdded: Date.now() - 4000
+        },
+        {
+          id: 'sample_2',
+          title: 'Monster, Vol. 1',
+          authors: 'Naoki Urasawa',
+          isbn: '9782205079142',
+          publisher: 'Kana',
+          volume: 'Vol. 1',
+          lang: 'FR',
+          status: 'Read',
+          tags: ['Manga', 'French'],
+          rating: 5,
+          location: 'Manga Tower A',
+          coverUrl: 'https://covers.openlibrary.org/b/isbn/9782205079142-L.jpg',
+          description: 'Thriller manga in French publication.',
+          dateAdded: Date.now() - 3000
+        },
+        {
+          id: 'sample_3',
+          title: 'Linear Algebra and Its Applications',
+          authors: 'Gilbert Strang',
+          isbn: '9780030105678',
+          publisher: 'Springer',
+          volume: '4th Edition',
+          lang: 'EN',
+          status: 'Unread',
+          tags: ['Math', 'Springer'],
+          rating: 4,
+          location: 'Office Shelf 2',
+          coverUrl: 'https://covers.openlibrary.org/b/isbn/9780030105678-L.jpg',
+          description: 'Classic textbook on linear vector spaces and numerical matrix computations.',
+          dateAdded: Date.now() - 2000
+        },
+        {
+          id: 'sample_4',
+          title: 'UNIX Network Programming, Vol. 1',
+          authors: 'W. Richard Stevens',
+          isbn: '9780131411555',
+          publisher: 'Prentice Hall',
+          volume: 'Vol. 1',
+          lang: 'EN',
+          status: 'Read',
+          tags: ['CS/Unix', 'Networking'],
+          rating: 5,
+          location: 'CS Shelf',
+          coverUrl: 'https://covers.openlibrary.org/b/isbn/9780131411555-L.jpg',
+          description: 'The definitive guide to socket API programming.',
+          dateAdded: Date.now() - 1000
+        }
+      ];
+
+      for (const b of samples) {
+        await saveBookToDB(b);
+      }
+      await reloadCatalogData();
+      alert("Sample books loaded!");
+    }
+
+    function escapeHTML(str) {
+      if (!str) return '';
+      return str.replace(/[&<>'"]/g, 
+        tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+      );
+    }
+  </script>
+</body>
+</html>
