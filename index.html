@@ -5,24 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Personal Library Catalog</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    #reader video { object-fit: cover; border-radius: 0.75rem; }
+    #reader video { object-fit: cover; border-radius: 0.75rem; width: 100% !important; }
   </style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen pb-12 font-sans">
 
-  <!-- Header -->
   <header class="bg-slate-800 border-b border-slate-700 sticky top-0 z-40 shadow-md">
     <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center space-x-2">
-        <i class="fa-solid me-2 fa-book-bookmark text-indigo-400 text-xl"></i>
+        <i class="fa-solid fa-book-bookmark text-indigo-400 text-xl"></i>
         <h1 class="text-xl font-bold tracking-tight text-white">My Library</h1>
       </div>
       <div class="flex items-center space-x-2">
         <button onclick="exportData('csv')" class="px-3 py-1.5 text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 rounded-lg text-white shadow transition">
-          <i class="fa-solid fa-file-csv mr-1"></i> Export CSV
+          <i class="fa-solid fa-file-csv mr-1"></i> CSV
         </button>
         <button onclick="exportData('json')" class="px-3 py-1.5 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 rounded-lg text-white shadow transition">
           <i class="fa-solid fa-file-code mr-1"></i> JSON
@@ -33,71 +32,66 @@
 
   <main class="max-w-4xl mx-auto px-4 pt-4">
 
-    <!-- Protocol Warning Banner -->
+    <!-- File protocol warning -->
     <div id="protocolWarning" class="hidden bg-amber-900/80 border border-amber-600 text-amber-200 px-4 py-3 rounded-xl mb-4 text-sm flex items-start space-x-3">
       <i class="fa-solid fa-triangle-exclamation text-amber-400 text-lg mt-0.5"></i>
       <div>
-        <strong class="font-bold">Live Camera Inactive (file:// protocol detected):</strong>
-        Browsers block mobile cameras on raw files. To use live video, host via GitHub Pages, local HTTPS server, or use the <strong>"Upload Barcode Image"</strong> button below to scan from your photo gallery!
+        <strong class="font-bold">Local File Detected (file://):</strong> Live camera feeds require a web server or GitHub Pages. Use <strong>"Upload Barcode Image"</strong> below to scan photos directly from your gallery!
       </div>
     </div>
 
-    <!-- Controls / Scanner trigger -->
+    <!-- Scanner & Search Box -->
     <div class="bg-slate-800 rounded-2xl p-4 shadow-lg mb-6 border border-slate-700">
       <div class="flex flex-wrap gap-2 mb-3">
         <button id="toggleCameraBtn" onclick="toggleScanner()" class="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white py-2.5 px-4 rounded-xl font-semibold flex items-center justify-center space-x-2 transition shadow">
           <i class="fa-solid fa-camera"></i>
-          <span id="scanBtnText">Scan ISBN Barcode</span>
+          <span id="scanBtnText">Live Camera Scan</span>
         </button>
         <label class="bg-slate-700 hover:bg-slate-600 text-slate-200 py-2.5 px-4 rounded-xl font-semibold flex items-center justify-center space-x-2 cursor-pointer transition">
           <i class="fa-solid fa-image"></i>
           <span>Upload Image</span>
           <input type="file" id="barcodeFileInput" accept="image/*" class="hidden" onchange="scanImageFile(this)">
         </label>
-        <button onclick="openManualModal()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 py-2.5 px-4 rounded-xl font-semibold flex items-center justify-center transition">
+        <button onclick="openManualModal()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 py-2.5 px-4 rounded-xl font-semibold flex items-center justify-center transition px-4">
           <i class="fa-solid fa-plus mr-1"></i> Manual
         </button>
       </div>
 
       <!-- Live Camera Container -->
-      <div id="scannerContainer" class="hidden relative rounded-xl overflow-hidden bg-black border border-slate-700 mb-3">
+      <div id="scannerContainer" class="hidden relative rounded-xl overflow-hidden bg-black border border-slate-700 mb-3 p-2">
         <div id="reader" class="w-full"></div>
-        <button onclick="stopScanner()" class="absolute top-2 right-2 bg-red-600 text-white rounded-full p-2 w-8 h-8 flex items-center justify-center text-xs shadow z-10">
+        <p class="text-center text-xs text-slate-400 py-2">Hold barcode steady 6-8 inches away in good light.</p>
+        <button onclick="stopScanner()" class="absolute top-3 right-3 bg-red-600 text-white rounded-full p-2 w-8 h-8 flex items-center justify-center text-xs shadow z-10">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
 
-      <!-- Search & Quick Manual Entry -->
+      <!-- Manual ISBN Lookup -->
       <div class="flex space-x-2">
-        <div class="relative flex-1">
-          <input type="text" id="manualIsbnInput" placeholder="Enter ISBN (e.g. 9791032724170)..." 
-                 class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500">
-        </div>
-        <button onclick="lookupManualIsbn()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl text-sm font-semibold transition">
+        <input type="text" id="manualIsbnInput" placeholder="Enter ISBN (e.g. 9791032724170)..." 
+               class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500">
+        <button onclick="lookupManualIsbn()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2 rounded-xl text-sm font-semibold transition">
           Lookup
         </button>
       </div>
     </div>
 
-    <!-- Status / Loading Indicator -->
+    <!-- Status Message -->
     <div id="statusMessage" class="hidden p-3 rounded-xl mb-4 text-center text-sm font-medium"></div>
 
     <!-- Filter Bar -->
     <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
-      <div class="flex items-center space-x-2 overflow-x-auto pb-1 w-full sm:w-auto">
-        <button onclick="filterTag('ALL')" class="tag-filter px-3 py-1 text-xs font-semibold rounded-lg bg-indigo-600 text-white shadow">All</button>
-        <button onclick="filterTag('Manga')" class="tag-filter px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">Manga</button>
-        <button onclick="filterTag('Math')" class="tag-filter px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">Math</button>
-        <button onclick="filterTag('CS')" class="tag-filter px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">CS / Unix</button>
-        <button onclick="filterTag('History')" class="tag-filter px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">History</button>
+      <div class="flex items-center space-x-2 overflow-x-auto pb-1 w-full sm:w-auto" id="tagFilters">
+        <button onclick="filterTag('ALL')" class="tag-btn px-3 py-1 text-xs font-semibold rounded-lg bg-indigo-600 text-white shadow">All</button>
+        <button onclick="filterTag('Manga')" class="tag-btn px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">Manga</button>
+        <button onclick="filterTag('Math')" class="tag-btn px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">Math</button>
+        <button onclick="filterTag('CS / Unix')" class="tag-btn px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">CS / Unix</button>
       </div>
       <div class="text-xs text-slate-400 font-medium" id="bookCount">0 books</div>
     </div>
 
     <!-- Book Grid -->
-    <div id="bookGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <!-- Books injected dynamically -->
-    </div>
+    <div id="bookGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
   </main>
 
   <!-- Add/Edit Modal -->
@@ -155,13 +149,12 @@
     let html5QrcodeScanner = null;
     let activeTag = 'ALL';
 
-    // 1. Initialize IndexedDB
+    // Initialize Database
     const request = indexedDB.open('PersonalLibraryDB', 1);
     request.onupgradeneeded = (e) => {
       db = e.target.result;
       if (!db.objectStoreNames.contains('books')) {
-        const store = db.createObjectStore('books', { keyPath: 'id', autoIncrement: true });
-        store.createIndex('isbn', 'isbn', { unique: false });
+        db.createObjectStore('books', { keyPath: 'id', autoIncrement: true });
       }
     };
     request.onsuccess = (e) => {
@@ -169,24 +162,23 @@
       renderBooks();
     };
 
-    // Protocol check
     if (window.location.protocol === 'file:') {
       document.getElementById('protocolWarning').classList.remove('hidden');
     }
 
-    // 2. ISBN Lookup via Multi-API Cascade (Google Books + Open Library)
+    // Fixed Multi-API Lookup Strategy
     async function fetchBookMetadata(isbn) {
       const cleaned = isbn.replace(/[^0-9X]/gi, '');
       showStatus(`Searching metadata for ISBN ${cleaned}...`, 'info');
 
-      // Strategy A: Google Books API (Best for 979 French/Korean manga & academic books)
+      // Strategy 1: Google Books (Raw query without "isbn:" modifier to catch 979 prefixes)
       try {
-        const gResp = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${cleaned}`);
+        const gResp = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${cleaned}`);
         if (gResp.ok) {
           const gData = await gResp.json();
           if (gData.totalItems > 0) {
             const item = gData.items[0].volumeInfo;
-            showStatus('Found on Google Books!', 'success');
+            showStatus('Found metadata via Google Books!', 'success');
             return {
               title: item.title + (item.subtitle ? `: ${item.subtitle}` : ''),
               author: item.authors ? item.authors.join(', ') : 'Unknown',
@@ -200,39 +192,38 @@
           }
         }
       } catch (err) {
-        console.warn('Google Books lookup failed, trying Open Library...', err);
+        console.warn('Google Books failed', err);
       }
 
-      // Strategy B: Open Library API
+      // Strategy 2: Open Library Search API
       try {
-        const olResp = await fetch(`https://openlibrary.org/api/books?bibkeys=ISBN:${cleaned}&format=json&jscmd=data`);
+        const olResp = await fetch(`https://openlibrary.org/search.json?q=${cleaned}`);
         if (olResp.ok) {
           const olData = await olResp.json();
-          const key = `ISBN:${cleaned}`;
-          if (olData[key]) {
-            const b = olData[key];
-            showStatus('Found on Open Library!', 'success');
+          if (olData.docs && olData.docs.length > 0) {
+            const doc = olData.docs[0];
+            showStatus('Found metadata via Open Library!', 'success');
             return {
-              title: b.title || 'Unknown Title',
-              author: b.authors ? b.authors.map(a => a.name).join(', ') : 'Unknown',
-              publisher: b.publishers ? b.publishers.map(p => p.name).join(', ') : '',
-              language: '',
+              title: doc.title || '',
+              author: doc.author_name ? doc.author_name.join(', ') : '',
+              publisher: doc.publisher ? doc.publisher[0] : '',
+              language: doc.language ? doc.language[0].toUpperCase() : '',
               isbn: cleaned,
-              cover: b.cover ? b.cover.medium : '',
-              tags: b.subjects ? b.subjects.slice(0, 3).map(s => s.name).join(', ') : '',
+              cover: doc.cover_i ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-M.jpg` : '',
+              tags: doc.subject ? doc.subject.slice(0, 3).join(', ') : '',
               notes: ''
             };
           }
         }
       } catch (err) {
-        console.warn('Open Library lookup failed', err);
+        console.warn('Open Library failed', err);
       }
 
-      showStatus(`ISBN ${cleaned} not auto-filled. Please type details manually.`, 'warning');
+      showStatus(`ISBN ${cleaned} not found automatically. Enter details manually below.`, 'warning');
       return { isbn: cleaned, title: '', author: '', publisher: '', cover: '', tags: '', notes: '' };
     }
 
-    // 3. Camera / Scanner Handler
+    // Camera Barcode Scanner
     function toggleScanner() {
       const container = document.getElementById('scannerContainer');
       if (container.classList.contains('hidden')) {
@@ -244,19 +235,30 @@
 
     function startScanner() {
       document.getElementById('scannerContainer').classList.remove('hidden');
-      document.getElementById('scanBtnText').textContent = "Close Camera";
+      document.getElementById('scanBtnText').textContent = "Stop Camera";
 
       html5QrcodeScanner = new Html5Qrcode("reader");
+      
+      const config = { 
+        fps: 15, 
+        qrbox: { width: 280, height: 140 },
+        formatsToSupport: [ 
+          Html5QrcodeSupportedFormats.EAN_13, 
+          Html5QrcodeSupportedFormats.EAN_8,
+          Html5QrcodeSupportedFormats.CODE_128 
+        ] 
+      };
+
       html5QrcodeScanner.start(
         { facingMode: "environment" },
-        { fps: 10, qrbox: { width: 280, height: 160 } },
+        config,
         (decodedText) => {
           stopScanner();
           processScannedIsbn(decodedText);
         },
-        () => {} // silent scan errors
+        () => {}
       ).catch(err => {
-        showStatus('Camera access denied or unreadable. Try uploading a photo instead!', 'error');
+        showStatus('Camera blocked or unavailable. Try the "Upload Image" option!', 'error');
         stopScanner();
       });
     }
@@ -269,21 +271,21 @@
         }).catch(() => {});
       }
       document.getElementById('scannerContainer').classList.add('hidden');
-      document.getElementById('scanBtnText').textContent = "Scan ISBN Barcode";
+      document.getElementById('scanBtnText').textContent = "Live Camera Scan";
     }
 
-    // File image scan fallback
+    // Image File Barcode Scan
     function scanImageFile(input) {
       if (input.files && input.files[0]) {
-        showStatus('Scanning uploaded image for barcode...', 'info');
+        showStatus('Analyzing barcode from image...', 'info');
         const file = input.files[0];
         const scanner = new Html5Qrcode("reader");
         scanner.scanFile(file, true)
           .then(decodedText => {
             processScannedIsbn(decodedText);
           })
-          .catch(err => {
-            showStatus('Could not read a barcode from that image. Try a clearer close-up.', 'error');
+          .catch(() => {
+            showStatus('Could not read barcode from image. Ensure photo is clear and well-lit.', 'error');
           });
       }
     }
@@ -300,7 +302,7 @@
       openManualModal(bookData);
     }
 
-    // 4. Modal & CRUD Operations
+    // Modal & Database CRUD
     function openManualModal(data = {}) {
       document.getElementById('formId').value = data.id || '';
       document.getElementById('formTitle').value = data.title || '';
@@ -347,19 +349,18 @@
       tx.oncomplete = () => {
         closeModal();
         renderBooks();
-        showStatus('Book saved successfully!', 'success');
+        showStatus('Book saved!', 'success');
       };
     }
 
     function deleteBook(id) {
-      if (confirm('Delete this book from your catalog?')) {
+      if (confirm('Delete this book?')) {
         const tx = db.transaction('books', 'readwrite');
         tx.objectStore('books').delete(id);
         tx.oncomplete = () => renderBooks();
       }
     }
 
-    // 5. Render & Filter
     function renderBooks() {
       const tx = db.transaction('books', 'readonly');
       const store = tx.objectStore('books');
@@ -370,7 +371,7 @@
         document.getElementById('bookCount').textContent = `${books.length} book${books.length === 1 ? '' : 's'}`;
 
         if (activeTag !== 'ALL') {
-          books = books.filter(b => b.tags && b.tags.some(t => t.toLowerCase() === activeTag.toLowerCase()));
+          books = books.filter(b => b.tags && b.tags.some(t => t.toLowerCase().includes(activeTag.toLowerCase())));
         }
 
         const grid = document.getElementById('bookGrid');
@@ -378,7 +379,7 @@
           grid.innerHTML = `
             <div class="col-span-2 text-center py-12 text-slate-500">
               <i class="fa-solid fa-book-open text-4xl mb-3 block"></i>
-              No books cataloged yet. Tap "Scan ISBN Barcode" to get started!
+              No books cataloged yet. Tap "Live Camera Scan" or "Upload Image" to start!
             </div>`;
           return;
         }
@@ -425,29 +426,23 @@
 
     function filterTag(tag) {
       activeTag = tag;
-      document.querySelectorAll('.tag-filter').forEach(btn => {
+      document.querySelectorAll('.tag-btn').forEach(btn => {
         if (btn.textContent.trim().toLowerCase() === tag.toLowerCase() || (tag === 'ALL' && btn.textContent.trim() === 'All')) {
-          btn.className = 'tag-filter px-3 py-1 text-xs font-semibold rounded-lg bg-indigo-600 text-white shadow';
+          btn.className = 'tag-btn px-3 py-1 text-xs font-semibold rounded-lg bg-indigo-600 text-white shadow';
         } else {
-          btn.className = 'tag-filter px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700';
+          btn.className = 'tag-btn px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700';
         }
       });
       renderBooks();
     }
 
-    // 6. Export Utilities (CSV & JSON)
     function exportData(format) {
       const tx = db.transaction('books', 'readonly');
       tx.objectStore('books').getAll().onsuccess = (e) => {
         const books = e.target.result;
-        if (books.length === 0) {
-          showStatus('No books to export!', 'warning');
-          return;
-        }
+        if (books.length === 0) return showStatus('No books to export!', 'warning');
 
-        let content = '';
-        let filename = `library_export_${new Date().toISOString().slice(0,10)}`;
-        let type = '';
+        let content = '', filename = `library_export_${new Date().toISOString().slice(0,10)}`, type = '';
 
         if (format === 'csv') {
           const headers = ['Title', 'Author', 'ISBN', 'Publisher', 'Language', 'Tags', 'Notes', 'CoverURL'];
@@ -477,7 +472,6 @@
         a.download = filename;
         a.click();
         URL.revokeObjectURL(url);
-        showStatus(`Exported ${books.length} books as ${format.toUpperCase()}!`, 'success');
       };
     }
 
