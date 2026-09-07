@@ -21,11 +21,12 @@
         <h1 class="text-xl font-bold tracking-tight text-white">My Library</h1>
       </div>
       <div class="flex items-center space-x-2">
-        <button onclick="exportData('csv')" class="px-3 py-1.5 text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 rounded-lg text-white shadow transition">
-          <i class="fa-solid fa-file-csv mr-1"></i> CSV
-        </button>
-        <button onclick="exportData('json')" class="px-3 py-1.5 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 rounded-lg text-white shadow transition">
-          <i class="fa-solid fa-file-code mr-1"></i> JSON
+        <label class="px-3 py-1.5 text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 rounded-lg text-white shadow transition cursor-pointer flex items-center">
+          <i class="fa-solid fa-file-import mr-1.5"></i> Import JSON
+          <input type="file" id="jsonFileInput" accept=".json" class="hidden" onchange="importJsonData(this)">
+        </label>
+        <button onclick="exportData()" class="px-3 py-1.5 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 rounded-lg text-white shadow transition flex items-center">
+          <i class="fa-solid fa-file-code mr-1.5"></i> Export JSON
         </button>
       </div>
     </div>
@@ -42,7 +43,7 @@
     </div>
 
     <!-- Scanner & Controls -->
-    <div class="bg-slate-800 rounded-2xl p-4 shadow-lg mb-6 border border-slate-700">
+    <div class="bg-slate-800 rounded-2xl p-4 shadow-lg mb-4 border border-slate-700">
       <div class="flex flex-wrap gap-2 mb-3">
         <button id="toggleCameraBtn" onclick="toggleScanner()" class="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white py-2.5 px-4 rounded-xl font-semibold flex items-center justify-center space-x-2 transition shadow">
           <i class="fa-solid fa-camera"></i>
@@ -69,11 +70,20 @@
 
       <!-- Manual ISBN Search -->
       <div class="flex space-x-2">
-        <input type="text" id="manualIsbnInput" placeholder="Enter ISBN (e.g. 8984423750, 9782368525876)..." 
+        <input type="text" id="manualIsbnInput" placeholder="Enter ISBN (e.g. 9781939326430)..." 
                class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500">
         <button onclick="lookupManualIsbn()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2 rounded-xl text-sm font-semibold transition">
           Lookup
         </button>
+      </div>
+    </div>
+
+    <!-- Search Bar for Title & Author -->
+    <div class="mb-4">
+      <div class="relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+        <input type="text" id="searchInput" oninput="renderBooks()" placeholder="Search library by title or author..." 
+               class="w-full bg-slate-800 border border-slate-700 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 shadow-sm transition">
       </div>
     </div>
 
@@ -100,7 +110,6 @@
   <!-- Add/Edit Book Modal -->
   <div id="bookModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
     <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 w-full max-w-lg shadow-2xl overflow-y-auto max-h-[90vh]">
-      <!-- Duplicate Warning Inside Modal -->
       <div id="modalDuplicateWarning" class="hidden bg-amber-950/90 border border-amber-600/80 text-amber-200 px-3 py-2 rounded-xl mb-3 text-xs flex items-center space-x-2">
         <i class="fa-solid fa-triangle-exclamation text-amber-400"></i>
         <span><strong>Duplicate Notice:</strong> This ISBN is already in your library. Saving will add another copy.</span>
@@ -175,7 +184,7 @@
       document.getElementById('protocolWarning').classList.remove('hidden');
     }
 
-    // Check if an ISBN already exists in the user's IndexedDB database
+    // Check if an ISBN already exists in IndexedDB
     async function checkIsbnExistsInDb(isbn) {
       return new Promise((resolve) => {
         if (!db) return resolve(null);
@@ -191,7 +200,7 @@
       });
     }
 
-    // Helper: Converts 10-digit ISBNs (like Korean 8984423750) to 13-digit EAN (9788984423756)
+    // Helper: Converts 10-digit ISBNs to 13-digit EAN
     function normalizeIsbn(isbn) {
       const clean = isbn.replace(/[^0-9X]/gi, '');
       if (clean.length === 10) {
@@ -206,14 +215,14 @@
       return clean;
     }
 
-    // Multi-Database Metadata Lookup (Google Books -> Open Library Direct -> Open Library Search -> BnF SRU)
+    // Multi-Database Metadata Lookup
     async function fetchBookMetadata(rawIsbn) {
       const cleaned = normalizeIsbn(rawIsbn);
       showStatus(`Searching databases for ISBN ${cleaned}...`, 'info');
 
       const isKorean = cleaned.startsWith('89') || cleaned.startsWith('97889');
 
-      // Strategy 1: Google Books (Exact ISBN + Broad Search)
+      // Strategy 1: Google Books
       try {
         let gResp = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${cleaned}`);
         let gData = await gResp.json();
@@ -241,7 +250,7 @@
         console.warn('Google Books failed', err);
       }
 
-      // Strategy 2: Open Library Direct Books API
+      // Strategy 2: Open Library Direct
       try {
         const olDirect = await fetch(`https://openlibrary.org/api/books?bibkeys=ISBN:${cleaned}&format=json&jscmd=data`);
         if (olDirect.ok) {
@@ -288,45 +297,6 @@
         }
       } catch (err) {
         console.warn('Open Library Search failed', err);
-      }
-
-      // Strategy 4: BnF SRU API
-      try {
-        const bnfUrl = `https://catalogue.bnf.fr/api/SRU?version=1.2&operation=searchRetrieve&recordSchema=dublincore&query=bib.isbn%20adj%20%22${cleaned}%22`;
-        const bnfResp = await fetch(bnfUrl);
-        if (bnfResp.ok) {
-          const xmlText = await bnfResp.text();
-          const parser = new DOMParser();
-          const xmlDoc = parser.parseFromString(xmlText, "text/xml");
-          
-          const getDC = (tag) => {
-            const el = xmlDoc.getElementsByTagNameNS("http://purl.org/dc/elements/1.1/", tag)[0] || 
-                       xmlDoc.getElementsByTagName(`dc:${tag}`)[0] ||
-                       xmlDoc.getElementsByTagName(tag)[0];
-            return el ? el.textContent : '';
-          };
-
-          const title = getDC('title');
-          const creator = getDC('creator');
-          const publisher = getDC('publisher');
-          const language = getDC('language');
-
-          if (title) {
-            showStatus('Found details via Bibliothèque nationale de France (BnF)!', 'success');
-            return {
-              title: title,
-              author: creator || 'Unknown Author',
-              publisher: publisher || '',
-              language: (language || 'FR').toUpperCase(),
-              isbn: cleaned,
-              cover: '',
-              tags: 'French',
-              notes: 'Source: BnF French National Catalog'
-            };
-          }
-        }
-      } catch (err) {
-        console.warn('BnF SRU API failed', err);
       }
 
       showStatus(`ISBN ${cleaned} not found in public databases. Opening manual entry...`, 'warning');
@@ -427,7 +397,7 @@
       document.getElementById('formIsbn').value = data.isbn || '';
       document.getElementById('formPublisher').value = data.publisher || '';
       document.getElementById('formLanguage').value = data.language || '';
-      document.getElementById('formTags').value = data.tags || '';
+      document.getElementById('formTags').value = Array.isArray(data.tags) ? data.tags.join(', ') : (data.tags || '');
       document.getElementById('formCover').value = data.cover || '';
       document.getElementById('formNotes').value = data.notes || '';
       document.getElementById('modalTitle').textContent = data.id ? 'Edit Book' : 'Add New Book';
@@ -486,25 +456,46 @@
       }
     }
 
+    // Flexible Token Match for Fuzzy Title & Author Search
+    function matchesFuzzySearch(book, query) {
+      if (!query) return true;
+      const qTokens = query.toLowerCase().trim().split(/\s+/);
+      const title = (book.title || '').toLowerCase();
+      const author = (book.author || '').toLowerCase();
+      const combined = `${title} ${author}`;
+
+      // Returns true if every token in the query appears in the title or author
+      return qTokens.every(token => combined.includes(token));
+    }
+
     function renderBooks() {
+      if (!db) return;
       const tx = db.transaction('books', 'readonly');
       const store = tx.objectStore('books');
       const req = store.getAll();
 
       req.onsuccess = () => {
         let books = req.result;
-        document.getElementById('bookCount').textContent = `${books.length} book${books.length === 1 ? '' : 's'}`;
+        const searchQuery = document.getElementById('searchInput')?.value || '';
 
+        // Apply Tag Filter
         if (activeTag !== 'ALL') {
           books = books.filter(b => b.tags && b.tags.some(t => t.toLowerCase().includes(activeTag.toLowerCase())));
         }
+
+        // Apply Fuzzy Search Filter (Title & Author)
+        if (searchQuery.trim()) {
+          books = books.filter(b => matchesFuzzySearch(b, searchQuery));
+        }
+
+        document.getElementById('bookCount').textContent = `${books.length} book${books.length === 1 ? '' : 's'}`;
 
         const grid = document.getElementById('bookGrid');
         if (books.length === 0) {
           grid.innerHTML = `
             <div class="col-span-2 text-center py-12 text-slate-500">
               <i class="fa-solid fa-book-open text-4xl mb-3 block"></i>
-              No books cataloged yet. Tap "Live Camera Scan" or "Upload Image" to start!
+              ${searchQuery ? 'No matching books found for your search.' : 'No books cataloged yet. Tap "Import JSON" or start scanning!'}
             </div>`;
           return;
         }
@@ -561,36 +552,72 @@
       renderBooks();
     }
 
-    function exportData(format) {
+    // JSON Import Function
+    function importJsonData(input) {
+      if (!input.files || !input.files[0]) return;
+      const file = input.files[0];
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        try {
+          const data = JSON.parse(e.target.result);
+          if (!Array.isArray(data)) {
+            showStatus('Import failed: JSON file must contain an array of book objects.', 'error');
+            return;
+          }
+
+          const tx = db.transaction('books', 'readwrite');
+          const store = tx.objectStore('books');
+          let count = 0;
+
+          data.forEach(item => {
+            // Strip old database ID so IndexedDB autoincrements
+            const book = { ...item };
+            delete book.id;
+
+            book.title = book.title || 'Untitled';
+            book.author = book.author || 'Unknown Author';
+            book.isbn = book.isbn || '';
+            book.publisher = book.publisher || '';
+            book.language = book.language || '';
+            book.tags = Array.isArray(book.tags) ? book.tags : (book.tags ? book.tags.split(',').map(t => t.trim()) : []);
+            book.cover = book.cover || '';
+            book.notes = book.notes || '';
+            book.addedAt = book.addedAt || new Date().toISOString();
+
+            store.add(book);
+            count++;
+          });
+
+          tx.oncomplete = () => {
+            renderBooks();
+            showStatus(`Successfully imported ${count} book(s) into your library!`, 'success');
+            input.value = '';
+          };
+
+          tx.onerror = () => {
+            showStatus('Error saving imported books to database.', 'error');
+          };
+
+        } catch (err) {
+          showStatus('Invalid JSON file format.', 'error');
+        }
+      };
+
+      reader.readAsText(file);
+    }
+
+    // JSON Export Function
+    function exportData() {
       const tx = db.transaction('books', 'readonly');
       tx.objectStore('books').getAll().onsuccess = (e) => {
         const books = e.target.result;
         if (books.length === 0) return showStatus('No books to export!', 'warning');
 
-        let content = '', filename = `library_export_${new Date().toISOString().slice(0,10)}`, type = '';
+        const filename = `library_export_${new Date().toISOString().slice(0,10)}.json`;
+        const content = JSON.stringify(books, null, 2);
 
-        if (format === 'csv') {
-          const headers = ['Title', 'Author', 'ISBN', 'Publisher', 'Language', 'Tags', 'Notes', 'CoverURL'];
-          const rows = books.map(b => [
-            `"${(b.title || '').replace(/"/g, '""')}"`,
-            `"${(b.author || '').replace(/"/g, '""')}"`,
-            `"${b.isbn || ''}"`,
-            `"${(b.publisher || '').replace(/"/g, '""')}"`,
-            `"${b.language || ''}"`,
-            `"${(b.tags || []).join(', ')}"`,
-            `"${(b.notes || '').replace(/"/g, '""')}"`,
-            `"${b.cover || ''}"`
-          ].join(','));
-          content = [headers.join(','), ...rows].join('\n');
-          filename += '.csv';
-          type = 'text/csv';
-        } else {
-          content = JSON.stringify(books, null, 2);
-          filename += '.json';
-          type = 'application/json';
-        }
-
-        const blob = new Blob([content], { type });
+        const blob = new Blob([content], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
