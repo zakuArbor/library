@@ -69,7 +69,7 @@
 
       <!-- Manual ISBN Search -->
       <div class="flex space-x-2">
-        <input type="text" id="manualIsbnInput" placeholder="Enter ISBN (e.g. 9782368525876 or 9791032724170)..." 
+        <input type="text" id="manualIsbnInput" placeholder="Enter ISBN (e.g. 8984423750, 9782368525876)..." 
                class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500">
         <button onclick="lookupManualIsbn()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2 rounded-xl text-sm font-semibold transition">
           Lookup
@@ -84,6 +84,7 @@
     <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
       <div class="flex items-center space-x-2 overflow-x-auto pb-1 w-full sm:w-auto" id="tagFilters">
         <button onclick="filterTag('ALL')" class="tag-btn px-3 py-1 text-xs font-semibold rounded-lg bg-indigo-600 text-white shadow">All</button>
+        <button onclick="filterTag('Korean')" class="tag-btn px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">Korean</button>
         <button onclick="filterTag('Manga')" class="tag-btn px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">Manga</button>
         <button onclick="filterTag('Math')" class="tag-btn px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">Math</button>
         <button onclick="filterTag('CS / Unix')" class="tag-btn px-3 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">CS / Unix</button>
@@ -123,12 +124,12 @@
           </div>
           <div>
             <label class="block text-xs font-semibold text-slate-400 mb-1">Language</label>
-            <input type="text" id="formLanguage" placeholder="e.g. FR, EN, KR" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500">
+            <input type="text" id="formLanguage" placeholder="e.g. KO, FR, EN" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500">
           </div>
         </div>
         <div>
           <label class="block text-xs font-semibold text-slate-400 mb-1">Tags (comma-separated)</label>
-          <input type="text" id="formTags" placeholder="Manga, French, Kurokawa" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500">
+          <input type="text" id="formTags" placeholder="Korean, Fiction, Novel" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500">
         </div>
         <div>
           <label class="block text-xs font-semibold text-slate-400 mb-1">Cover Image URL</label>
@@ -151,7 +152,7 @@
     let html5QrcodeScanner = null;
     let activeTag = 'ALL';
 
-    // 1. Initialize IndexedDB
+    // Initialize IndexedDB
     const request = indexedDB.open('PersonalLibraryDB', 1);
     request.onupgradeneeded = (e) => {
       db = e.target.result;
@@ -168,60 +169,107 @@
       document.getElementById('protocolWarning').classList.remove('hidden');
     }
 
-    // 2. Multi-Database Metadata Lookup (Google Books -> Open Library -> BnF SRU)
-    async function fetchBookMetadata(isbn) {
-      const cleaned = isbn.replace(/[^0-9X]/gi, '');
+    // Helper: Converts 10-digit ISBNs (like Korean 8984423750) to 13-digit EAN (9788984423756)
+    function normalizeIsbn(isbn) {
+      const clean = isbn.replace(/[^0-9X]/gi, '');
+      if (clean.length === 10) {
+        const base = '978' + clean.substring(0, 9);
+        let sum = 0;
+        for (let i = 0; i < 12; i++) {
+          sum += parseInt(base[i]) * (i % 2 === 0 ? 1 : 3);
+        }
+        const checkDigit = (10 - (sum % 10)) % 10;
+        return base + checkDigit;
+      }
+      return clean;
+    }
+
+    // Multi-Database Metadata Lookup (Google Books -> Open Library Direct -> Open Library Search -> BnF SRU)
+    async function fetchBookMetadata(rawIsbn) {
+      const cleaned = normalizeIsbn(rawIsbn);
       showStatus(`Searching databases for ISBN ${cleaned}...`, 'info');
 
-      // Strategy 1: Google Books Broad Query
+      // Detect Korean Prefix (89 / 97889)
+      const isKorean = cleaned.startsWith('89') || cleaned.startsWith('97889');
+
+      // Strategy 1: Google Books (Exact ISBN + Broad Search)
       try {
-        const gResp = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${cleaned}`);
-        if (gResp.ok) {
-          const gData = await gResp.json();
-          if (gData.items && gData.items.length > 0) {
-            const item = gData.items[0].volumeInfo;
-            showStatus('Found details via Google Books!', 'success');
-            return {
-              title: item.title + (item.subtitle ? `: ${item.subtitle}` : ''),
-              author: item.authors ? item.authors.join(', ') : 'Unknown Author',
-              publisher: item.publisher || '',
-              language: (item.language || '').toUpperCase(),
-              isbn: cleaned,
-              cover: item.imageLinks ? (item.imageLinks.thumbnail || item.imageLinks.smallThumbnail || '').replace('http:', 'https:') : '',
-              tags: item.categories ? item.categories.join(', ') : 'Manga',
-              notes: item.description ? item.description.substring(0, 150) + '...' : ''
-            };
-          }
+        let gResp = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${cleaned}`);
+        let gData = await gResp.json();
+
+        if (!gData.items || gData.items.length === 0) {
+          gResp = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${cleaned}`);
+          gData = await gResp.json();
+        }
+
+        if (gData.items && gData.items.length > 0) {
+          const item = gData.items[0].volumeInfo;
+          showStatus('Found details via Google Books!', 'success');
+          return {
+            title: item.title + (item.subtitle ? `: ${item.subtitle}` : ''),
+            author: item.authors ? item.authors.join(', ') : 'Unknown Author',
+            publisher: item.publisher || '',
+            language: (item.language || (isKorean ? 'KO' : '')).toUpperCase(),
+            isbn: cleaned,
+            cover: item.imageLinks ? (item.imageLinks.thumbnail || item.imageLinks.smallThumbnail || '').replace('http:', 'https:') : '',
+            tags: item.categories ? item.categories.join(', ') : (isKorean ? 'Korean' : 'Book'),
+            notes: item.description ? item.description.substring(0, 150) + '...' : ''
+          };
         }
       } catch (err) {
         console.warn('Google Books failed', err);
       }
 
-      // Strategy 2: Open Library Search API
+      // Strategy 2: Open Library Direct Books API
+      try {
+        const olDirect = await fetch(`https://openlibrary.org/api/books?bibkeys=ISBN:${cleaned}&format=json&jscmd=data`);
+        if (olDirect.ok) {
+          const olData = await olDirect.json();
+          const bookKey = `ISBN:${cleaned}`;
+          if (olData[bookKey]) {
+            const book = olData[bookKey];
+            showStatus('Found details via Open Library!', 'success');
+            return {
+              title: book.title || '',
+              author: book.authors ? book.authors.map(a => a.name).join(', ') : 'Unknown Author',
+              publisher: book.publishers ? book.publishers[0].name : '',
+              language: isKorean ? 'KO' : '',
+              isbn: cleaned,
+              cover: book.cover ? book.cover.medium || book.cover.small : '',
+              tags: book.subjects ? book.subjects.slice(0, 3).map(s => s.name).join(', ') : (isKorean ? 'Korean' : ''),
+              notes: ''
+            };
+          }
+        }
+      } catch (err) {
+        console.warn('Open Library Direct API failed', err);
+      }
+
+      // Strategy 3: Open Library Search Fallback
       try {
         const olResp = await fetch(`https://openlibrary.org/search.json?q=${cleaned}`);
         if (olResp.ok) {
           const olData = await olResp.json();
           if (olData.docs && olData.docs.length > 0) {
             const doc = olData.docs[0];
-            showStatus('Found details via Open Library!', 'success');
+            showStatus('Found details via Open Library Search!', 'success');
             return {
               title: doc.title || '',
               author: doc.author_name ? doc.author_name.join(', ') : 'Unknown Author',
               publisher: doc.publisher ? doc.publisher[0] : '',
-              language: doc.language ? doc.language[0].toUpperCase() : '',
+              language: doc.language ? doc.language[0].toUpperCase() : (isKorean ? 'KO' : ''),
               isbn: cleaned,
               cover: doc.cover_i ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-M.jpg` : '',
-              tags: doc.subject ? doc.subject.slice(0, 3).join(', ') : '',
+              tags: doc.subject ? doc.subject.slice(0, 3).join(', ') : (isKorean ? 'Korean' : ''),
               notes: ''
             };
           }
         }
       } catch (err) {
-        console.warn('Open Library failed', err);
+        console.warn('Open Library Search failed', err);
       }
 
-      // Strategy 3: Bibliothèque nationale de France (BnF) SRU API
+      // Strategy 4: Bibliothèque nationale de France (BnF) SRU API
       try {
         const bnfUrl = `https://catalogue.bnf.fr/api/SRU?version=1.2&operation=searchRetrieve&recordSchema=dublincore&query=bib.isbn%20adj%20%22${cleaned}%22`;
         const bnfResp = await fetch(bnfUrl);
@@ -247,11 +295,11 @@
             return {
               title: title,
               author: creator || 'Unknown Author',
-              publisher: publisher || 'Kurokawa',
+              publisher: publisher || '',
               language: (language || 'FR').toUpperCase(),
               isbn: cleaned,
               cover: '',
-              tags: 'Manga, French',
+              tags: 'French',
               notes: 'Source: BnF French National Catalog'
             };
           }
@@ -260,11 +308,11 @@
         console.warn('BnF SRU API failed', err);
       }
 
-      showStatus(`ISBN ${cleaned} could not be automatically found. Please fill details manually.`, 'warning');
-      return { isbn: cleaned, title: '', author: '', publisher: '', cover: '', tags: '', notes: '' };
+      showStatus(`ISBN ${cleaned} not found in public databases. Opening manual entry...`, 'warning');
+      return { isbn: cleaned, title: '', author: '', publisher: '', language: isKorean ? 'KO' : '', cover: '', tags: isKorean ? 'Korean' : '', notes: '' };
     }
 
-    // 3. Camera Barcode Scanner
+    // Camera Barcode Scanner
     function toggleScanner() {
       const container = document.getElementById('scannerContainer');
       if (container.classList.contains('hidden')) startScanner();
@@ -312,7 +360,6 @@
       document.getElementById('scanBtnText').textContent = "Live Camera Scan";
     }
 
-    // Image File Barcode Scanner
     function scanImageFile(input) {
       if (input.files && input.files[0]) {
         showStatus('Analyzing barcode image...', 'info');
@@ -336,7 +383,7 @@
       openManualModal(bookData);
     }
 
-    // 4. Modal and CRUD
+    // Modal and CRUD
     function openManualModal(data = {}) {
       document.getElementById('formId').value = data.id || '';
       document.getElementById('formTitle').value = data.title || '';
