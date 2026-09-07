@@ -100,6 +100,12 @@
   <!-- Add/Edit Book Modal -->
   <div id="bookModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
     <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 w-full max-w-lg shadow-2xl overflow-y-auto max-h-[90vh]">
+      <!-- Duplicate Warning Inside Modal -->
+      <div id="modalDuplicateWarning" class="hidden bg-amber-950/90 border border-amber-600/80 text-amber-200 px-3 py-2 rounded-xl mb-3 text-xs flex items-center space-x-2">
+        <i class="fa-solid fa-triangle-exclamation text-amber-400"></i>
+        <span><strong>Duplicate Notice:</strong> This ISBN is already in your library. Saving will add another copy.</span>
+      </div>
+
       <h3 id="modalTitle" class="text-lg font-bold text-white mb-4">Add / Edit Book</h3>
       <form id="bookForm" onsubmit="saveBook(event)" class="space-y-3">
         <input type="hidden" id="formId">
@@ -169,6 +175,22 @@
       document.getElementById('protocolWarning').classList.remove('hidden');
     }
 
+    // Check if an ISBN already exists in the user's IndexedDB database
+    async function checkIsbnExistsInDb(isbn) {
+      return new Promise((resolve) => {
+        if (!db) return resolve(null);
+        const tx = db.transaction('books', 'readonly');
+        const store = tx.objectStore('books');
+        const req = store.getAll();
+        req.onsuccess = () => {
+          const cleanSearch = isbn.replace(/[^0-9X]/gi, '');
+          const existing = req.result.find(b => b.isbn && b.isbn.replace(/[^0-9X]/gi, '') === cleanSearch);
+          resolve(existing || null);
+        };
+        req.onerror = () => resolve(null);
+      });
+    }
+
     // Helper: Converts 10-digit ISBNs (like Korean 8984423750) to 13-digit EAN (9788984423756)
     function normalizeIsbn(isbn) {
       const clean = isbn.replace(/[^0-9X]/gi, '');
@@ -189,7 +211,6 @@
       const cleaned = normalizeIsbn(rawIsbn);
       showStatus(`Searching databases for ISBN ${cleaned}...`, 'info');
 
-      // Detect Korean Prefix (89 / 97889)
       const isKorean = cleaned.startsWith('89') || cleaned.startsWith('97889');
 
       // Strategy 1: Google Books (Exact ISBN + Broad Search)
@@ -269,7 +290,7 @@
         console.warn('Open Library Search failed', err);
       }
 
-      // Strategy 4: Bibliothèque nationale de France (BnF) SRU API
+      // Strategy 4: BnF SRU API
       try {
         const bnfUrl = `https://catalogue.bnf.fr/api/SRU?version=1.2&operation=searchRetrieve&recordSchema=dublincore&query=bib.isbn%20adj%20%22${cleaned}%22`;
         const bnfResp = await fetch(bnfUrl);
@@ -372,19 +393,34 @@
     }
 
     async function processScannedIsbn(isbn) {
-      const bookData = await fetchBookMetadata(isbn);
-      openManualModal(bookData);
+      const cleaned = normalizeIsbn(isbn);
+      const existingInDb = await checkIsbnExistsInDb(cleaned);
+      const bookData = await fetchBookMetadata(cleaned);
+
+      if (existingInDb) {
+        showStatus(`Notice: ISBN ${cleaned} is already in your catalog ("${existingInDb.title}")! Opening form in case you want to edit or add a duplicate.`, 'warning');
+      }
+
+      openManualModal(bookData, !!existingInDb);
     }
 
     async function lookupManualIsbn() {
       const input = document.getElementById('manualIsbnInput').value.trim();
       if (!input) return;
-      const bookData = await fetchBookMetadata(input);
-      openManualModal(bookData);
+      
+      const cleaned = normalizeIsbn(input);
+      const existingInDb = await checkIsbnExistsInDb(cleaned);
+      const bookData = await fetchBookMetadata(cleaned);
+
+      if (existingInDb) {
+        showStatus(`Notice: ISBN ${cleaned} is already in your catalog ("${existingInDb.title}")! Opening form in case you want to edit or add a duplicate.`, 'warning');
+      }
+
+      openManualModal(bookData, !!existingInDb);
     }
 
     // Modal and CRUD
-    function openManualModal(data = {}) {
+    function openManualModal(data = {}, isDuplicate = false) {
       document.getElementById('formId').value = data.id || '';
       document.getElementById('formTitle').value = data.title || '';
       document.getElementById('formAuthor').value = data.author || '';
@@ -395,6 +431,14 @@
       document.getElementById('formCover').value = data.cover || '';
       document.getElementById('formNotes').value = data.notes || '';
       document.getElementById('modalTitle').textContent = data.id ? 'Edit Book' : 'Add New Book';
+
+      const dupWarning = document.getElementById('modalDuplicateWarning');
+      if (isDuplicate && !data.id) {
+        dupWarning.classList.remove('hidden');
+      } else {
+        dupWarning.classList.add('hidden');
+      }
+
       document.getElementById('bookModal').classList.remove('hidden');
     }
 
