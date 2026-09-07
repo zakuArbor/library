@@ -1,0 +1,4814 @@
+[
+  {
+    "title": "Frieren - Prélude",
+    "author": "Mei Hachimoku / Kanehito Yamada / Tsukasa Abe",
+    "isbn": "9791032724170",
+    "publisher": "Ki-oon",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "Light Novel",
+      "Ki-oon",
+      "French"
+    ],
+    "cover": "https://www.renaud-bray.com/ImagesEtiquettes/460/4603287-m.jpg",
+    "notes": "Light novel set in the world of Frieren: Beyond Journey's End.",
+    "addedAt": "2026-09-07T18:36:17.123Z",
+    "id": 1,
+    "pageCount": 195
+  },
+  {
+    "title": "Your Linux Toolbox",
+    "author": "Julia Evans",
+    "isbn": "9781593279776",
+    "publisher": "No Scratch Press",
+    "language": "EN",
+    "tags": [
+      "Linux",
+      "tcp",
+      "strace",
+      "perf",
+      "profiling",
+      "gdb"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/10329276-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T18:40:12.270Z",
+    "id": 2,
+    "pageCount": 84
+  },
+  {
+    "title": "High Performance Computing",
+    "author": "Thomas Sterling, Matthew Anderson, Maciej Brodowicz",
+    "isbn": "9780128230350",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/14814143-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T18:43:44.008Z",
+    "id": 3,
+    "pageCount": 480
+  },
+  {
+    "title": "The Pragmatic Programmer",
+    "author": "Andy Hunt, Dave Thomas",
+    "isbn": "9780135957059",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/10143650-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T18:43:58.723Z",
+    "id": 4,
+    "pageCount": 352
+  },
+  {
+    "title": "Systems Performance",
+    "author": "Brendan Gregg",
+    "isbn": "9780136820154",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/13193421-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T18:44:08.915Z",
+    "id": 5,
+    "pageCount": 928
+  },
+  {
+    "title": "Accelerated Computing with HIP",
+    "author": "Yifan Sun, Trinayan Baruah, David Kaeli",
+    "isbn": "9798218576578",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T18:44:18.953Z",
+    "id": 6,
+    "pageCount": 300
+  },
+  {
+    "title": "The art of multiprocessor programming",
+    "author": "Maurice Herlihy",
+    "isbn": "9780124159501",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/2320484-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T18:44:26.209Z",
+    "id": 7,
+    "pageCount": 576
+  },
+  {
+    "title": "GameBoy Coding Adventure",
+    "author": "Maximilien Dagois",
+    "isbn": "9781718503908",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T18:44:34.227Z",
+    "id": 8,
+    "pageCount": 456
+  },
+  {
+    "title": "Elements of Computing Systems",
+    "author": "Noam Nisan, Shimon Schocken",
+    "isbn": "9780262640688",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/2342736-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T18:44:50.780Z",
+    "id": 9,
+    "pageCount": 352
+  },
+  {
+    "title": "A Tour of C++",
+    "author": "Bjarne Stroustrup",
+    "isbn": "9780134997834",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/13844075-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T18:45:12.649Z",
+    "id": 10,
+    "pageCount": 256
+  },
+  {
+    "title": "Making Embedded Systems",
+    "author": "Elecia White",
+    "isbn": "9781098151546",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/7643570-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T18:45:19.705Z",
+    "id": 11,
+    "pageCount": 425
+  },
+  {
+    "title": "Blue Fox",
+    "author": "Maria Markstedter",
+    "isbn": "9781119745303",
+    "publisher": "",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/14612651-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T18:45:35.282Z",
+    "id": 12,
+    "pageCount": 480
+  },
+  {
+    "title": "Operating Systems",
+    "author": "Remzi H Arpaci-Dusseau, Andrea C Arpaci-Dusseau",
+    "isbn": "9781985086593",
+    "publisher": "",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/10401368-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T18:45:45.784Z",
+    "id": 13,
+    "pageCount": 714
+  },
+  {
+    "title": "La story de la langue française",
+    "author": "Jean Pruvost",
+    "isbn": "9791021028395",
+    "publisher": "",
+    "language": "FR",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T18:48:28.857Z",
+    "id": 14,
+    "pageCount": 365
+  },
+  {
+    "title": "The art of doing science and engineering",
+    "author": "Richard Hamming, Bret Victor",
+    "isbn": "9781732265172",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/14153910-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T18:48:55.127Z",
+    "id": 15,
+    "pageCount": 432
+  },
+  {
+    "title": "Introduction to Classical and Quantum Computing",
+    "author": "Thomas Wong",
+    "isbn": "9798985593105",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T18:48:59.625Z",
+    "id": 16,
+    "pageCount": 400
+  },
+  {
+    "title": "Next-Generation Cryptography Algorithms Explained",
+    "author": "Massimo Bertaccini",
+    "isbn": "9781789617139",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/13936651-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T18:49:07.211Z",
+    "id": 17,
+    "pageCount": 358
+  },
+  {
+    "title": "Quantum Computing for Everyone",
+    "author": "Chris Bernhardt",
+    "isbn": "9780262539531",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/8801695-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T18:49:12.887Z",
+    "id": 18,
+    "pageCount": 194
+  },
+  {
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "isbn": "9780735211292",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/12539702-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T18:49:31.026Z",
+    "id": 19,
+    "pageCount": 320
+  },
+  {
+    "title": "The Manga Guide to Microprocessors",
+    "author": "Michio Shibuya, Takashi Tonagi, and Office Sawa",
+    "publisher": "No Scratch Press",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/11981075-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T18:50:03.469Z",
+    "id": 20,
+    "pageCount": 245
+  },
+  {
+    "title": "The Manga Guide to Cryptography",
+    "author": "Masaaki Mitani",
+    "isbn": "9781593277420",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/11981066-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T18:50:14.570Z",
+    "id": 21,
+    "pageCount": 248
+  },
+  {
+    "title": "Semeur, NIV, French/English Bilingual Bible, Paperback",
+    "author": "Zondervan",
+    "isbn": "9780310450023",
+    "publisher": "",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/9156908-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T18:50:51.578Z",
+    "id": 22,
+    "pageCount": 1920
+  },
+  {
+    "title": "Pokémon : la grande aventure : Diamant et Perle. 1 / scénario, Hidenori Kusaka ; dessin, Satoshi Yamamoto",
+    "author": "Kusaka, Hidenori. Auteur du texte",
+    "isbn": "9782368525876",
+    "publisher": "Kurokawa (Paris)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T18:56:49.498Z",
+    "id": 23,
+    "pageCount": 448
+  },
+  {
+    "title": "Pokémon : la grande aventure : Rouge feu et Vert feuille. 1 / scénario, Hidenori Kusaka ; dessin, Satoshi Yamamoto",
+    "author": "Kusaka, Hidenori. Auteur du texte",
+    "isbn": "9782368524961",
+    "publisher": "Kurokawa (Paris)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T18:56:57.299Z",
+    "id": 24,
+    "pageCount": 368
+  },
+  {
+    "title": "Pokémon : la grande aventure : Rouge feu et Vert feuille. 2 / scénario, Hidenori Kusaka ; dessin, Satoshi Yamamoto",
+    "author": "Kusaka, Hidenori. Auteur du texte",
+    "isbn": "9782368525074",
+    "publisher": "Kurokawa (Paris)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T18:57:07.529Z",
+    "id": 25,
+    "pageCount": 384
+  },
+  {
+    "title": "Pokémon : la grande aventure : Émeraude. 3 / scénario, Hidenori Kusaka ; dessin, Satoshi Yamamoto",
+    "author": "Kusaka, Hidenori. Auteur du texte",
+    "isbn": "9782368525319",
+    "publisher": "Kurokawa (Paris)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T18:57:18.664Z",
+    "id": 26,
+    "pageCount": 384
+  },
+  {
+    "title": "Pokémon : la grande aventure : Émeraude. 4 / scénario, Hidenori Kusaka ; dessin, Satoshi Yamamoto",
+    "author": "Kusaka, Hidenori. Auteur du texte",
+    "isbn": "9782368525326",
+    "publisher": "Kurokawa (Paris)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T18:57:24.856Z",
+    "id": 27,
+    "pageCount": 400
+  },
+  {
+    "title": "Pokemon Adventures Omega Ruby and Alpha Sapphire Vol 2",
+    "author": "Hidenori Kusaka",
+    "isbn": "9781974743261",
+    "publisher": "VIZ",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/13708536-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T18:59:00.753Z",
+    "id": 28,
+    "pageCount": 224
+  },
+  {
+    "title": "Pokémon : la grande aventure : Rubis Oméga et Saphir Alpha. 1 / scénario, Hidenori Kusaka ; dessin, Satoshi Yamamoto",
+    "author": "Kusaka, Hidenori. Auteur du texte",
+    "isbn": "9791042015039",
+    "publisher": "Kurokawa (Paris)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T18:59:21.610Z",
+    "id": 29,
+    "pageCount": 301
+  },
+  {
+    "title": "Pokémon : la grande aventure : Or, heart gold et Argent, soul silver / scénario, Hidenori Kusaka ; dessin, Satoshi Yamamoto",
+    "author": "Kusaka, Hidenori. Auteur du texte",
+    "isbn": "9782368526576",
+    "publisher": "Kurokawa (Paris)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T18:59:31.818Z",
+    "id": 30,
+    "pageCount": 480
+  },
+  {
+    "title": "Pokémon : la grande aventure : Platine. 5 / scénario, Hidenori Kusaka ; dessin, Satoshi Yamamoto",
+    "author": "Kusaka, Hidenori. Auteur du texte",
+    "isbn": "9782368526569",
+    "publisher": "Kurokawa (Paris)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T18:59:40.629Z",
+    "id": 31,
+    "pageCount": 512
+  },
+  {
+    "title": "Pokémon : la grande aventure : Diamant et Perle. 4 / scénario, Hidenori Kusaka ; dessin, Satoshi Yamamoto",
+    "author": "Kusaka, Hidenori. Auteur du texte",
+    "isbn": "9782368526552",
+    "publisher": "Kurokawa (Paris)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T18:59:50.959Z",
+    "id": 32,
+    "pageCount": 432
+  },
+  {
+    "title": "Pokémon : la grande aventure : Diamant & Perle. 3 / scénario, Hidenori Kusaka ; dessin, Satoshi Yamamoto",
+    "author": "Kusaka, Hidenori. Auteur du texte",
+    "isbn": "9782368526545",
+    "publisher": "Kurokawa (Paris)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T18:59:58.495Z",
+    "id": 33,
+    "pageCount": 432
+  },
+  {
+    "title": "Pokémon : la grande aventure : Diamant et Perle. 2",
+    "author": "Kusaka, Hidenori. Auteur du texte",
+    "isbn": "9782368526446",
+    "publisher": "Kurokawa (Paris)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T19:00:04.208Z",
+    "id": 34,
+    "pageCount": 448
+  },
+  {
+    "title": "French phrasebook & dictionary",
+    "author": "Michael Janes, Jean-Pierre Masclef, Jean-Bernard Carillet",
+    "isbn": "9781743214442",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:02:20.719Z",
+    "id": 35,
+    "pageCount": 271
+  },
+  {
+    "title": "Merriam Webster's French-English Dictionary / Dictionnaire Anglais-Francais",
+    "author": "Merriam-Webster",
+    "isbn": "9780877799177",
+    "publisher": "",
+    "language": "FR",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/6459242-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:02:29.239Z",
+    "id": 36,
+    "pageCount": 833
+  },
+  {
+    "title": "La psychologie pour les nuls : en 50 notions clés / Ariane Calvo,... Clémence Guinot,...",
+    "author": "Calvo, Ariane (1976-....). Auteur du texte",
+    "isbn": "9782412085929",
+    "publisher": "First éditions (Paris)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T19:02:34.956Z",
+    "id": 37,
+    "pageCount": 348
+  },
+  {
+    "title": "The complete middle school study guide, everything you need to ace science in one big fat notebook",
+    "author": "Workman Publishing, Editors of Brain Quest",
+    "isbn": "9780761160953",
+    "publisher": "",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/10318264-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:02:43.445Z",
+    "id": 38,
+    "pageCount": 544
+  },
+  {
+    "title": "Everything You Need to Ace Math in One Big Fat Notebook",
+    "author": "Workman Publishing Company Staff",
+    "isbn": "9780761160960",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/9335837-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:02:48.734Z",
+    "id": 39,
+    "pageCount": 544
+  },
+  {
+    "title": "Merde, It's Not Easy to Learn French",
+    "author": "France Dubin, Zoë Dubin",
+    "isbn": "9781795292733",
+    "publisher": "",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/13136989-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:03:05.528Z",
+    "id": 40,
+    "pageCount": 124
+  },
+  {
+    "title": "The Linux progamming interface",
+    "author": "Michael Kerrisk",
+    "isbn": "9781593272203",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/6463752-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:04:59.954Z",
+    "id": 41,
+    "pageCount": 1506
+  },
+  {
+    "title": "C programming",
+    "author": "K. N. King",
+    "isbn": "9780393979503",
+    "publisher": "W. W. Norton & Company",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/252635-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:05:07.304Z",
+    "id": 42,
+    "pageCount": 864
+  },
+  {
+    "title": "The C Programming Language",
+    "author": "Brian W. Kernighan, Dennis MacAlistair Ritchie",
+    "isbn": "9780131103627",
+    "publisher": "",
+    "language": "CHI",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/6684943-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:05:12.389Z",
+    "id": 43,
+    "pageCount": 272
+  },
+  {
+    "title": "Inside the Machine",
+    "author": "Jon Stokes",
+    "isbn": "9781593276683",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/870291-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:05:19.331Z",
+    "id": 44,
+    "pageCount": 320
+  },
+  {
+    "title": "Intermediate C Programming",
+    "author": "Yung-Hsiang Lu",
+    "isbn": "9781498711630",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:05:40.928Z",
+    "id": 45,
+    "pageCount": 498
+  },
+  {
+    "title": "Code",
+    "author": "Charles Petzold, Charles Petzold",
+    "isbn": "9780735611313",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/460968-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:05:52.955Z",
+    "id": 46,
+    "pageCount": 400
+  },
+  {
+    "title": "How Linux Works",
+    "author": "Brian Ward",
+    "isbn": "9781718500402",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/870256-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:05:57.492Z",
+    "id": 47,
+    "pageCount": 464
+  },
+  {
+    "title": "UNIX: A History and a Memoir",
+    "author": "Brian W. Kernighan",
+    "isbn": "9781695978553",
+    "publisher": "",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/10313980-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:06:02.727Z",
+    "id": 48,
+    "pageCount": 197
+  },
+  {
+    "title": "Game Engine Black Book",
+    "author": "Fabien Sanglard",
+    "isbn": "9781099819773",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/13010367-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:06:23.357Z",
+    "id": 49,
+    "pageCount": 432
+  },
+  {
+    "title": "The Apollo Murders",
+    "author": "Chris Hadfield",
+    "isbn": "9780735282353",
+    "publisher": "Random House Canada",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/10913999-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:08:11.147Z",
+    "id": 50,
+    "pageCount": 480
+  },
+  {
+    "title": "An Astronauts Guide to Life on Earth",
+    "author": "Chris Hadfield",
+    "isbn": "9780345812711",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/7459498-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:08:14.577Z",
+    "id": 51,
+    "pageCount": 309
+  },
+  {
+    "title": "Value(s)",
+    "author": "Mark Carney",
+    "isbn": "9780771051579",
+    "publisher": "Signal",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/11844859-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:08:20.639Z",
+    "id": 52,
+    "pageCount": 528
+  },
+  {
+    "title": "The war on normal people",
+    "author": "Andrew Yang",
+    "isbn": "9780316414210",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/8804463-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:08:26.151Z",
+    "id": 53,
+    "pageCount": 304
+  },
+  {
+    "title": "Waiting for First Light",
+    "author": "Roméo Dallaire",
+    "isbn": "9780345814449",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:08:32.872Z",
+    "id": 54,
+    "pageCount": 208
+  },
+  {
+    "title": "Educated",
+    "author": "Tara Westover",
+    "isbn": "9781443452489",
+    "publisher": "HarperCollins Publishers",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/8314077-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:08:38.633Z",
+    "id": 55,
+    "pageCount": 352
+  },
+  {
+    "title": "Make Your Bed",
+    "author": "William H. McRaven, William H. McRaven, Make Your Make Your Bed",
+    "isbn": "9781455570249",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/7984714-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:08:44.010Z",
+    "id": 56,
+    "pageCount": 144
+  },
+  {
+    "title": "Deep Work",
+    "author": "Cal Newport",
+    "isbn": "9781455586691",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/7988607-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:08:48.506Z",
+    "id": 57,
+    "pageCount": 295
+  },
+  {
+    "title": "Everything Happens for a Reason",
+    "author": "Kate Bowler",
+    "isbn": "9780399592065",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/8133590-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:09:06.011Z",
+    "id": 58,
+    "pageCount": 208
+  },
+  {
+    "title": "Mere Christianity",
+    "author": "C. S. Lewis",
+    "isbn": "9780060652920",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/6538891-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:09:21.918Z",
+    "id": 59,
+    "pageCount": 227
+  },
+  {
+    "title": "The Screwtape Letters",
+    "author": "C. S. Lewis",
+    "isbn": "9780060652937",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/9779-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:09:30.935Z",
+    "id": 60,
+    "pageCount": null
+  },
+  {
+    "title": "Winning the War in Your Mind",
+    "author": "Groeschel, Craig",
+    "isbn": "9780310363545",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/12372402-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:09:41.475Z",
+    "id": 61,
+    "pageCount": 256
+  },
+  {
+    "title": "Le DELF : 100 % réussite : B1 / Bruno Girardeau, Émilie Jacament, Marie Salin",
+    "author": "Girardeau, Bruno. Auteur du texte",
+    "isbn": "9782278112388",
+    "publisher": "Didier français langue étrangère (Paris)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T19:09:57.714Z",
+    "id": 62,
+    "pageCount": null
+  },
+  {
+    "title": "Pokémon : la grande aventure : Rubis et Saphir. 3 / scénario, Hidenori Kusaka ; dessin, Satoshi Yamamoto",
+    "author": "Kusaka, Hidenori. Auteur du texte",
+    "isbn": "9782368521540",
+    "publisher": "Kurokawa (Paris)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T19:11:31.623Z",
+    "id": 63,
+    "pageCount": null
+  },
+  {
+    "title": "Pokémon Rubis et Saphir - tome 2",
+    "author": "Hidenori Kusaka",
+    "isbn": "9782368520871",
+    "publisher": "",
+    "language": "FR",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:11:40.829Z",
+    "id": 64,
+    "pageCount": null
+  },
+  {
+    "title": "Pokémon : la grande aventure : Or et Argent. 3 / scénario, Hidenori Kusaka ; dessin, Satoshi Yamamoto",
+    "author": "Kusaka, Hidenori. Auteur du texte",
+    "isbn": "9782368523827",
+    "publisher": "Kurokawa (Paris)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T19:12:00.260Z",
+    "id": 65,
+    "pageCount": null
+  },
+  {
+    "title": "Pokémon : la grande aventure : Or et Argent. 2 / scénario, Hidenori Kusaka ; dessin, Mato",
+    "author": "Kusaka, Hidenori. Auteur du texte",
+    "isbn": "9782368522776",
+    "publisher": "Kurokawa (Paris)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T19:12:05.872Z",
+    "id": 66,
+    "pageCount": null
+  },
+  {
+    "title": "Pokémon Or et Argent - tome 1",
+    "author": "Hidenori Kusaka",
+    "isbn": "9782368522219",
+    "publisher": "",
+    "language": "FR",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/15224531-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:12:11.519Z",
+    "id": 67,
+    "pageCount": 448
+  },
+  {
+    "title": "Pokémon, La Grande Aventure - tome 3",
+    "author": "Hidenori Kusaka",
+    "isbn": "9782368520154",
+    "publisher": "",
+    "language": "FR",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/10532422-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:12:17.564Z",
+    "id": 68,
+    "pageCount": 512
+  },
+  {
+    "title": "Pokémon, La Grande Aventure - T2",
+    "author": "Hidenori Kusaka",
+    "isbn": "9782368520147",
+    "publisher": "",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/14430662-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:12:32.003Z",
+    "id": 69,
+    "pageCount": null
+  },
+  {
+    "title": "Pokémon La Grande Aventure, Vol 1",
+    "author": "Hidenori Kusaka",
+    "isbn": "9782368520130",
+    "publisher": "",
+    "language": "GER",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/14430525-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:12:38.180Z",
+    "id": 70,
+    "pageCount": 512
+  },
+  {
+    "title": "Chi - Poche - Tome 01",
+    "author": "Konami Kanata",
+    "isbn": "9782723499620",
+    "publisher": "",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/10301658-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:15:07.314Z",
+    "id": 71,
+    "pageCount": 96
+  },
+  {
+    "title": "Chi, mon amie",
+    "author": "Konami, Kanata",
+    "isbn": "9782723499699",
+    "publisher": "Glénat (Grenoble)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T19:15:16.722Z",
+    "id": 72,
+    "pageCount": null
+  },
+  {
+    "title": "Chi - Poche - Tome 03",
+    "author": "Konami Kanata",
+    "isbn": "9782344001394",
+    "publisher": "",
+    "language": "FR",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/14092189-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:15:20.818Z",
+    "id": 73,
+    "pageCount": 96
+  },
+  {
+    "title": "Love story",
+    "author": "Erich Segal",
+    "isbn": "968484",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/6533442-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:15:24.027Z",
+    "id": 74,
+    "pageCount": null
+  },
+  {
+    "title": "Le secret de la pyramide / Mary Pope Osborne ; traduit et adapté de l'américain par Marie-Hélène Delval ; illustré par Philippe Masson",
+    "author": "Osborne, Mary Pope",
+    "isbn": "9791036317712",
+    "publisher": "Bayard jeunesse (Montrouge)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T19:15:34.734Z",
+    "id": 75,
+    "pageCount": null
+  },
+  {
+    "title": "Perdus en forêt amazonienne / Mary Pope Osborne ; traduit et adapté de l'américain par Marie-Hélène Delval ; illustré par Philippe Masson",
+    "author": "Osborne, Mary Pope",
+    "isbn": "9791036317736",
+    "publisher": "Bayard jeunesse (Montrouge)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T19:15:42.189Z",
+    "id": 76,
+    "pageCount": null
+  },
+  {
+    "title": "Le trésor des pirates / Mary Pope Osborne ; traduit et adapté de l'américain par Marie-Hélène Delval ; illustré par Philippe Masson",
+    "author": "Osborne, Mary Pope",
+    "isbn": "9791036317729",
+    "publisher": "Bayard jeunesse (Montrouge)",
+    "language": "FR",
+    "tags": [
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T19:15:51.953Z",
+    "id": 77,
+    "pageCount": null
+  },
+  {
+    "title": "La vallée des dinosaures / Mary Pope Osborne ; traduit et adapté de l'américain par Marie-Hélène Delval ; illustré par Philippe Masson",
+    "author": "Osborne, Mary Pope",
+    "isbn": "9791036317699",
+    "publisher": "Bayard jeunesse (Montrouge)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T19:16:19.313Z",
+    "id": 78,
+    "pageCount": null
+  },
+  {
+    "title": "Edward Snowden et autres portraits pour un monde engagé / Roberto Saviano ; traduction de l'italien par Vincent Raynaud",
+    "author": "Saviano, Roberto",
+    "isbn": "9782073100825",
+    "publisher": "Gallimard (Paris)",
+    "language": "FR",
+    "tags": [
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T19:16:36.918Z",
+    "id": 79,
+    "pageCount": null
+  },
+  {
+    "title": "Discours choisis (Folio 2 €) (French Edition)",
+    "author": "Barack Obama",
+    "isbn": "9782072777318",
+    "publisher": "",
+    "language": "FR",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:16:50.385Z",
+    "id": 80,
+    "pageCount": null
+  },
+  {
+    "title": "Mission in the apocalypse. 4 / Haruo Iwamune",
+    "author": "Iwamune, Haruo",
+    "isbn": "9782413090991",
+    "publisher": "Delcourt-Tonkam (Paris)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T19:17:02.389Z",
+    "id": 81,
+    "pageCount": null
+  },
+  {
+    "title": "Frieren. Vol. 3",
+    "author": "Yamada, Kanehito. Auteur du texte",
+    "isbn": "9791032711125",
+    "publisher": "Ki-oon (Paris)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T19:17:26.302Z",
+    "id": 82,
+    "pageCount": null
+  },
+  {
+    "title": "Origins of Political Order",
+    "author": "Francis Fukuyama",
+    "isbn": "9780374533229",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/10105880-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:18:54.742Z",
+    "id": 83,
+    "pageCount": 606
+  },
+  {
+    "title": "A Clash of Kings",
+    "author": "George R. R. Martin",
+    "isbn": "9780553579901",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/8231751-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:19:06.694Z",
+    "id": 84,
+    "pageCount": null
+  },
+  {
+    "title": "A Game of Thrones",
+    "author": "George R. R. Martin",
+    "isbn": "9780553593716",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/9269962-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:19:16.023Z",
+    "id": 85,
+    "pageCount": null
+  },
+  {
+    "title": "Frieren Tome 1",
+    "author": "Unknown Author",
+    "isbn": "9791032710838",
+    "publisher": "",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/15241066-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:21:02.221Z",
+    "id": 86,
+    "pageCount": null
+  },
+  {
+    "title": "Frieren - Tome 02",
+    "author": "Kanehito Yamada",
+    "isbn": "9791032710845",
+    "publisher": "",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/15241067-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:21:30.810Z",
+    "id": 87,
+    "pageCount": null
+  },
+  {
+    "title": "Le mystérieux chevalier / Mary Pope Osborne ; traduit et adapté de l'américain par Marie-Hélène Delval ; illustré par Philippe Masson",
+    "author": "Osborne, Mary Pope (1949-....). Auteur du texte",
+    "isbn": "9791036317705",
+    "publisher": "Bayard jeunesse (Montrouge)",
+    "language": "FR",
+    "tags": [
+      "Manga",
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T19:22:05.153Z",
+    "id": 88,
+    "pageCount": null
+  },
+  {
+    "title": "Pokémon Rubis et Saphir - tome 1 (1)",
+    "author": "Unknown Author",
+    "isbn": "9782368520895",
+    "publisher": "",
+    "language": "",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:23:40.796Z",
+    "id": 89,
+    "pageCount": null
+  },
+  {
+    "title": "The Taoist I Ching",
+    "author": "Lui I-Ming",
+    "isbn": "9781590302606",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/859630-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:26:05.859Z",
+    "id": 90,
+    "pageCount": null
+  },
+  {
+    "title": "Pathless Path",
+    "author": "Paul Millerd",
+    "isbn": "9798985515305",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/14840711-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:27:17.071Z",
+    "id": 91,
+    "pageCount": null
+  },
+  {
+    "title": "UNIX System V",
+    "author": "Mark G. Sobell",
+    "isbn": "9780805375664",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/582048-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:27:25.069Z",
+    "id": 92,
+    "pageCount": 831
+  },
+  {
+    "title": "Linux Kernel Development",
+    "author": "Robert Love",
+    "isbn": "9780672329463",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/410921-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:27:34.230Z",
+    "id": 93,
+    "pageCount": null
+  },
+  {
+    "title": "Tao Teh Ching",
+    "author": "Lao Tzu",
+    "isbn": "9781590304051",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/671291-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:32:20.049Z",
+    "id": 94,
+    "pageCount": null
+  },
+  {
+    "title": "The Manga Guide to the Universe",
+    "author": "Kiyoshi Kawabata, Kenji Ishikawa",
+    "isbn": "9781593272678",
+    "publisher": "Ohmsha",
+    "language": "EN",
+    "tags": [
+      "Comic books",
+      "strips",
+      "Cosmology",
+      "Cartoons and comics"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/9184447-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:34:50.227Z",
+    "id": 95,
+    "pageCount": null
+  },
+  {
+    "title": "Math girls",
+    "author": "Hiroshi Yūki",
+    "isbn": "9780983951308",
+    "publisher": "Bento Books",
+    "language": "",
+    "tags": [
+      "Mathematics",
+      "Fiction"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/9266725-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:37:02.728Z",
+    "id": 96,
+    "pageCount": null
+  },
+  {
+    "title": "Math girls 2 - Fermat's Last Theorem",
+    "author": "Hiroshi Yūki",
+    "isbn": "9780983951322",
+    "publisher": "Bento Books, Inc.",
+    "language": "EN",
+    "tags": [
+      "Mathematics",
+      "Fiction"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:37:33.795Z",
+    "id": 97,
+    "pageCount": 303
+  },
+  {
+    "title": "Math Girls 5 - Galois Theory",
+    "author": "Hiroshi Yuki, Tony Gonzalez",
+    "isbn": "9781939326461",
+    "publisher": "Bento Books",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/12386537-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:39:18.136Z",
+    "id": 98,
+    "pageCount": null
+  },
+  {
+    "title": "I Am Blue, in Pain, and Fragile (Light Novel)",
+    "author": "Yoru Sumino",
+    "isbn": "9781638581109",
+    "publisher": "Seven Seas Entertainment, LLC",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/13188782-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:39:41.437Z",
+    "id": 99,
+    "pageCount": null
+  },
+  {
+    "title": "Tunnel to Summer, the Exit of Goodbye (Light Novel)",
+    "author": "八目迷, Kukka",
+    "isbn": "9781638584155",
+    "publisher": "Seven Seas Entertainment, LLC",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/14626673-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:40:00.071Z",
+    "id": 100,
+    "pageCount": null
+  },
+  {
+    "title": "Legend of the galactic heroes",
+    "author": "Yoshiki Tanaka",
+    "isbn": "9781421584942",
+    "publisher": "Haikasoru",
+    "language": "",
+    "tags": [
+      "FICTION / Science Fiction / Military",
+      "FICTION / Science Fiction / Space Opera",
+      "FICTION / Science Fiction / Adventure"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:41:04.325Z",
+    "id": 101,
+    "pageCount": null
+  },
+  {
+    "title": "Legend of the galactic heroes 2",
+    "author": "Yoshiki Tanaka",
+    "isbn": "9781421584959",
+    "publisher": "Haikasoru",
+    "language": "",
+    "tags": [
+      "FICTION / Science Fiction / Military",
+      "FICTION / Science Fiction / Space Opera",
+      "FICTION / Science Fiction / Adventure"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:41:29.216Z",
+    "id": 102,
+    "pageCount": null
+  },
+  {
+    "title": "Legend of the Galactic Heroes, Vol. 3: Endurance",
+    "author": "Yoshiki Tanaka",
+    "isbn": "9781421584966",
+    "publisher": "Haikasoru",
+    "language": "",
+    "tags": [
+      "Fiction",
+      "science fiction",
+      "action & adventure"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8538539-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:41:44.810Z",
+    "id": 103,
+    "pageCount": 304
+  },
+  {
+    "title": "Legend of the Galactic Heroes, Vol. 4",
+    "author": "Yoshiki Tanaka",
+    "isbn": "9781421584973",
+    "publisher": "Haikasoru",
+    "language": "",
+    "tags": [
+      "Fiction",
+      "science fiction",
+      "space opera",
+      "Fiction",
+      "science fiction",
+      "military",
+      "Fiction",
+      "science fiction",
+      "action & adventure"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8573104-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:41:57.255Z",
+    "id": 104,
+    "pageCount": 272
+  },
+  {
+    "title": "Legend of the Galactic Heroes, Vol. 5: Mobilization",
+    "author": "Yoshiki Tanaka",
+    "isbn": "9781421584980",
+    "publisher": "Haikasoru",
+    "language": "",
+    "tags": [
+      "Comics & graphic novels",
+      "manga",
+      "science fiction",
+      "Space warfare",
+      "Fiction"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8494636-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:42:09.575Z",
+    "id": 105,
+    "pageCount": 272
+  },
+  {
+    "title": "Legend of the Galactic Heroes, Vol. 7",
+    "author": "Yoshiki Tanaka",
+    "isbn": "9781421585291",
+    "publisher": "Haikasoru",
+    "language": "",
+    "tags": [
+      "Comics & graphic novels",
+      "science fiction"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8843399-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:42:43.366Z",
+    "id": 106,
+    "pageCount": 224
+  },
+  {
+    "title": "Legend of the Galactic Heroes, Vol. 6: Flight",
+    "author": "Yoshiki Tanaka",
+    "isbn": "9781421584997",
+    "publisher": "Haikasoru",
+    "language": "",
+    "tags": [
+      "Fiction",
+      "science fiction",
+      "space opera"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8542922-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:42:53.952Z",
+    "id": 107,
+    "pageCount": 224
+  },
+  {
+    "title": "Legend of the Galactic Heroes, Vol. 8",
+    "author": "Yoshiki Tanaka",
+    "isbn": "9781421585017",
+    "publisher": "Haikasoru",
+    "language": "",
+    "tags": [
+      "Fiction",
+      "science fiction",
+      "general"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8843528-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:43:06.941Z",
+    "id": 108,
+    "pageCount": 224
+  },
+  {
+    "title": "Legend of the Galactic Heroes, Vol 9, Upheaval",
+    "author": "Yoshiki Tanaka, Matt Treyvaud",
+    "isbn": "9781421585024",
+    "publisher": "Viz Media",
+    "language": "",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:43:56.526Z",
+    "id": 109,
+    "pageCount": null
+  },
+  {
+    "title": "Legend of the Galactic Heroes, Vol. 10",
+    "author": "Yoshiki Tanaka, Matt Treyvaud",
+    "isbn": "9781421585048",
+    "publisher": "Haikasoru",
+    "language": "",
+    "tags": [
+      "Language and languages"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/11949774-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:44:05.432Z",
+    "id": 110,
+    "pageCount": null
+  },
+  {
+    "title": "Mobile suit Gundam",
+    "author": "Yoshiyuki Tomino",
+    "isbn": "9781611720051",
+    "publisher": "Stone Bridge Press",
+    "language": "",
+    "tags": [
+      "Language and languages"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:44:31.666Z",
+    "id": 111,
+    "pageCount": null
+  },
+  {
+    "title": "The Saga of Tanya the Evil, Vol. 1",
+    "author": "Carlo Zen, 篠月しのぶ",
+    "isbn": "9780316512442",
+    "publisher": "Yen Press",
+    "language": "",
+    "tags": [
+      "franchise:幼女戦記",
+      "series:幼女戦記 (light novel)",
+      "form:light novel"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/9358182-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:44:45.319Z",
+    "id": 112,
+    "pageCount": 192
+  },
+  {
+    "title": "The Saga of Tanya the Evil, Vol. 2: Plus Ultra",
+    "author": "Carlo Zen",
+    "isbn": "9780316512466",
+    "publisher": "Yen Press",
+    "language": "",
+    "tags": [
+      "franchise:幼女戦記",
+      "series:幼女戦記 (light novel)",
+      "form:light novel"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8841552-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:45:01.027Z",
+    "id": 113,
+    "pageCount": null
+  },
+  {
+    "title": "The Saga of Tanya the Evil, Vol. 3",
+    "author": "Carlo Zen",
+    "isbn": "9780316512480",
+    "publisher": "Yen Press",
+    "language": "",
+    "tags": [
+      "Comics & graphic novels",
+      "manga",
+      "fantasy"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8842253-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:45:08.773Z",
+    "id": 114,
+    "pageCount": null
+  },
+  {
+    "title": "Réussir le DELF : A2 / Marjolaine Dupuy, Maud Launay ; [publié par la] Commission nationale du DELF et du DALF, Centre international d'études pédagogiques ; [illustrations, Julien Malland, Gabriel Rebuffelo]",
+    "author": "Dupuy, Marjolaine. Auteur du texte",
+    "isbn": "9782278064489",
+    "publisher": "Didier (Paris)",
+    "language": "FR",
+    "tags": [
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T19:45:42.909Z",
+    "id": 115,
+    "pageCount": null
+  },
+  {
+    "title": "Slayers Volumes 1-3 Collector's Edition",
+    "author": "Hajime Kanzaka, Rui Araizumi, Elizabeth Ellis",
+    "isbn": "9781718375109",
+    "publisher": "J-Novel Club",
+    "language": "",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:45:50.960Z",
+    "id": 116,
+    "pageCount": 450
+  },
+  {
+    "title": "Intuition of Haruhi Suzumiya (light Novel)",
+    "author": "Nagaru Tanigawa",
+    "isbn": "9781975322564",
+    "publisher": "Yen Press LLC",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/13484797-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:45:58.897Z",
+    "id": 117,
+    "pageCount": 280
+  },
+  {
+    "title": "7 Habits of Highly Effective People : Revised and Updated",
+    "author": "Stephen R. Covey, Sean Covey",
+    "isbn": "9781982137274",
+    "publisher": "Simon & Schuster, Incorporated",
+    "language": "",
+    "tags": [
+      "Success- Psychological aspects",
+      "Character",
+      "Success"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/15125214-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:46:33.381Z",
+    "id": 118,
+    "pageCount": null
+  },
+  {
+    "title": "She and Her Cat",
+    "author": "Makoto Shinkai, Naruki Nagakawa",
+    "isbn": "9781945054402",
+    "publisher": "Vertical, Incorporated",
+    "language": "",
+    "tags": [
+      "Comics & graphic novels",
+      "manga",
+      "general",
+      "Single women -- Comic books",
+      "strips",
+      "etc",
+      "Pet owners -- Comic books",
+      "strips",
+      "etc"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/12750141-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:50:24.877Z",
+    "id": 119,
+    "pageCount": 180
+  },
+  {
+    "title": "The Catcher in the Rye",
+    "author": "J. D. Salinger, Shao jia yun",
+    "isbn": "9780316769488",
+    "publisher": "Little, Brown and Company",
+    "language": "",
+    "tags": [
+      "fictional works",
+      "Runaway teenagers",
+      "Fiction"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/15172531-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:50:33.909Z",
+    "id": 120,
+    "pageCount": null
+  },
+  {
+    "title": "Garden of Words",
+    "author": "Makoto Shinkai, Midori Motohashi",
+    "isbn": "9781939130839",
+    "publisher": "Vertical, Incorporated",
+    "language": "",
+    "tags": [
+      "Comics & graphic novels",
+      "manga",
+      "romance",
+      "Comics & graphic novels",
+      "east asian style",
+      "manga",
+      "romance"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/13344210-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:50:52.146Z",
+    "id": 121,
+    "pageCount": 220
+  },
+  {
+    "title": "5 Centimeters Per Second",
+    "author": "Yukiko Seike",
+    "isbn": "9781932234961",
+    "publisher": "Vertical",
+    "language": "",
+    "tags": [
+      "Youth",
+      "Household Moving",
+      "Friendship"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/7659044-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:51:01.061Z",
+    "id": 122,
+    "pageCount": null
+  },
+  {
+    "title": "Voices of a Distant Star",
+    "author": "Arata Kanoh, Makoto Shinkai",
+    "isbn": "9781947194663",
+    "publisher": "Vertical",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/11155887-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:51:11.419Z",
+    "id": 123,
+    "pageCount": null
+  },
+  {
+    "title": "5 Centimeters per Second Novel",
+    "author": "Makoto Shinkai",
+    "isbn": "9781947194090",
+    "publisher": "Kodansha America, Incorporated",
+    "language": "",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:51:32.127Z",
+    "id": 124,
+    "pageCount": 1
+  },
+  {
+    "title": "5 Centimeters per Second + Children Who Chase Lost Voices",
+    "author": "Makoto Shinkai, Asahi Akisaka",
+    "isbn": "9781975315696",
+    "publisher": "Yen Press LLC",
+    "language": "",
+    "tags": [
+      "Language and languages"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:51:45.495Z",
+    "id": 125,
+    "pageCount": null
+  },
+  {
+    "title": "Place Promised in Our Early Days",
+    "author": "Makoto Shinkai",
+    "isbn": "9781975318697",
+    "publisher": "Yen Press LLC",
+    "language": "",
+    "tags": [
+      "Literature"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:51:51.702Z",
+    "id": 126,
+    "pageCount": 192
+  },
+  {
+    "title": "Your name",
+    "author": "Makoto Shinkai",
+    "isbn": "9780316471862",
+    "publisher": "",
+    "language": "",
+    "tags": [
+      "Fate and fatalism",
+      "Sex role",
+      "Dreams"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:51:56.073Z",
+    "id": 127,
+    "pageCount": 184
+  },
+  {
+    "title": "Weathering With You",
+    "author": "Makoto Shinkai",
+    "isbn": "9781975399368",
+    "publisher": "Yen On",
+    "language": "",
+    "tags": [
+      "Children's fiction"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/11887215-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:52:11.709Z",
+    "id": 128,
+    "pageCount": 192
+  },
+  {
+    "title": "12 Rules for Life",
+    "author": "Jordan B. Peterson",
+    "isbn": "9780345816023",
+    "publisher": "Random House Canada",
+    "language": "",
+    "tags": [
+      "Conduct of life",
+      "Philosophy",
+      "PHILOSOPHY / Social"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/14394063-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:53:26.769Z",
+    "id": 129,
+    "pageCount": 409
+  },
+  {
+    "title": "Beyond Order",
+    "author": "Jordan B. Peterson",
+    "isbn": "9780735278332",
+    "publisher": "",
+    "language": "",
+    "tags": [
+      "nyt:advice-how-to-and-miscellaneous=2021-03-21",
+      "New York Times bestseller",
+      "Conduct of life"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:53:32.214Z",
+    "id": 130,
+    "pageCount": null
+  },
+  {
+    "title": "21 Lessons for the 21st Century",
+    "author": "Yuval Noah Harari",
+    "isbn": "9780771048852",
+    "publisher": "Signal",
+    "language": "",
+    "tags": [
+      "Modern Civilization",
+      "Twenty-first century",
+      "Forecasts"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/10108277-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:53:41.734Z",
+    "id": 131,
+    "pageCount": 384
+  },
+  {
+    "title": "We Who Wrestle with God",
+    "author": "Jordan B. Peterson",
+    "isbn": "9780593542538",
+    "publisher": "Penguin Publishing Group",
+    "language": "",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:53:47.004Z",
+    "id": 132,
+    "pageCount": null
+  },
+  {
+    "title": "Sapiens",
+    "author": "Yuval Noah Harari",
+    "isbn": "9780771038518",
+    "publisher": "Signal",
+    "language": "",
+    "tags": [
+      "Technology and civilization",
+      "Human beings",
+      "Historical Chronology"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/9137127-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:53:53.545Z",
+    "id": 133,
+    "pageCount": 464
+  },
+  {
+    "title": "Fluent Forever",
+    "author": "Gabriel Wyner",
+    "isbn": "9780593797495",
+    "publisher": "Crown Publishing Group, The",
+    "language": "",
+    "tags": [
+      "Multilingualism",
+      "Study and teaching",
+      "Fluency (Language learning)"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/14832367-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:53:58.446Z",
+    "id": 134,
+    "pageCount": 400
+  },
+  {
+    "title": "The Chronicles of Narnia Collection",
+    "author": "C.S Lewis",
+    "isbn": "9781788888370",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/10861165-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:54:28.654Z",
+    "id": 135,
+    "pageCount": null
+  },
+  {
+    "title": "The Art of Debugging with GDB, DDD, and Eclipse",
+    "author": "Norman S. Matloff, Peter Salzman",
+    "isbn": "9781593271749",
+    "publisher": "No Starch Press",
+    "language": "",
+    "tags": [
+      "Computer software",
+      "Debugging in computer science",
+      "Quality control"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/-1-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:55:32.251Z",
+    "id": 136,
+    "pageCount": 256
+  },
+  {
+    "title": "Invariants",
+    "author": "Daniel Zingaro",
+    "isbn": "9781904987833",
+    "publisher": "College Publications",
+    "language": "",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T19:55:41.391Z",
+    "id": 137,
+    "pageCount": 188
+  },
+  {
+    "title": "Algorithmic Thinking",
+    "author": "Daniel Zingaro",
+    "isbn": "9781718500808",
+    "publisher": "No Starch Press",
+    "language": "",
+    "tags": [
+      "Mathematics"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/10163465-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:55:46.866Z",
+    "id": 138,
+    "pageCount": 430
+  },
+  {
+    "title": "Introduction to Algorithms",
+    "author": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein",
+    "isbn": "9780262033848",
+    "publisher": "The MIT Press",
+    "language": "",
+    "tags": [
+      "Algorithms",
+      "Computer algorithms",
+      "Computer programming"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/11106524-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:57:56.628Z",
+    "id": 139,
+    "pageCount": 1292
+  },
+  {
+    "title": "Artificial intelligence",
+    "author": "Stuart J. Russell, Peter Norvig",
+    "isbn": "9780131038059",
+    "publisher": "Prentice Hall",
+    "language": "",
+    "tags": [
+      "problem solving",
+      "constraint satisfaction",
+      "knowledge"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/86108-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:58:16.216Z",
+    "id": 140,
+    "pageCount": null
+  },
+  {
+    "title": "Bluetooth essentials for programmers",
+    "author": "Albert S. Huang",
+    "isbn": "9780521703758",
+    "publisher": "Cambridge University Press",
+    "language": "",
+    "tags": [
+      "Bluetooth technology",
+      "Mobile communication systems",
+      "Computer Technology"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8624395-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:58:31.753Z",
+    "id": 142,
+    "pageCount": null
+  },
+  {
+    "title": "Design Patterns",
+    "author": "Erich Gamma, John Vlissides, Richard Helm, Ralph Johnson, Johnson, Ralph",
+    "isbn": "9780201633610",
+    "publisher": "Addison-Wesley Professional",
+    "language": "",
+    "tags": [
+      "Reusability",
+      "Object-oriented programming (Computer science)",
+      "Computer software"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/10827044-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:59:02.783Z",
+    "id": 143,
+    "pageCount": 395
+  },
+  {
+    "title": "Intermediate Perl",
+    "author": "Randal L. Schwartz",
+    "isbn": "9781449393090",
+    "publisher": "O'Reilly",
+    "language": "",
+    "tags": [
+      "Perl (Computer program language)"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8664045-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:59:14.731Z",
+    "id": 144,
+    "pageCount": 371
+  },
+  {
+    "title": "Learning Perl",
+    "author": "Randal L. Schwartz, Tom Phoenix, brian d foy",
+    "isbn": "9781449303587",
+    "publisher": "O'Reilly Media",
+    "language": "",
+    "tags": [
+      "Perl (Computer program language)",
+      "Perl (Computer utility)",
+      "UNIX (Computer file)"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8686126-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T19:59:22.220Z",
+    "id": 145,
+    "pageCount": 390
+  },
+  {
+    "title": "Game coding complete",
+    "author": "Mike McShaffry",
+    "isbn": "9781133776574",
+    "publisher": "Course Technology, Cengage Learning",
+    "language": "",
+    "tags": [
+      "Computer games",
+      "Programming",
+      "Design"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/12467490-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:02:31.394Z",
+    "id": 146,
+    "pageCount": 911
+  },
+  {
+    "title": "Large-scale C[plus plus] software design",
+    "author": "John Lakos",
+    "isbn": "9780201633627",
+    "publisher": "Addison-Wesley Pub. Co",
+    "language": "",
+    "tags": [
+      "Development",
+      "C[plus plus] (Computer program language)",
+      "Computer software"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8684934-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:04:07.093Z",
+    "id": 147,
+    "pageCount": 852
+  },
+  {
+    "title": "Minitel",
+    "author": "Julien Mailland, Kevin Driscoll",
+    "isbn": "9780262036221",
+    "publisher": "The MIT Press",
+    "language": "",
+    "tags": [
+      "Technology and state",
+      "Videotex systems",
+      "Law",
+      "france"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8882103-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:04:21.483Z",
+    "id": 148,
+    "pageCount": 240
+  },
+  {
+    "title": "Algorithms To Live By",
+    "author": "Brian Christian, Tom Griffiths, Brian Christian",
+    "isbn": "9781250118363",
+    "publisher": "Picador USA",
+    "language": "",
+    "tags": [
+      "Human behavior",
+      "Problem solving",
+      "Mathematics"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/10142094-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:04:28.635Z",
+    "id": 149,
+    "pageCount": 366
+  },
+  {
+    "title": "Endless Loop",
+    "author": "Mark Jones Lorenzo",
+    "isbn": "9781974277070",
+    "publisher": "Createspace Independent Publishing Platform",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/13197611-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:04:34.588Z",
+    "id": 150,
+    "pageCount": 190
+  },
+  {
+    "title": "Computer",
+    "author": "Martin Campbell-Kelly, William Aspray",
+    "isbn": "9780813345901",
+    "publisher": "Taylor & Francis Group",
+    "language": "",
+    "tags": [
+      "Electronic data processing",
+      "Computers",
+      "History"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/12508936-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:04:40.222Z",
+    "id": 151,
+    "pageCount": 378
+  },
+  {
+    "title": "ColdFusion Presents : New Thinking",
+    "author": "Dagogo Altraide",
+    "isbn": "9781633537507",
+    "publisher": "Mango",
+    "language": "",
+    "tags": [
+      "Technology and civilization",
+      "Technology",
+      "history"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/10857210-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:04:46.337Z",
+    "id": 152,
+    "pageCount": 280
+  },
+  {
+    "title": "Permanent Record",
+    "author": "Edward Snowden",
+    "isbn": "9781250237231",
+    "publisher": "Metropolitan Books/Henry Holt and Company",
+    "language": "",
+    "tags": [
+      "Snowden",
+      "edward j.",
+      "1983-",
+      "Government information",
+      "Whistle blowing"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/15104849-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:04:54.315Z",
+    "id": 153,
+    "pageCount": null
+  },
+  {
+    "title": "Math for Programmers",
+    "author": "Paul Orland",
+    "isbn": "9781617295355",
+    "publisher": "Manning",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/15239569-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:05:05.561Z",
+    "id": 154,
+    "pageCount": 650
+  },
+  {
+    "title": "MATLAB for Engineers",
+    "author": "Holly Moore",
+    "isbn": "9781292060538",
+    "publisher": "Pearson Education, Limited",
+    "language": "",
+    "tags": [
+      "Matlab (computer program)",
+      "Engineering mathematics",
+      "Mathematics",
+      "data processing"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:05:13.307Z",
+    "id": 155,
+    "pageCount": 672
+  },
+  {
+    "title": "Operating systems",
+    "author": "Andrew S. Tanenbaum, Albert S. Woodhull",
+    "isbn": "9780136374060",
+    "publisher": "Prentice-Hall",
+    "language": "",
+    "tags": [
+      "Operating systems (Computers)",
+      "Systèmes d'exploitation (ordinateurs)",
+      "Implémentation"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/4170114-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:05:35.262Z",
+    "id": 156,
+    "pageCount": 719
+  },
+  {
+    "title": "The Design and Engineering of Curiosity",
+    "author": "Emily Lakdawalla",
+    "isbn": "9783319681443",
+    "publisher": "Springer",
+    "language": "",
+    "tags": [
+      "Engineering design"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/10174735-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:05:53.634Z",
+    "id": 157,
+    "pageCount": 408
+  },
+  {
+    "title": "Modern Robotics",
+    "author": "Frank C. Park, Kevin M. Lynch",
+    "isbn": "9781107156302",
+    "publisher": "Cambridge University Press",
+    "language": "",
+    "tags": [
+      "Robots",
+      "Robotics",
+      "Control systems"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/12879336-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:05:57.740Z",
+    "id": 158,
+    "pageCount": 544
+  },
+  {
+    "title": "Topics in Group Theory (Springer Undergraduate Mathematics Series)",
+    "author": "Geoff Smith, Olga Tabachnikova",
+    "isbn": "9781852332358",
+    "publisher": "Springer",
+    "language": "",
+    "tags": [
+      "Group theory",
+      "Mathematics",
+      "Algebra"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/900048-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:08:09.885Z",
+    "id": 159,
+    "pageCount": 256
+  },
+  {
+    "title": "Generalized inverses",
+    "author": "Adi Ben-Israel",
+    "isbn": "9780387002934",
+    "publisher": "Springer",
+    "language": "",
+    "tags": [
+      "Matrix inversion",
+      "Inversions (geometry)",
+      "Matrices"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/1190373-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:08:15.138Z",
+    "id": 160,
+    "pageCount": 420
+  },
+  {
+    "title": "Chasing new horizons",
+    "author": "Alan Stern",
+    "isbn": "9781250098962",
+    "publisher": "Picador",
+    "language": "",
+    "tags": [
+      "Space flight to Pluto",
+      "Pluto probes",
+      "Exploration"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:08:19.862Z",
+    "id": 161,
+    "pageCount": null
+  },
+  {
+    "title": "How To: Absurd Scientific Advice for Common Real-World Problems",
+    "author": "Randall Munroe",
+    "isbn": "9780525537090",
+    "publisher": "Riverhead Books",
+    "language": "",
+    "tags": [
+      "Science",
+      "miscellanea",
+      "Problem solving",
+      "Humor",
+      "form",
+      "trivia"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8781053-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:08:23.309Z",
+    "id": 162,
+    "pageCount": 307
+  },
+  {
+    "title": "Everything all at once",
+    "author": "Bill Nye",
+    "isbn": "9781623367916",
+    "publisher": "Rodale",
+    "language": "",
+    "tags": [
+      "Critical thinking",
+      "Anecdotes",
+      "Problem solving"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:08:29.264Z",
+    "id": 163,
+    "pageCount": 374
+  },
+  {
+    "title": "How to Avoid a Climate Disaster",
+    "author": "Bill Gates",
+    "isbn": "9780735280441",
+    "publisher": "",
+    "language": "",
+    "tags": [
+      "nyt:combined-print-and-e-book-nonfiction=2021-03-07",
+      "New York Times bestseller",
+      "New York Times reviewed"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:08:49.129Z",
+    "id": 164,
+    "pageCount": null
+  },
+  {
+    "title": "A Brief History of Time",
+    "author": "Stephen Hawking",
+    "isbn": "9780553380163",
+    "publisher": "andom House Publishing Group",
+    "language": "",
+    "tags": [
+      "Cosmologie",
+      "Temps (durée)",
+      "Espace-temps"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/14589690-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:08:54.912Z",
+    "id": 165,
+    "pageCount": null
+  },
+  {
+    "title": "Genesis and the big bang",
+    "author": "Gerald L. Schroeder",
+    "isbn": "9780553354133",
+    "publisher": "Bantam Books",
+    "language": "",
+    "tags": [
+      "Creation",
+      "Bible and science"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/9529023-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:09:06.266Z",
+    "id": 166,
+    "pageCount": null
+  },
+  {
+    "title": "Six easy pieces",
+    "author": "Richard Phillips Feynman, Paul Davies",
+    "isbn": "9780465025275",
+    "publisher": "Basic Books",
+    "language": "",
+    "tags": [
+      "Physics",
+      "Física",
+      "Obras de divulgación"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8719990-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:09:11.728Z",
+    "id": 167,
+    "pageCount": null
+  },
+  {
+    "title": "Astrophysics for People in a Hurry",
+    "author": "Neil deGrasse Tyson, Sandra Martha Dolinsky, María del Carmen Román de la Peña",
+    "isbn": "9780393609394",
+    "publisher": "W.W. Norton & Company",
+    "language": "",
+    "tags": [
+      "Astrophysics",
+      "Science",
+      "Cosmology"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/15093884-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:09:16.308Z",
+    "id": 168,
+    "pageCount": null
+  },
+  {
+    "title": "Thinking, Fast and Slow",
+    "author": "Daniel Kahneman",
+    "isbn": "9780385676533",
+    "publisher": "Anchor Canada",
+    "language": "",
+    "tags": [
+      "Intuition",
+      "Thought and thinking",
+      "Reasoning"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/10159179-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:09:24.201Z",
+    "id": 169,
+    "pageCount": null
+  },
+  {
+    "title": "Humans",
+    "author": "Tom Phillips",
+    "isbn": "9781335936639",
+    "publisher": "Harlequin Enterprises, Limited",
+    "language": "",
+    "tags": [
+      "History",
+      "miscellanea",
+      "Disasters"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:09:30.600Z",
+    "id": 170,
+    "pageCount": null
+  },
+  {
+    "title": "Guns, Germs, and Steel",
+    "author": "Jared Diamond",
+    "isbn": "9780393354324",
+    "publisher": "W. W. Norton & Company",
+    "language": "",
+    "tags": [
+      "prize:pulitzer=1998",
+      "Ethnology",
+      "Criticism and interpretation"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/14631255-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:09:49.412Z",
+    "id": 171,
+    "pageCount": 528
+  },
+  {
+    "title": "My Youth Romantic Comedy is Wrong, as I Expected, vol 1",
+    "author": "Wataru Watari",
+    "isbn": "9780316312295",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/15210536-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:12:37.235Z",
+    "id": 172,
+    "pageCount": 248
+  },
+  {
+    "title": "My Youth Romantic Comedy Is Wrong, as I Expected, Volume 2",
+    "author": "Wataru Watari",
+    "isbn": "9780316396011",
+    "publisher": "Yen On",
+    "language": "",
+    "tags": [
+      "franchise:やはり俺の青春ラブコメはまちがっている。",
+      "series:やはり俺の青春ラブコメはまちがっている。",
+      "form:light novel"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/15145063-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:12:50.419Z",
+    "id": 173,
+    "pageCount": 216
+  },
+  {
+    "title": "The Empty Box and Zeroth Maria 1",
+    "author": "Eiji Mikage",
+    "isbn": "9780316561105",
+    "publisher": "Yen On",
+    "language": "",
+    "tags": [
+      "series:空ろの箱と零のマリア",
+      "form:light novel",
+      "genre:action"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/15154947-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:12:57.894Z",
+    "id": 174,
+    "pageCount": null
+  },
+  {
+    "title": "The Empty Box and Zeroth Maria 2",
+    "author": "Eiji Mikage",
+    "isbn": "9780316561112",
+    "publisher": "Yen On",
+    "language": "",
+    "tags": [
+      "series:空ろの箱と零のマリア",
+      "form:light novel",
+      "genre:action"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/15154950-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:13:04.709Z",
+    "id": 175,
+    "pageCount": 200
+  },
+  {
+    "title": "BAKEMONOGATARI, Part 02",
+    "author": "Nisio Isin",
+    "isbn": "9781942993896",
+    "publisher": "Vertical, Incorporated",
+    "language": "",
+    "tags": [
+      "Fiction",
+      "occult & supernatural"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/11259582-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:13:26.002Z",
+    "id": 176,
+    "pageCount": 240
+  },
+  {
+    "title": "BAKEMONOGATARI, Part 3",
+    "author": "Nisio Isin",
+    "isbn": "9781942993902",
+    "publisher": "Vertical, Incorporated",
+    "language": "",
+    "tags": [
+      "Comics & graphic novels",
+      "manga",
+      "horror"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/11259596-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:13:31.581Z",
+    "id": 177,
+    "pageCount": 220
+  },
+  {
+    "title": "NISEMONOGATARI, Part 2",
+    "author": "Nisio Isin",
+    "isbn": "9781942993995",
+    "publisher": "Vertical, Inc.",
+    "language": "",
+    "tags": [
+      "Sisters",
+      "Fiction",
+      "Vampires"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8542205-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:13:35.979Z",
+    "id": 178,
+    "pageCount": 298
+  },
+  {
+    "title": "KIZUMONOGATARI",
+    "author": "Nisio Isin",
+    "isbn": "9781941220979",
+    "publisher": "Vertical, Incorporated",
+    "language": "",
+    "tags": [
+      "Cities and towns",
+      "Vampires",
+      "Fiction"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/12656375-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:13:50.638Z",
+    "id": 179,
+    "pageCount": 344
+  },
+  {
+    "title": "BAKEMONOGATARI, Part 1",
+    "author": "Nisio Isin",
+    "isbn": "9781942993889",
+    "publisher": "Vertical, Incorporated",
+    "language": "",
+    "tags": [
+      "High school students",
+      "Vampires",
+      "Fiction"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/9104203-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:14:20.316Z",
+    "id": 180,
+    "pageCount": 234
+  },
+  {
+    "title": "NEKOMONOGATARI (BLACK)",
+    "author": "Nisio Isin",
+    "isbn": "9781945054488",
+    "publisher": "Vertical, Incorporated",
+    "language": "",
+    "tags": [
+      "Middle school students",
+      "Interpersonal relations",
+      "Brothers and sisters"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/12656377-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:14:24.869Z",
+    "id": 181,
+    "pageCount": 280
+  },
+  {
+    "title": "NISEMONOGATARI, Part 1",
+    "author": "Nisio Isin",
+    "isbn": "9781942993988",
+    "publisher": "Vertical, Incorporated",
+    "language": "",
+    "tags": [
+      "Fiction",
+      "fantasy",
+      "paranormal"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/12656376-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:14:32.020Z",
+    "id": 182,
+    "pageCount": 280
+  },
+  {
+    "title": "Monogatari Series Box Set, Season 2",
+    "author": "NisiOisiN, Vofan",
+    "isbn": "9781949980066",
+    "publisher": "Kodansha America, Incorporated",
+    "language": "",
+    "tags": [
+      "Literature"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:15:02.495Z",
+    "id": 183,
+    "pageCount": 1
+  },
+  {
+    "title": "86—EIGHTY-SIX, Vol. 1",
+    "author": "Asato Asato, Shirabii",
+    "isbn": "9781975303129",
+    "publisher": "Yen On",
+    "language": "",
+    "tags": [
+      "franchise:86―エイティシックス―",
+      "series:86―エイティシックス― (light novel)",
+      "form:light novel"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/15135888-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:15:55.753Z",
+    "id": 184,
+    "pageCount": null
+  },
+  {
+    "title": "86—EIGHTY-SIX, Vol. 2",
+    "author": "Asato Asato",
+    "isbn": "9781975303143",
+    "publisher": "Yen On",
+    "language": "",
+    "tags": [
+      "series:８６―エイティシックス― (light novel)"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/15135915-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:16:01.109Z",
+    "id": 185,
+    "pageCount": 192
+  },
+  {
+    "title": "86—EIGHTY-SIX, Vol. 3",
+    "author": "Asato Asato, Shirabii",
+    "isbn": "9781975303112",
+    "publisher": "Yen On",
+    "language": "",
+    "tags": [
+      "series:８６―エイティシックス― (light novel)"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/15135926-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:16:06.107Z",
+    "id": 186,
+    "pageCount": 240
+  },
+  {
+    "title": "86—EIGHTY-SIX, Vol. 4",
+    "author": "Asato Asato, Shirabii",
+    "isbn": "9781975303167",
+    "publisher": "Yen On",
+    "language": "",
+    "tags": [
+      "series:８６―エイティシックス― (light novel)"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/15135931-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:16:10.183Z",
+    "id": 187,
+    "pageCount": null
+  },
+  {
+    "title": "86—EIGHTY-SIX, Vol. 5",
+    "author": "Asato Asato, Shirabii",
+    "isbn": "9781975399252",
+    "publisher": "Yen On",
+    "language": "",
+    "tags": [
+      "series:８６―エイティシックス― (light novel)"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/15135933-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:16:18.444Z",
+    "id": 188,
+    "pageCount": null
+  },
+  {
+    "title": "86—EIGHTY-SIX, Vol. 6",
+    "author": "Asato Asato, Shirabii",
+    "isbn": "9781975314514",
+    "publisher": "Yen On",
+    "language": "",
+    "tags": [
+      "series:８６―エイティシックス― (light novel)"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/15136408-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:16:23.945Z",
+    "id": 189,
+    "pageCount": 280
+  },
+  {
+    "title": "86—EIGHTY-SIX, Vol. 7",
+    "author": "Asato Asato, Shirabii",
+    "isbn": "9781975320744",
+    "publisher": "Yen On",
+    "language": "",
+    "tags": [
+      "series:８６―エイティシックス― (light novel)"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/15136439-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:16:29.488Z",
+    "id": 190,
+    "pageCount": 208
+  },
+  {
+    "title": "Full Metal Panic! Volumes 1-3 Collector's Edition",
+    "author": "Shouji Gatou, Shikidouji, Elizabeth Ellis",
+    "isbn": "9781718350502",
+    "publisher": "Unknown Publisher",
+    "language": "",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:17:33.269Z",
+    "id": 191,
+    "pageCount": null
+  },
+  {
+    "title": "Full Metal Panic! Volumes 4-6 Collector's Edition",
+    "author": "Shouji Gatou, Shikidouji, Elizabeth Ellis",
+    "isbn": "9781718350519",
+    "publisher": "J-Novel Club",
+    "language": "",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:17:38.338Z",
+    "id": 192,
+    "pageCount": null
+  },
+  {
+    "title": "Full Metal Panic! Volumes 7-9 Collector's Edition",
+    "author": "Shouji Gatou, Shikidouji, Elizabeth Ellis",
+    "isbn": "9781718350526",
+    "publisher": "J-Novel Club",
+    "language": "",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:17:43.245Z",
+    "id": 193,
+    "pageCount": null
+  },
+  {
+    "title": "Full Metal Panic! Volumes 10-12 Collector's Edition",
+    "author": "Shouji Gatou, Shikidouji, Elizabeth Ellis",
+    "isbn": "9781718350533",
+    "publisher": "J-Novel Club",
+    "language": "",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:18:08.446Z",
+    "id": 194,
+    "pageCount": null
+  },
+  {
+    "title": "Crest of the Stars Volumes 1-3 Collector's Edition )",
+    "author": "Hiroyuki Morioka, Giuseppe di Martino",
+    "isbn": "9781718350700",
+    "publisher": "J-Novel Club",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/10467945-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:18:19.645Z",
+    "id": 195,
+    "pageCount": 650
+  },
+  {
+    "title": "Crest of the Stars Volumes 1-3 Collector's Edition )",
+    "author": "Hiroyuki Morioka, Giuseppe di Martino",
+    "isbn": "9781718350700",
+    "publisher": "J-Novel Club",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/10467945-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:18:34.078Z",
+    "id": 196,
+    "pageCount": null
+  },
+  {
+    "title": "Banner of the Stars Volumes 1-3 Collector's Edition",
+    "author": "Hiroyuki Morioka, Giuseppe di Martino",
+    "isbn": "9781718350717",
+    "publisher": "J-Novel Club",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/13572644-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:18:45.583Z",
+    "id": 197,
+    "pageCount": 650
+  },
+  {
+    "title": "Banner of the Stars Volumes 4-6 Collector's Edition",
+    "author": "Hiroyuki Morioka, Giuseppe di Martino",
+    "isbn": "9781718350724",
+    "publisher": "J-Novel Club",
+    "language": "",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:18:50.039Z",
+    "id": 198,
+    "pageCount": null
+  },
+  {
+    "title": "Yukikaze",
+    "author": "Chōhei Kanbayashi",
+    "isbn": "9781421532554",
+    "publisher": "Haikasoru",
+    "language": "",
+    "tags": [
+      "Fiction",
+      "science fiction",
+      "general",
+      "Fighter pilots",
+      "Fiction"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:20:21.843Z",
+    "id": 199,
+    "pageCount": null
+  },
+  {
+    "title": "Good luck, Yukikaze",
+    "author": "Chōhei Kanbayashi",
+    "isbn": "9781421539010",
+    "publisher": "VIZ Media",
+    "language": "",
+    "tags": [
+      "Space warfare",
+      "Fiction",
+      "Fiction",
+      "science fiction",
+      "space opera"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:20:30.829Z",
+    "id": 200,
+    "pageCount": null
+  },
+  {
+    "title": "Vivy Prototype (Light Novel) Vol. 1",
+    "author": "Tappei Nagatsuki, Eiji Umehara, loundraw",
+    "isbn": "9781638585756",
+    "publisher": "Seven Seas Entertainment, LLC",
+    "language": "",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:20:37.363Z",
+    "id": 201,
+    "pageCount": null
+  },
+  {
+    "title": "Vivy Prototype (Light Novel) Vol. 2",
+    "author": "Tappei Nagatsuki, Umehara Eiji, loundraw",
+    "isbn": "9781638587071",
+    "publisher": "Seven Seas Entertainment, LLC",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/14795386-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:20:42.838Z",
+    "id": 202,
+    "pageCount": null
+  },
+  {
+    "title": "Vivy Prototype (Light Novel) Vol. 3",
+    "author": "Tappei Nagatsuki, Eiji Umehara, loundraw",
+    "isbn": "9781638588214",
+    "publisher": "Seven Seas Entertainment, LLC",
+    "language": "",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:20:47.141Z",
+    "id": 203,
+    "pageCount": null
+  },
+  {
+    "title": "Vivy Prototype (Light Novel) Vol. 4",
+    "author": "Tappei Nagatsuki, Eiji Umehara, loundraw",
+    "isbn": "9781685796471",
+    "publisher": "Seven Seas Entertainment, LLC",
+    "language": "",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:20:51.644Z",
+    "id": 204,
+    "pageCount": null
+  },
+  {
+    "title": "Rampage of Haruhi Suzumiya (light Novel)",
+    "author": "Nagaru Tanigawa",
+    "isbn": "9781975322878",
+    "publisher": "Yen Press LLC",
+    "language": "",
+    "tags": [
+      "Clubs",
+      "Fiction",
+      "Supernatural"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/13484838-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:20:58.182Z",
+    "id": 205,
+    "pageCount": 248
+  },
+  {
+    "title": "Wavering of Haruhi Suzumiya (light Novel)",
+    "author": "Nagaru Tanigawa",
+    "isbn": "9781975322885",
+    "publisher": "Yen Press LLC",
+    "language": "",
+    "tags": [
+      "Clubs",
+      "Fiction",
+      "Supernatural"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/13484795-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:21:01.825Z",
+    "id": 206,
+    "pageCount": 216
+  },
+  {
+    "title": "Intrigues of Haruhi Suzumiya (light Novel)",
+    "author": "Nagaru Tanigawa",
+    "isbn": "9781975324179",
+    "publisher": "Yen Press LLC",
+    "language": "",
+    "tags": [
+      "JUVENILE FICTION / Action & Adventure / General",
+      "JUVENILE FICTION / Fantasy & Magic",
+      "JUVENILE FICTION / People & Places / Asia"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/12381013-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:21:04.911Z",
+    "id": 207,
+    "pageCount": 288
+  },
+  {
+    "title": "Indignation of Haruhi Suzumiya (light Novel)",
+    "author": "Nagaru Tanigawa",
+    "isbn": "9781975324186",
+    "publisher": "Yen Press LLC",
+    "language": "",
+    "tags": [
+      "Schools",
+      "Clubs",
+      "Fiction"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:21:08.969Z",
+    "id": 208,
+    "pageCount": null
+  },
+  {
+    "title": "Surprise of Haruhi Suzumiya (light Novel)",
+    "author": "Nagaru Tanigawa",
+    "isbn": "9781975324209",
+    "publisher": "Yen Press LLC",
+    "language": "",
+    "tags": [
+      "Supernatural",
+      "Fiction",
+      "Clubs"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/13484804-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:21:18.668Z",
+    "id": 209,
+    "pageCount": 423
+  },
+  {
+    "title": "Toradora!  Vol. 1",
+    "author": "Yuyuko Takemiya, Yasu",
+    "isbn": "9781626927957",
+    "publisher": "Seven Seas",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/10178820-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:21:24.616Z",
+    "id": 210,
+    "pageCount": 240
+  },
+  {
+    "title": "The Melancholy of Haruhi Suzumiya",
+    "author": "Nagaru Tanigawa",
+    "isbn": "9781975322830",
+    "publisher": "Yen Press",
+    "language": "",
+    "tags": [
+      "Translations into English",
+      "High school students",
+      "Clubs"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/15122348-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:21:29.781Z",
+    "id": 211,
+    "pageCount": 232
+  },
+  {
+    "title": "Sigh of Haruhi Suzumiya (light Novel)",
+    "author": "Nagaru Tanigawa",
+    "isbn": "9781975322847",
+    "publisher": "Yen Press LLC",
+    "language": "",
+    "tags": [
+      "Video recordings",
+      "Fiction",
+      "Clubs"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/13897918-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:21:33.711Z",
+    "id": 212,
+    "pageCount": 218
+  },
+  {
+    "title": "Boredom of Haruhi Suzumiya (light Novel)",
+    "author": "Nagaru Tanigawa",
+    "isbn": "9781975322854",
+    "publisher": "Yen Press LLC",
+    "language": "",
+    "tags": [
+      "Fiction",
+      "Clubs",
+      "High schools"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:21:37.772Z",
+    "id": 213,
+    "pageCount": 232
+  },
+  {
+    "title": "Disappearance of Haruhi Suzumiya (light Novel)",
+    "author": "Nagaru Tanigawa",
+    "isbn": "9781975322861",
+    "publisher": "Yen Press LLC",
+    "language": "",
+    "tags": [
+      "Space and time",
+      "Fiction",
+      "Clubs"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:21:41.354Z",
+    "id": 214,
+    "pageCount": 192
+  },
+  {
+    "title": "Nausicaa Of The Valley Of The Wind Box Set",
+    "author": "Hayao Miyazaki",
+    "isbn": "9781421550640",
+    "publisher": "Viz Media",
+    "language": "",
+    "tags": [
+      "Comics & graphic novels",
+      "manga",
+      "fantasy"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/7485571-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:23:13.815Z",
+    "id": 215,
+    "pageCount": null
+  },
+  {
+    "title": "Nausicaä of the Valley of Wind",
+    "author": "Hayao Miyazaki",
+    "isbn": "9781591164081",
+    "publisher": "Viz Media, LLC",
+    "language": "",
+    "tags": [
+      "Environmental degradation",
+      "Japanese fiction",
+      "Translations into English"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/12680757-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:25:22.596Z",
+    "id": 216,
+    "pageCount": null
+  },
+  {
+    "title": "Final Fantasy I * II * III",
+    "author": "Takashi Umemura",
+    "isbn": "9781975382391",
+    "publisher": "Yen Press LLC",
+    "language": "",
+    "tags": [
+      "Children's fiction"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:25:36.039Z",
+    "id": 217,
+    "pageCount": 224
+  },
+  {
+    "title": "Final Fantasy VII",
+    "author": "Kazushige Nojima",
+    "isbn": "9781975382353",
+    "publisher": "Orbit",
+    "language": "",
+    "tags": [
+      "Children's fiction",
+      "Magic",
+      "fiction",
+      "Science fiction"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:25:40.988Z",
+    "id": 218,
+    "pageCount": 192
+  },
+  {
+    "title": "Final Fantasy VII Remake: Traces of Two Pasts",
+    "author": "Kazushige Nojima",
+    "isbn": "9781646091775",
+    "publisher": "Square Enix",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/14709969-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:25:48.084Z",
+    "id": 219,
+    "pageCount": null
+  },
+  {
+    "title": "I Have a Secret (Light Novel)",
+    "author": "Yoru Sumino",
+    "isbn": "9781648274152",
+    "publisher": "Seven Seas Entertainment, LLC",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/12797029-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:25:53.442Z",
+    "id": 220,
+    "pageCount": 320
+  },
+  {
+    "title": "The little book of mathematical principles, theories, & things",
+    "author": "Robert Solomon",
+    "isbn": "9781435104891",
+    "publisher": "Metro Books",
+    "language": "",
+    "tags": [
+      "Chronology",
+      "Mathematics",
+      "Popular works"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/10781942-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:25:58.723Z",
+    "id": 221,
+    "pageCount": 224
+  },
+  {
+    "title": "I Will Forget This Feeling Someday (Light Novel)",
+    "author": "Yoru Sumino",
+    "isbn": "9781638585206",
+    "publisher": "Seven Seas Entertainment, LLC",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/13463893-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:26:04.529Z",
+    "id": 222,
+    "pageCount": 362
+  },
+  {
+    "title": "I Want to Eat Your Pancreas",
+    "author": "Yoru Sumino",
+    "isbn": "9781642750331",
+    "publisher": "Seven Seas Entertainment, LLC",
+    "language": "",
+    "tags": [
+      "Terminally ill",
+      "Man-woman relationships",
+      "Fiction"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/14569019-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:26:09.884Z",
+    "id": 223,
+    "pageCount": null
+  },
+  {
+    "title": "I Had That Same Dream Again",
+    "author": "Yoru Sumino, Idumi Kirihara",
+    "isbn": "9781645054399",
+    "publisher": "Seven Seas Entertainment, LLC",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/10277096-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:26:19.039Z",
+    "id": 224,
+    "pageCount": 256
+  },
+  {
+    "title": "Wait for Me Yesterday (Light Novel)",
+    "author": "Mei Hachimoku, Kukka",
+    "isbn": "9781638584094",
+    "publisher": "Seven Seas Entertainment, LLC",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/14838925-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:26:24.675Z",
+    "id": 225,
+    "pageCount": null
+  },
+  {
+    "title": "The travelling cat chronicles",
+    "author": "Hiro Arikawa",
+    "isbn": "9780735235236",
+    "publisher": "Penguin Canada",
+    "language": "",
+    "tags": [
+      "FICTION",
+      "General",
+      "Cats"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:26:30.348Z",
+    "id": 226,
+    "pageCount": 277
+  },
+  {
+    "title": "The Order of Time",
+    "author": "Carlo Rovelli",
+    "isbn": "9780241292525",
+    "publisher": "Penguin Books",
+    "language": "",
+    "tags": [
+      "Space and time",
+      "Time",
+      "Cosmology"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8250708-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:27:45.881Z",
+    "id": 227,
+    "pageCount": null
+  },
+  {
+    "title": "Measurement",
+    "author": "Paul Lockhart",
+    "isbn": "9780674284388",
+    "publisher": "Belknap Press",
+    "language": "",
+    "tags": [
+      "Geometry"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/9716263-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:27:52.289Z",
+    "id": 228,
+    "pageCount": null
+  },
+  {
+    "title": "A Mathematician's Lament",
+    "author": "Paul Lockhart",
+    "isbn": "9781934137178",
+    "publisher": "Bellevue Literary Press",
+    "language": "",
+    "tags": [
+      "Mathematics",
+      "Study and teaching",
+      "Evaluation"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/13116015-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:27:57.546Z",
+    "id": 229,
+    "pageCount": null
+  },
+  {
+    "title": "A Mathematician's Apology",
+    "author": "G. H. Hardy, Iñaki Iñurrieta Labaien, John von Neumann, Pedro Pacheco González",
+    "isbn": "9781684221851",
+    "publisher": "Martino Fine Books",
+    "language": "",
+    "tags": [
+      "Mathematics",
+      "Addresses",
+      "essays",
+      "lectures",
+      "Pure Mathematics"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/9212418-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:28:03.335Z",
+    "id": 230,
+    "pageCount": 102
+  },
+  {
+    "title": "The Golden Section",
+    "author": "Scott Olsen, Scott Olson",
+    "isbn": "9780802715395",
+    "publisher": "Walker & Company",
+    "language": "",
+    "tags": [
+      "Mathematics"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/570895-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:28:08.385Z",
+    "id": 231,
+    "pageCount": null
+  },
+  {
+    "title": "Fatou, Julia, Montel",
+    "author": "Michèle Audin",
+    "isbn": "9783642004452",
+    "publisher": "Springer",
+    "language": "FR",
+    "tags": [
+      "Mathematics",
+      "Awards",
+      "History"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8648411-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:28:21.327Z",
+    "id": 232,
+    "pageCount": 276
+  },
+  {
+    "title": "Algebra",
+    "author": "Michael Artin",
+    "isbn": "9789332549838",
+    "publisher": "Pearson",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/14418733-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:28:27.444Z",
+    "id": 233,
+    "pageCount": null
+  },
+  {
+    "title": "Complex variables",
+    "author": "Stephen D. Fisher",
+    "isbn": "9780486406794",
+    "publisher": "Dover",
+    "language": "",
+    "tags": [
+      "Functions of complex variables"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/312732-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:32:32.774Z",
+    "id": 234,
+    "pageCount": 427
+  },
+  {
+    "title": "A second course in calculus",
+    "author": "Harley Flanders",
+    "isbn": "9780122596629",
+    "publisher": "Academic Press",
+    "language": "",
+    "tags": [
+      "Calculus"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/12958014-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:33:07.821Z",
+    "id": 235,
+    "pageCount": 687
+  },
+  {
+    "title": "Linear Algebra Done Right",
+    "author": "Sheldon Axler",
+    "isbn": "9783319307657",
+    "publisher": "Springer",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/13670900-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:33:16.437Z",
+    "id": 236,
+    "pageCount": 357
+  },
+  {
+    "title": "Essential Calculus Skills Practice Workbook with Full Solutions",
+    "author": "Chris McMullen",
+    "isbn": "9781941691243",
+    "publisher": "Zishka Publishing",
+    "language": "",
+    "tags": [
+      "Mathematics",
+      "Education"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/14840801-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:33:21.697Z",
+    "id": 237,
+    "pageCount": 151
+  },
+  {
+    "title": "Discrete mathematics",
+    "author": "Norman Biggs",
+    "isbn": "9780198507178",
+    "publisher": "Oxford University Press",
+    "language": "",
+    "tags": [
+      "Mathematics",
+      "Computer science",
+      "Computer science",
+      "mathematics"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/1135125-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:33:28.441Z",
+    "id": 238,
+    "pageCount": null
+  },
+  {
+    "title": "Elementary Analysis",
+    "author": "Kenneth A. Ross",
+    "isbn": "9781461462705",
+    "publisher": "Springer-Verlag New York Inc.",
+    "language": "",
+    "tags": [
+      "Calculus",
+      "Analysis",
+      "Analyse mathématique"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/7808588-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:33:35.668Z",
+    "id": 239,
+    "pageCount": 412
+  },
+  {
+    "title": "Proofs",
+    "author": "Jay Cummings",
+    "isbn": "9798595265973",
+    "publisher": "Independently Published",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/14855785-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:33:44.463Z",
+    "id": 240,
+    "pageCount": null
+  },
+  {
+    "title": "Mathematical statistics with applications",
+    "author": "Dennis D. Wackerly",
+    "isbn": "9780495110811",
+    "publisher": "Thomson Brooks/Cole",
+    "language": "",
+    "tags": [
+      "Mathematical statistics",
+      "Statistique mathématique",
+      "Statistiek"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/12185500-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:36:15.225Z",
+    "id": 241,
+    "pageCount": 912
+  },
+  {
+    "title": "Java for C/C [plus plus] programmers",
+    "author": "Michael C. Daconta",
+    "isbn": "9780471153245",
+    "publisher": "Wiley",
+    "language": "",
+    "tags": [
+      "Java (Computer program language)",
+      "World Wide Web servers",
+      "C."
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/3847253-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:36:23.286Z",
+    "id": 242,
+    "pageCount": 443
+  },
+  {
+    "title": "Cracking the Coding Interview: 189 Programming Questions and Solutions",
+    "author": "Gayle Laakmann McDowell",
+    "isbn": "9780984782857",
+    "publisher": "CAREERCUP",
+    "language": "",
+    "tags": [
+      "Problems",
+      "exercises",
+      "Computer programming",
+      "Vocational guidance"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8091016-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:36:30.688Z",
+    "id": 243,
+    "pageCount": null
+  },
+  {
+    "title": "An introduction to database systems",
+    "author": "C. J. Date",
+    "isbn": "9780201543292",
+    "publisher": "Addison-Wesley Pub. Co.",
+    "language": "",
+    "tags": [
+      "Database management",
+      "Databanken",
+      "Gestion"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/135124-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:36:37.849Z",
+    "id": 244,
+    "pageCount": 839
+  },
+  {
+    "title": "DB2 10.5 Fundamentals for LUW",
+    "author": "Roger E. Sanders",
+    "isbn": "9781583474570",
+    "publisher": "MC Press",
+    "language": "",
+    "tags": [
+      "Computers"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8886447-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:39:40.196Z",
+    "id": 245,
+    "pageCount": 520
+  },
+  {
+    "title": "Sams Teach Yourself Python in 24 Hours",
+    "author": "Katie Cunningham",
+    "isbn": "9780672336874",
+    "publisher": "Sams Publishing",
+    "language": "",
+    "tags": [
+      "Python (Computer program language)"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8513377-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:39:52.292Z",
+    "id": 246,
+    "pageCount": 320
+  },
+  {
+    "title": "SQL Second Edition",
+    "author": "Chris Fehily",
+    "isbn": "9780321334176",
+    "publisher": "Peachpit Press",
+    "language": "",
+    "tags": [
+      "SQL (Computer program language)",
+      "Sql (computer program language)"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/193713-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:40:16.028Z",
+    "id": 247,
+    "pageCount": 440
+  },
+  {
+    "title": "PHP & MySQL : Novice to Ninja",
+    "author": "Kevin Yank",
+    "isbn": "9780987153081",
+    "publisher": "SitePoint",
+    "language": "",
+    "tags": [
+      "Mysql (computer program language)",
+      "Php (computer program language)",
+      "Web site development"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/12950949-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:40:31.628Z",
+    "id": 248,
+    "pageCount": 481
+  },
+  {
+    "title": "JavaScript",
+    "author": "Tom Negrino",
+    "isbn": "9780321772978",
+    "publisher": "Peachpit Press",
+    "language": "",
+    "tags": [
+      "World Wide Web",
+      "Design",
+      "Internet publishing"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/9623461-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:40:36.711Z",
+    "id": 249,
+    "pageCount": 518
+  },
+  {
+    "title": "JavaScript and jQuery",
+    "author": "Jon Duckett",
+    "isbn": "9781118531648",
+    "publisher": "Wiley",
+    "language": "",
+    "tags": [
+      "JavaScript (Computer program language)",
+      "Web site development",
+      "Computers--programming languages--javascript"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/7419725-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:40:53.500Z",
+    "id": 250,
+    "pageCount": 640
+  },
+  {
+    "title": "HTML and CSS",
+    "author": "Jon Duckett",
+    "isbn": "9781118008188",
+    "publisher": "Wiley",
+    "language": "",
+    "tags": [
+      "HTML (Document markup language)",
+      "Web sites",
+      "Design"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/7262081-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:44:31.469Z",
+    "id": 251,
+    "pageCount": null
+  },
+  {
+    "title": "Lycoris Recoil: Recovery Days, Vol. 1 (light novel)",
+    "author": "Unknown Author",
+    "isbn": "9798855431988",
+    "publisher": "Hachette Aotearoa New Zealand",
+    "language": "",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:44:59.462Z",
+    "id": 252,
+    "pageCount": null
+  },
+  {
+    "title": "Lycoris Recoil: Ordinary Days",
+    "author": "Unknown Author",
+    "isbn": "9781975393502",
+    "publisher": "",
+    "language": "",
+    "tags": [],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:45:17.151Z",
+    "id": 253,
+    "pageCount": null
+  },
+  {
+    "title": "The Devil Is a Part-Timer, Vol. 3 - light novel",
+    "author": "Satoshi Wagahara",
+    "isbn": "9780316385022",
+    "publisher": "Yen Press",
+    "language": "",
+    "tags": [
+      "Devil",
+      "Graphic novels",
+      "Fast food restaurants"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/14624681-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:45:32.420Z",
+    "id": 254,
+    "pageCount": null
+  },
+  {
+    "title": "Spice and Wolf, Volume 1",
+    "author": "Isuna Hasekura",
+    "isbn": "9780759531048",
+    "publisher": "Yen On",
+    "language": "",
+    "tags": [
+      "franchise:狼と香辛料",
+      "series:狼と香辛料 (light novel)",
+      "form:light novel"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/14841064-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:45:52.500Z",
+    "id": 255,
+    "pageCount": 248
+  },
+  {
+    "title": "She and Her Cat",
+    "author": "Makoto Shinkai, Tsubasa Yamaguchi",
+    "isbn": "9781982165741",
+    "publisher": "Atria Books",
+    "language": "",
+    "tags": [
+      "Comics & graphic novels",
+      "manga",
+      "general",
+      "Single women -- Comic books",
+      "strips",
+      "etc",
+      "Pet owners -- Comic books",
+      "strips",
+      "etc"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/14742639-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:46:06.801Z",
+    "id": 256,
+    "pageCount": 144
+  },
+  {
+    "title": "Bottom-Tier Character Tomozaki, Vol. 1 (light Novel)",
+    "author": "Yuki Yaku",
+    "isbn": "9781975358259",
+    "publisher": "Yen Press LLC",
+    "language": "",
+    "tags": [
+      "Fiction",
+      "Video games",
+      "Video gamers"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/14557752-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:46:16.393Z",
+    "id": 257,
+    "pageCount": null
+  },
+  {
+    "title": "WorldEnd: What Do You Do at the End of the World? Are You Busy? Will You Save Us?, Vol. 1",
+    "author": "Akira Kareno, ue",
+    "isbn": "9781975326876",
+    "publisher": "Yen On",
+    "language": "",
+    "tags": [
+      "Literature",
+      "Comics & graphic novels",
+      "manga",
+      "fantasy"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/10512273-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:46:25.339Z",
+    "id": 258,
+    "pageCount": 176
+  },
+  {
+    "title": "Kingdom Hearts",
+    "author": "Tomoco Kanemaki",
+    "isbn": "9780316260190",
+    "publisher": "Yen Press LLC",
+    "language": "",
+    "tags": [
+      "Children's fiction",
+      "Fantasy fiction",
+      "Friendship",
+      "fiction"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/12712632-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:46:38.159Z",
+    "id": 259,
+    "pageCount": 288
+  },
+  {
+    "title": "NieR : Automata",
+    "author": "Jun Eishima, Yoko Taro",
+    "isbn": "9781974701841",
+    "publisher": "VIZ Media LLC",
+    "language": "",
+    "tags": [
+      "Fiction",
+      "science fiction",
+      "general",
+      "Comics & graphic novels",
+      "manga",
+      "science fiction",
+      "Comics & graphic novels",
+      "manga",
+      "media tie-in"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8798517-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:47:00.038Z",
+    "id": 260,
+    "pageCount": 256
+  },
+  {
+    "title": "Ghost in the Shell",
+    "author": "Tow Ubukata",
+    "isbn": "9781945054228",
+    "publisher": "Vertical, Incorporated",
+    "language": "",
+    "tags": [
+      "Fiction",
+      "ghost",
+      "Science fiction",
+      "Japanese",
+      "Short stories",
+      "Japanese"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/14470019-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:47:06.529Z",
+    "id": 261,
+    "pageCount": 240
+  },
+  {
+    "title": "Wolf Children",
+    "author": "Mamoru Hosoda",
+    "isbn": "9781975356866",
+    "publisher": "Yen On",
+    "language": "",
+    "tags": [
+      "Comics & graphic novels",
+      "manga",
+      "fantasy"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/9413917-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:47:16.507Z",
+    "id": 262,
+    "pageCount": 176
+  },
+  {
+    "title": "The Boy and the Beast - light novel",
+    "author": "Mamoru Hosoda",
+    "isbn": "9780316270601",
+    "publisher": "Yen Press",
+    "language": "",
+    "tags": [
+      "Fiction",
+      "fantasy",
+      "general"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8478874-M.jpg",
+    "notes": "EN",
+    "addedAt": "2026-09-07T20:47:39.753Z",
+    "id": 263,
+    "pageCount": 192
+  },
+  {
+    "title": "True Tenchi Muyo!  Vol. 1",
+    "author": "Masaki Kajishima, Yousuke Kuroda",
+    "isbn": "9781626926141",
+    "publisher": "Seven Seas",
+    "language": "EN",
+    "tags": [
+      "Comics & graphic novels",
+      "manga",
+      "science fiction"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8818634-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:47:48.128Z",
+    "id": 264,
+    "pageCount": 240
+  },
+  {
+    "title": "Konosuba: God's Blessing on This Wonderful World!, Vol. 5",
+    "author": "Natsume Akatsuki",
+    "isbn": "9780316468787",
+    "publisher": "Yen On",
+    "language": "EN",
+    "tags": [
+      "series:この素晴らしい世界に祝福を! (light novel)"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/15134764-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:48:14.834Z",
+    "id": 265,
+    "pageCount": 208
+  },
+  {
+    "title": "Les aventures de Tintin",
+    "author": "Hergé",
+    "isbn": "9782203003033",
+    "publisher": "Casterman",
+    "language": "",
+    "tags": [
+      "series:Les Aventures de Tintin",
+      "Comic books",
+      "strips",
+      "etc.",
+      "Tintin (Fictitious character)"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/12492888-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:48:31.036Z",
+    "id": 266,
+    "pageCount": null
+  },
+  {
+    "title": "Tsubasa Reservoir Chronicle 6",
+    "author": "CLAMP",
+    "isbn": "9780345477934",
+    "publisher": "Del Rey/Ballantine",
+    "language": "EN",
+    "tags": [
+      "Comics & graphic novels",
+      "manga",
+      "fantasy",
+      "Graphic novels",
+      "Comic books",
+      "strips"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:49:07.832Z",
+    "id": 267,
+    "pageCount": 193
+  },
+  {
+    "title": "Tsubasa: Those with Wings, Omnibus 3",
+    "author": "Natsuki Takaya",
+    "isbn": "9781427814302",
+    "publisher": "TokyoPop",
+    "language": "EN",
+    "tags": [
+      "Comics & graphic novels",
+      "east asian style",
+      "manga",
+      "general"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/7659542-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:49:30.649Z",
+    "id": 268,
+    "pageCount": 402
+  },
+  {
+    "title": "College physics",
+    "author": "Eugene Hecht",
+    "isbn": "9781259587399",
+    "publisher": "McGraw-Hill Education",
+    "language": "",
+    "tags": [
+      "Physics",
+      "Problems",
+      "exercises",
+      "Outlines",
+      "syllabi"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/13497285-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:49:56.192Z",
+    "id": 269,
+    "pageCount": 576
+  },
+  {
+    "title": "The universe",
+    "author": "Thomas Michael Corwin, Thomas M. Corwin, Dale G. Wachowiak",
+    "isbn": "9780155929425",
+    "publisher": "Harcourt Brace Jovanovich",
+    "language": "",
+    "tags": [
+      "Astronomy",
+      "Cosmologie",
+      "Création"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/4576486-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:50:02.137Z",
+    "id": 270,
+    "pageCount": null
+  },
+  {
+    "title": "Schaums Outlines 3000 Solved Problems In Physics",
+    "author": "Alvin Halpern",
+    "isbn": "9780071763462",
+    "publisher": "McGraw-Hill",
+    "language": "",
+    "tags": [
+      "Physics",
+      "outlines",
+      "syllabi",
+      "etc.",
+      "Physics",
+      "Problems",
+      "exercises"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/7842351-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:50:10.487Z",
+    "id": 271,
+    "pageCount": 792
+  },
+  {
+    "title": "Essential Cosmic Perspective",
+    "author": "Jeffrey O. Bennett, Megan Donahue, Nicholas Schneider, Mark Voit",
+    "isbn": "9780321928085",
+    "publisher": "Pearson Education, Limited",
+    "language": "",
+    "tags": [
+      "Astronomy",
+      "Textbooks",
+      "Qb43.3 .e87 2012"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:50:47.813Z",
+    "id": 272,
+    "pageCount": null
+  },
+  {
+    "title": "Geosystems",
+    "author": "Unknown Author",
+    "isbn": "9780133405521",
+    "publisher": "Pearson Canada",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/10278535-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:50:53.599Z",
+    "id": 273,
+    "pageCount": 744
+  },
+  {
+    "title": "Human Geography",
+    "author": "Norton, William, Michael Mercier",
+    "isbn": "9780199019557",
+    "publisher": "Oxford University Press",
+    "language": "",
+    "tags": [
+      "Human geography",
+      "Textbooks",
+      "Géographie humaine"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/12665994-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:51:05.822Z",
+    "id": 274,
+    "pageCount": null
+  },
+  {
+    "title": "No bullshit guide to math and physics",
+    "author": "Ivan Savov",
+    "isbn": "9780992001001",
+    "publisher": "Minireference Publishing",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/15219356-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:51:12.141Z",
+    "id": 275,
+    "pageCount": 528
+  },
+  {
+    "title": "No bullshit guide to linear algebra",
+    "author": "Ivan Savov",
+    "isbn": "9780992001025",
+    "publisher": "Minireference Co.",
+    "language": "",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/10453151-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:51:18.474Z",
+    "id": 276,
+    "pageCount": 570
+  },
+  {
+    "title": "Schaum's outlines - Linear Algebra",
+    "author": "Seymour Lipschutz",
+    "isbn": "9781260011449",
+    "publisher": "McGraw-Hill Education",
+    "language": "",
+    "tags": [
+      "Linear Algebras",
+      "Outlines",
+      "syllabi",
+      "Geometry",
+      "differential"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:51:36.769Z",
+    "id": 277,
+    "pageCount": 425
+  },
+  {
+    "title": "Multivariable calculus",
+    "author": "James Stewart",
+    "isbn": "9780534355098",
+    "publisher": "Brooks/Cole",
+    "language": "",
+    "tags": [
+      "Calculus",
+      "Textbooks"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/14809454-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:51:46.903Z",
+    "id": 278,
+    "pageCount": null
+  },
+  {
+    "title": "Fundamentals of Computer Organization and Design",
+    "author": "Sivarama P. Dandamudi",
+    "isbn": "9780387952116",
+    "publisher": "Springer",
+    "language": "",
+    "tags": [
+      "Computer organization",
+      "Computer engineering"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/1193178-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:53:20.050Z",
+    "id": 279,
+    "pageCount": 1096
+  },
+  {
+    "title": "The art of Pokémon, the first movie",
+    "author": "Takeshi Shudo",
+    "isbn": "9781569314272",
+    "publisher": "Viz Communications",
+    "language": "",
+    "tags": [
+      "Juvenile literature",
+      "Pokémon (Fictitious characters)",
+      "Pokémon (Game)"
+    ],
+    "cover": "",
+    "notes": "",
+    "addedAt": "2026-09-07T20:54:30.635Z",
+    "id": 280,
+    "pageCount": 63
+  },
+  {
+    "title": "Build your own Z80 computer",
+    "author": "Steve Ciarcia",
+    "isbn": "9780070109629",
+    "publisher": "Byte Books",
+    "language": "",
+    "tags": [
+      "Electronic digital computers",
+      "Zilog Z-80 (Microprocessor)",
+      "Amateurs' manuals"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8154912-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:55:51.094Z",
+    "id": 281,
+    "pageCount": 332
+  },
+  {
+    "title": "The art of computer programming",
+    "author": "Donald Knuth",
+    "isbn": "9780201038040",
+    "publisher": "Addison-Wesley",
+    "language": "",
+    "tags": [
+      "Computer algorithms",
+      "Computer programming",
+      "Programmeren (computers)"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8619370-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:57:56.467Z",
+    "id": 282,
+    "pageCount": 883
+  },
+  {
+    "title": "The Art of Computer Programming: Volume 3",
+    "author": "Donald Knuth",
+    "isbn": "9780201896855",
+    "publisher": "Addison-Wesley Pub. Co.",
+    "language": "",
+    "tags": [
+      "Computer programming",
+      "Computer algorithms",
+      "Electronic digital computers"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/8057262-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:58:06.795Z",
+    "id": 283,
+    "pageCount": null
+  },
+  {
+    "title": "The  art of computer programming",
+    "author": "Donald Knuth",
+    "isbn": "9780201896848",
+    "publisher": "Addison-Wesley",
+    "language": "",
+    "tags": [
+      "Computer programming",
+      "Computer algorithms",
+      "Electronic digital computers"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/136600-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:58:18.762Z",
+    "id": 284,
+    "pageCount": 672
+  },
+  {
+    "title": "The  art of computer programming",
+    "author": "Donald Knuth",
+    "isbn": "9780201896831",
+    "publisher": "Addison-Wesley",
+    "language": "",
+    "tags": [
+      "Computer programming",
+      "Computer algorithms",
+      "Electronic digital computers"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/136600-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:58:28.183Z",
+    "id": 285,
+    "pageCount": 672
+  },
+  {
+    "title": "Ad Hoc Wireless Networks",
+    "author": "C. Siva Ram Murthy, B.S. Manoj",
+    "isbn": "9780131470231",
+    "publisher": "",
+    "language": "EN",
+    "tags": [],
+    "cover": "https://covers.openlibrary.org/b/id/87512-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T20:59:40.018Z",
+    "id": 286,
+    "pageCount": 880
+  },
+  {
+    "title": "Final Fantasy VII : The Kids Are Alright",
+    "author": "Kazushige Nojima, Sho-u Tajima, Tetsuya Nomura",
+    "isbn": "9781975382360",
+    "publisher": "Yen On",
+    "language": "",
+    "tags": [
+      "Fiction",
+      "science fiction",
+      "general"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/9387326-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T21:00:01.768Z",
+    "id": 287,
+    "pageCount": 224
+  },
+  {
+    "title": "Tant que le café est encore chaud",
+    "author": "Toshikazu Kawaguchi",
+    "isbn": "9782253940920",
+    "publisher": "Le livre de poche",
+    "language": "",
+    "tags": [
+      "Japanese fiction",
+      "Time travel",
+      "Fiction"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/13125640-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T21:00:55.854Z",
+    "id": 288,
+    "pageCount": 232
+  },
+  {
+    "title": "Le DELF : 100% réussite : B2 (2e éd.) Hamza Djimli, Nicolas Frappe, Magosha Fréquelin... [et al.]",
+    "author": "Unknown Author",
+    "isbn": "9782278102549",
+    "publisher": "Didier français langue étrangère (Paris)",
+    "language": "FR",
+    "tags": [
+      "French"
+    ],
+    "cover": "",
+    "notes": "Source: BnF French National Catalog",
+    "addedAt": "2026-09-07T21:03:06.806Z",
+    "id": 289,
+    "pageCount": 208
+  },
+  {
+    "title": "Schaum's Outline of French Grammar, Seventh Edition",
+    "author": "Mary Crocker",
+    "isbn": "9781260120950",
+    "publisher": "McGraw-Hill Education",
+    "language": "",
+    "tags": [
+      "French language",
+      "grammar"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/9235139-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T21:03:27.498Z",
+    "id": 290,
+    "pageCount": 400
+  },
+  {
+    "title": "Linear algebra and its applications",
+    "author": "David C. Lay, Lay, Davic C. Lay, Steven R. Lay, Judi J. McDonald, Addison-Wesley Publishing Staff, Pearson Education Staff, David Lay, Judi McDonald, David C. Lay; Steven R. Lay; Judi J. McDonald, Judi McDonald David Lay, David C. Lay, Steven Lay",
+    "isbn": "9780201520316",
+    "publisher": "Addison-Wesley",
+    "language": "",
+    "tags": [
+      "Algebras",
+      "Linear",
+      "Linear Algebras",
+      "Textbooks"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/13054058-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T21:03:45.572Z",
+    "id": 291,
+    "pageCount": 624
+  },
+  {
+    "title": "Easy French step-by-step",
+    "author": "Myrna Bell Rochester",
+    "isbn": "9780071453875",
+    "publisher": "McGraw-Hill",
+    "language": "",
+    "tags": [
+      "French language",
+      "Textbooks for foreign speakers",
+      "Grammar"
+    ],
+    "cover": "https://covers.openlibrary.org/b/id/12933296-M.jpg",
+    "notes": "",
+    "addedAt": "2026-09-07T21:03:56.556Z",
+    "id": 292,
+    "pageCount": 400
+  },
+  {
+    "title": "L'Histoire de Mario Vol. 1 (1981-1991 : L'ascension d'une icône)",
+    "author": "William Audureau",
+    "isbn": "9782371880733",
+    "publisher": "Pix'n Love / Bookmakers",
+    "language": "FR",
+    "tags": [
+      "French",
+      "Gaming",
+      "History"
+    ],
+    "cover": "",
+    "notes": "Published 2018",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 400
+  },
+  {
+    "title": "Digital Design and Computer Architecture, RISC-V Edition",
+    "author": "Sarah L. Harris, David Harris",
+    "isbn": "9780128200643",
+    "publisher": "Elsevier / Morgan Kaufmann",
+    "language": "EN",
+    "tags": [
+      "CS / Unix",
+      "Hardware"
+    ],
+    "cover": "",
+    "notes": "Published 2021",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 656
+  },
+  {
+    "title": "Connaissances générales: Améliorez votre mémoire",
+    "author": "Norbert Kirchhuber",
+    "isbn": "9798861193511",
+    "publisher": "Independently Published",
+    "language": "FR",
+    "tags": [
+      "French",
+      "Non-Fiction"
+    ],
+    "cover": "",
+    "notes": "Published 2023",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 173
+  },
+  {
+    "title": "Contemporary Abstract Algebra (9th Edition)",
+    "author": "Joseph A. Gallian",
+    "isbn": "9789353502522",
+    "publisher": "Cengage Learning",
+    "language": "EN",
+    "tags": [
+      "Math",
+      "Textbook"
+    ],
+    "cover": "",
+    "notes": "Published 2017",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 632
+  },
+  {
+    "title": "Master Archive Mobile Suit Gundam MSV Ace Pilot's Trajectory",
+    "author": "GA Graphic / SoftBank Editorial",
+    "isbn": "9784797397208",
+    "publisher": "SB Creative",
+    "language": "JA",
+    "tags": [
+      "Anime",
+      "Artbook"
+    ],
+    "cover": "",
+    "notes": "Published 2018",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 127
+  },
+  {
+    "title": "Computer Networking: A Top-Down Approach",
+    "author": "James F. Kurose, Keith W. Ross",
+    "isbn": "9789356061316",
+    "publisher": "Pearson India",
+    "language": "EN",
+    "tags": [
+      "CS / Unix",
+      "Networking"
+    ],
+    "cover": "",
+    "notes": "Published 2022",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 820
+  },
+  {
+    "title": "Math Girls 3: Gödel's Incompleteness Theorems",
+    "author": "Hiroshi Yuki",
+    "isbn": "9781939326287",
+    "publisher": "Bento Books",
+    "language": "EN",
+    "tags": [
+      "Math",
+      "Fiction"
+    ],
+    "cover": "",
+    "notes": "Published 2016",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 394
+  },
+  {
+    "title": "Performance Analysis and Tuning of Modern CPUs (2nd Edition)",
+    "author": "Denis Bakhvalov",
+    "isbn": "9798869584229",
+    "publisher": "Independently Published",
+    "language": "EN",
+    "tags": [
+      "CS / Unix",
+      "Hardware"
+    ],
+    "cover": "",
+    "notes": "Published 2024",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 338
+  },
+  {
+    "title": "Math Girls 4: Randomized Algorithms",
+    "author": "Hiroshi Yuki",
+    "isbn": "9781939326430",
+    "publisher": "Bento Books",
+    "language": "EN",
+    "tags": [
+      "Math",
+      "Algorithms"
+    ],
+    "cover": "",
+    "notes": "Published 2020",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 437
+  },
+  {
+    "title": "Pokémon Adventures Volume 18",
+    "author": "Hidenori Kusaka, Satoshi Yamamoto",
+    "isbn": "9788952883537",
+    "publisher": "Daewon C.I.",
+    "language": "KO",
+    "tags": [
+      "Korean",
+      "Manga"
+    ],
+    "cover": "",
+    "notes": "Published 2004",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 196
+  },
+  {
+    "title": "Pokémon Adventures Volume 20",
+    "author": "Hidenori Kusaka, Satoshi Yamamoto",
+    "isbn": "9788952898876",
+    "publisher": "Daewon C.I.",
+    "language": "KO",
+    "tags": [
+      "Korean",
+      "Manga"
+    ],
+    "cover": "",
+    "notes": "Published 2005",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 200
+  },
+  {
+    "title": "Mere Christianity: Discussion and Study Guide for the Book by C.S. Lewis",
+    "author": "Joseph Mellichamp",
+    "isbn": "9781479169832",
+    "publisher": "CreateSpace / KDP",
+    "language": "EN",
+    "tags": [
+      "Religion",
+      "Study Guide"
+    ],
+    "cover": "",
+    "notes": "Published 2012",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 176
+  },
+  {
+    "title": "Constructing a Microprogrammed Computer (2nd Edition)",
+    "author": "Anthony J. Dos Reis",
+    "isbn": "9798432085221",
+    "publisher": "Independently Published",
+    "language": "EN",
+    "tags": [
+      "CS / Unix",
+      "Hardware"
+    ],
+    "cover": "",
+    "notes": "Published 2022",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 189
+  },
+  {
+    "title": "C and C++ Under the Hood (2nd Edition)",
+    "author": "Anthony J. Dos Reis",
+    "isbn": "9798514952076",
+    "publisher": "Independently Published",
+    "language": "EN",
+    "tags": [
+      "CS / Unix",
+      "Programming"
+    ],
+    "cover": "",
+    "notes": "Published 2021",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 290
+  },
+  {
+    "title": "ONE OK ROCK Band Score Sheet Music Collection",
+    "author": "Various Artists / KMP",
+    "isbn": "9784773241501",
+    "publisher": "KMP",
+    "language": "JA",
+    "tags": [
+      "Music",
+      "Sheet Music"
+    ],
+    "cover": "",
+    "notes": "Published 2016",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 96
+  },
+  {
+    "title": "The Scaling Era: An Oral History of AI, 2019–2025",
+    "author": "Dwarkesh Patel",
+    "isbn": "9781953953551",
+    "publisher": "Stripe Press",
+    "language": "EN",
+    "tags": [
+      "CS / Unix",
+      "AI"
+    ],
+    "cover": "",
+    "notes": "Published 2025",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 248
+  },
+  {
+    "title": "The Manga Guide to Electricity",
+    "author": "Kazuhiro Fujitaki, Trend-pro Co. Ltd.",
+    "isbn": "9781593271978",
+    "publisher": "No Starch Press",
+    "language": "EN",
+    "tags": [
+      "Manga",
+      "Science"
+    ],
+    "cover": "",
+    "notes": "Published 2009",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 232
+  },
+  {
+    "title": "Understanding Cryptography: A Textbook for Students and Practitioners",
+    "author": "Christof Paar, Jan Pelzl",
+    "isbn": "9783642041006",
+    "publisher": "Springer",
+    "language": "EN",
+    "tags": [
+      "CS / Unix",
+      "Cryptography"
+    ],
+    "cover": "",
+    "notes": "Published 2010",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 372
+  },
+  {
+    "title": "C++ Programming for the Absolute Beginner (2nd Edition)",
+    "author": "Mark Lee",
+    "isbn": "9781598638752",
+    "publisher": "Cengage Learning PTR",
+    "language": "EN",
+    "tags": [
+      "CS / Unix",
+      "Programming"
+    ],
+    "cover": "",
+    "notes": "Published 2009",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 376
+  },
+  {
+    "title": "Heavy Wizardry 101: Shellcodes, Backdoors, Droppers, and Worms",
+    "author": "David Martinez Oliveira",
+    "isbn": "9781718504424",
+    "publisher": "No Starch Press",
+    "language": "EN",
+    "tags": [
+      "CS / Unix",
+      "Security"
+    ],
+    "cover": "",
+    "notes": "Published 2026",
+    "addedAt": "2026-09-07T17:20:00.000Z",
+    "pageCount": 464
+  },
+  {
+     "title": "Halliday: Fundamentals of Physics 11e",
+     "author":  "Halliday",
+     "isbn": 9781119659662,
+     "publisher": "WILEY CUSTOM",
+     "language": "EN",
+     "tags": [
+    ],
+     "cover": "",
+     "notes": "Published 2026",
+     "addedAt": "2026-09-07T17:20:00.000Z",
+     "pageCount" : 464
+  }
+]
